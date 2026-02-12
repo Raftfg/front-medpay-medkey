@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <!-- OPTIMISATION: Meta description pour le SEO -->
+  <meta name="description" content="MedKey - Système d'information hospitalier pour la gestion des patients, admissions et dossiers médicaux électroniques" />
+  <!-- Permissions Policy: Autoriser l'événement unload pour la compatibilité avec jQuery -->
+  <meta http-equiv="Permissions-Policy" content="unload=*" />
+  <!-- OPTIMISATION: Preload du logo pour améliorer le LCP -->
+  <link rel="preload" href="/images/logo.png" as="image" type="image/png" fetchpriority="high" crossorigin="anonymous" />
+  <link rel="icon" href="/images/logo.png" />
+  <link rel="shortcut icon" href="/images/logo.png" />
+  <title>Hospital Informations Systems(HIS)</title>
+  <!-- OPTIMISATION: DNS prefetch pour résoudre les domaines plus tôt -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="dns-prefetch" href="https://cdn.fedapay.com" />
+  <link rel="dns-prefetch" href="https://cdn.kkiapay.me" />
+  <link rel="dns-prefetch" href="https://cdn.tresorpay.bj" />
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+  
+  <!-- OPTIMISATION: Preconnect aux domaines externes pour réduire la latence -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.fedapay.com" />
+  <link rel="preconnect" href="https://cdn.kkiapay.me" />
+  <link rel="preconnect" href="https://cdn.tresorpay.bj" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  
+  <!-- OPTIMISATION: Chargement des polices avec font-display: swap pour éviter le FOIT -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" />
+  <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7" defer></script>
+  <script src="https://cdn.kkiapay.me/k.js" defer></script>
+  <script src="https://cdn.tresorpay.bj/checkout.js?v=1.1.7" defer></script>
+  <!-- OPTIMISATION: Chargement asynchrone des CSS non critiques -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" /></noscript>
+</head>
+
+<body class="sidebar-fixed">
+  <noscript>
+    <strong>MEDKEY | Plateforme de dématérialisation des recettes sanitaires </strong>
+  </noscript>
+  <div id="app">
+  </div>
+  <!-- OPTIMISATION: jQuery chargé en defer (nécessaire pour le rendu initial) -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" defer></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js" defer></script>
+  <!-- OPTIMISATION: CSS critique inline pour améliorer le FCP -->
+  <style>
+    /* OPTIMISATION: CSS critique pour éviter le FOUC */
+    body {
+      margin: 0;
+      font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+      /* OPTIMISATION: Optimisation de rendu */
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    input,
+    select,
+    p {
+      font-family: "Montserrat", "ubuntu-regular", -apple-system, BlinkMacSystemFont, sans-serif !important;
+    }
+
+    table thead th {
+      font-weight: bold !important;
+      font-size: 15px !important;
+      padding: 10px !important;
+    }
+    
+    /* OPTIMISATION: Préchargement des éléments critiques */
+    #app {
+      contain: layout style paint;
+    }
+  </style>
+</body>
+
+</html>

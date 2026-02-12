@@ -1,0 +1,84 @@
+module.exports = {
+  // publicPath: process.env.NODE_ENV === 'production' ? '/demo/purple-free-vue/preview/demo_1/' : '/' 
+  publicPath: '/',
+  chainWebpack: config => {
+    config.module
+      .rule('html')
+      .test(/\.html$/)
+      .use('html-loader')
+      .loader('html-loader')
+      .end();
+
+    // Configuration Sass pour réduire les warnings de dépréciation
+    const scssRules = ['scss', 'sass'];
+    scssRules.forEach(rule => {
+      ['normal', 'vue-modules', 'vue', 'normal-modules'].forEach(oneOf => {
+        config.module
+          .rule(rule)
+          .oneOf(oneOf)
+          .use('sass-loader')
+          .tap(options => {
+            return {
+              ...options,
+              sassOptions: {
+                ...(options.sassOptions || {}),
+                quietDeps: true,
+                outputStyle: 'expanded'
+              }
+            };
+          });
+      });
+    });
+  },
+  // Transpiler jspdf et ses dépendances pour résoudre l'erreur "Cannot use import statement outside a module"
+  transpileDependencies: [
+    'jspdf',
+    'jspdf-autotable'
+  ],
+  // OPTIMISATION: Configuration de production pour améliorer les performances
+  productionSourceMap: false, // Désactiver les source maps en production pour réduire la taille
+  configureWebpack: {
+    // OPTIMISATION: Optimisations de build
+    optimization: {
+      splitChunks: {
+        chunks: 'all',
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            priority: 10,
+            reuseExistingChunk: true,
+          },
+        },
+      },
+    },
+  },
+  devServer: {
+    disableHostCheck: true,
+    port: 8080,
+    // OPTIMISATION: Compression gzip pour le développement
+    compress: true,
+    proxy: {
+      '/api': {
+        target: 'http://127.0.0.1:8000',
+        changeOrigin: false, // Important: garder le header Host original pour le middleware tenant
+        secure: false,
+        logLevel: 'debug',
+        ws: true, // Support WebSocket si nécessaire
+        onProxyReq: (proxyReq, req, res) => {
+          // Préserver le header Host original pour que le middleware tenant fonctionne
+          const host = req.headers.host;
+          if (host) {
+            // Préserver le Host original (ex: hopital1.localhost:8080)
+            proxyReq.setHeader('Host', host);
+          }
+          // Ajouter le header X-Hospital-Id si disponible dans localStorage
+          // Note: Les headers personnalisés doivent être ajoutés côté client (caller.services.js)
+        },
+        onError: (err, req, res) => {
+          console.error('Proxy error:', err);
+        }
+      }
+    }
+  }
+}

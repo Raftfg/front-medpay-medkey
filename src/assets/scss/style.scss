@@ -1,0 +1,294 @@
+/*------------------------------------------------------------------
+ [Master Stylesheet]
+
+  Project:	Star Admin Bootstrap Template [Pro Version]
+  Version:	1.0
+-------------------------------------------------------------------*/
+
+
+
+
+/*-------------------------------------------------------------------*/
+/* === Import Bootstrap functions and variables === */
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+
+/*-------------------------------------------------------------------*/
+/* === Import template variables === */
+@import "variables";
+
+/*-------------------------------------------------------------------*/
+/* === SCSS Compass Functions === */
+@import "../../../node_modules/compass-mixins/lib/compass";
+@import "../../../node_modules/compass-mixins/lib/animate";
+
+/*-------------------------------------------------------------------*/
+/* === Boostrap Main SCSS === */
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+@import '../../../node_modules/bootstrap-vue/src/index.scss';
+
+@import "../../../node_modules/vue2-datepicker/scss/index";
+
+/*-------------------------------------------------------------------*/
+/* === Template mixins === */
+@import "mixins/animation";
+@import "mixins/background";
+@import "mixins/badges";
+@import "mixins/blockqoute";
+@import "mixins/breadcrumbs";
+@import "mixins/buttons";
+@import "mixins/cards";
+@import "mixins/misc";
+@import "mixins/text";
+
+/*-------------------------------------------------------------------*/
+/* === Core Styles === */
+@import "reset";
+@import "fonts";
+@import "functions";
+@import "sidebar";
+@import "navbar";
+@import "typography";
+@import "misc";
+@import "footer";
+@import "utilities";
+@import "background";
+@import "demo";
+
+/*-------------------------------------------------------------------*/
+/* === Components === */
+@import "components/badges";
+@import "components/breadcrumbs";
+@import "components/bootstrap-progress";
+@import "components/buttons";
+@import "components/cards";
+@import "components/checkbox-radio";
+@import "components/dropdown";
+@import "components/forms";
+@import "components/icons";
+@import "components/preview";
+@import "components/tables";
+@import "components/todo-list";
+@import "components/lists";
+@import "components/loaders/loaders";
+@import "components/nav";
+@import "components/dashboard";
+
+/*-------------------------------------------------------------------*/
+/* === Plugin override === */
+@import "components/plugin-overrides/chartist";
+@import "components/plugin-overrides/datepicker";
+
+/*-------------------------------------------------------------------*/
+/* === Landing screens === */
+@import "landing-screens/auth";
+@import "landing-screens/error";
+
+
+@import "layout";
+@import "animation";
+
+
+
+
+.card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  /* Ajoute une ombre */
+  border-radius: 5px;
+}
+
+.card-body {
+padding: 1rem !important;
+
+}
+
+.card-img-holder h6 {
+  font-size : 0.8em;
+}
+
+.dt-buttons {
+  float:right !important;
+
+}
+
+
+
+label {
+  font-size: 16px !important;
+  color: #000000 !important;
+  font-weight: 400 !important;
+}
+
+// input,  textarea {
+//   border: 1px solid #5c5b5b !important;
+// }
+
+input,
+textarea {
+
+  border: 1px solid #afafaf !important;
+  color: black !important;
+
+}
+
+select {
+
+  // border-color: #848489 !important;
+  border-radius: 4px !important;
+  border: 1px solid #afafaf !important;
+  color: black !important;
+
+
+}
+
+
+.error-message {
+  font-weight: 600 !important;
+  font-size: 13px !important;
+}
+
+.page-item.active .page-link {
+  z-index: 3;
+  color: #fff;
+  background-color: rgb(11, 93, 63) !important;
+  border-color: rgb(11, 93, 63) !important;
+}
+
+.btn-medpay-green {
+
+  border: 3px solid rgb(11, 93, 63) !important;
+  border-radius: 25px !important;
+   width: 200px !important;
+  box-shadow: none !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  color: white !important;
+
+  /* Ajustez la taille du texte selon vos préférences */
+  padding: 0.685rem 0.49rem !important;
+
+}
+
+.btn-medpay-green-small {
+
+  border: 1px solid rgb(11, 93, 63) !important;
+  border-radius: 25px !important;
+  box-shadow: none !important;
+  font-weight: 600 !important;
+  font-size: 11px !important;
+  color: white !important;
+
+  /* Ajustez la taille du texte selon vos préférences */
+  padding: 0.685rem 0.79rem !important;
+
+}
+
+.btn-medpay-green:hover {
+  /* Changez la couleur de fond au survol */
+  color: rgb(11, 93, 63) !important;
+  background-color: #ffffff !important;
+  /* Par exemple, une couleur de fond différente au survol */
+}
+
+
+
+
+// .btn-medpay-gray {
+//   border: 3px solid #606264 !important;
+//   border-radius: 25px !important;
+//   width: 200px !important;
+//   box-shadow: none !important;
+//   font-weight: 700 !important;
+//   font-size: 16px !important;
+//   /* Ajustez la taille du texte selon vos préférences */
+//   padding: 0.685rem 0.49rem !important;
+// }
+
+.btn-medpay-gray {
+  border: 3px solid rgb(216, 67, 97) !important;
+  border-radius: 25px !important;
+  width: 200px !important;
+  box-shadow: none !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  /* Ajustez la taille du texte selon vos préférences */
+  padding: 0.685rem 0.49rem !important;
+}
+
+.btn-medpay-gray:hover {
+  /* Changez la couleur de fond au survol */
+  color: rgb(222, 8, 8) !important;
+  background-color: #ffffff !important;
+  /* Par exemple, une couleur de fond différente au survol */
+}
+
+
+
+table tbody td {
+  color: rgb(0, 0, 0) !important;
+  font-weight: 500 !important;
+}
+
+.content-wrapper{
+      padding: 1rem 2rem !important;
+}
+
+
+
+
+
+@media (max-width: 768px) {
+  .dt-buttons {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+
+
+  }
+
+  .dt-buttons .btn {
+    white-space: nowrap !important;
+  }
+
+  /* Masquer la barre de défilement horizontale */
+  .dt-buttons::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .dataTables_wrapper .dt-buttons {
+    margin: 0 !important;
+  }
+
+  input[type="text"],
+  input[type="date"],
+  input[type="number"],
+  /* Ajoutez ici d'autres types d'input si nécessaire */
+  textarea {
+    font-weight: bold !important;
+    color:black !important ; 
+  }
+
+  select {
+    font-weight: bold !important;
+    color: black !important;
+  }
+
+}
+
+.table th, .table td{
+  padding : 0.2em  0.6em;
+}
+
+.action-th{
+  width:50px;
+}
+
+.navbar.default-layout-navbar .navbar-brand-wrapper .navbar-brand img {
+   width: calc(160px - 80px);
+   height: 65px;
+
+}
+
+.action-button-div{
+   font-size:0.8em;
+}
