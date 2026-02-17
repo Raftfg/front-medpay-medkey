@@ -33,7 +33,8 @@ module.exports = {
   // Transpiler jspdf et ses dépendances pour résoudre l'erreur "Cannot use import statement outside a module"
   transpileDependencies: [
     'jspdf',
-    'jspdf-autotable'
+    'jspdf-autotable',
+    'kkiapay'
   ],
   // OPTIMISATION: Configuration de production pour améliorer les performances
   productionSourceMap: false, // Désactiver les source maps en production pour réduire la taille

@@ -25,6 +25,28 @@ import rapport_statistiqueRoutes from './rapport_statistique.js';
 import rembourse_recouvreRoutes from './rembourse_recouvre.js';
 import rendezvousRoutes from './rendezvous.js';
 
+// Import New Template Components
+import FlexItLayout from "../layout/FlexItLayout.vue";
+import FlexItAccueil from "../pages/accueil/FlexItAccueil.vue";
+import FlexItAbout from "../pages/accueil/FlexItAbout.vue";
+import FlexItServices from "../pages/accueil/FlexItServices.vue";
+import FlexItPortfolio from "../pages/accueil/FlexItPortfolio.vue";
+import FlexItBlog from "../pages/accueil/FlexItBlog.vue";
+import FlexItContact from "../pages/accueil/FlexItContact.vue";
+import FlexItPricing from "../pages/accueil/FlexItPricing.vue";
+import FlexItFAQ from "../pages/accueil/FlexItFAQ.vue";
+import FlexItTeam from "../pages/accueil/FlexItTeam.vue";
+import BlogSingle from "../pages/accueil/BlogSingle.vue";
+import PortfolioSingle from "../pages/accueil/PortfolioSingle.vue";
+import ServiceSingle from "../pages/accueil/ServiceSingle.vue";
+import TeamMember from "../pages/accueil/TeamMember.vue";
+import NotFound from "../pages/accueil/NotFound.vue";
+import Home1 from "../pages/accueil/Home1.vue";
+import Home2 from "../pages/accueil/Home2.vue";
+import Home3 from "../pages/accueil/Home3.vue";
+import Home4 from "../pages/accueil/Home4.vue";
+import Home6 from "../pages/accueil/Home6.vue";
+
 // Initialisation du routeur
 Vue.use(Router);
 
@@ -38,7 +60,29 @@ const router = new Router({
 
         {
             path: "/",
-            component: accueil,
+            component: FlexItLayout,
+            children: [
+                { path: "", name: "landing", component: FlexItAccueil },
+                { path: "home-1", name: "home-1", component: Home1 },
+                { path: "home-2", name: "home-2", component: Home2 },
+                { path: "home-3", name: "home-3", component: Home3 },
+                { path: "home-4", name: "home-4", component: Home4 },
+                { path: "home-5", name: "home-5", component: FlexItAccueil },
+                { path: "home-6", name: "home-6", component: Home6 },
+                { path: "about-us", name: "about-us", component: FlexItAbout },
+                { path: "services", name: "services", component: FlexItServices },
+                { path: "portfolio", name: "portfolio", component: FlexItPortfolio },
+                { path: "blog", name: "blog", component: FlexItBlog },
+                { path: "contact-us", name: "contact-us", component: FlexItContact },
+                { path: "pricing", name: "pricing", component: FlexItPricing },
+                { path: "faq", name: "faq", component: FlexItFAQ },
+                { path: "our-team", name: "our-team", component: FlexItTeam },
+                { path: "blog/:slug", name: "blog-single", component: BlogSingle },
+                { path: "portfolio/:slug", name: "portfolio-single", component: PortfolioSingle },
+                { path: "services/:slug", name: "service-single", component: ServiceSingle },
+                { path: "our-team/:slug", name: "team-member", component: TeamMember },
+                { path: "404", name: "not-found", component: NotFound }
+            ]
         },
 
         {
@@ -179,6 +223,21 @@ router.beforeEach((to, from, next) => {
     // Pages qui ne nécessitent pas d'authentification
     const publicPages = [
         "/",
+        "/home-1",
+        "/home-2",
+        "/home-3",
+        "/home-4",
+        "/home-5",
+        "/home-6",
+        "/about-us",
+        "/services",
+        "/portfolio",
+        "/blog",
+        "/contact-us",
+        "/pricing",
+        "/faq",
+        "/our-team",
+        "/404",
         "/auth-pages/login",
         "/auth-pages/register",
         "/auth-pages/forget-password",
@@ -186,14 +245,19 @@ router.beforeEach((to, from, next) => {
         "/auth-pages/forget-password-confirm",
     ];
 
-    const isPublicPage = publicPages.includes(to.path);
+    // Vérification intelligente : soit correspondance exacte, soit le début du chemin (ex: /our-team/member)
+    const isPublicPage = publicPages.some(page => {
+        if (page === "/") return to.path === "/";
+        return to.path === page || to.path.startsWith(page + "/");
+    });
 
     // LOG de navigation pour débugger la redirection
     console.log(`Navigation: ${from.path} -> ${to.path} | LoggedIn: ${loggedIn} | PublicPage: ${isPublicPage}`);
 
-    // 1. Rediriger les utilisateurs connectés qui tentent d'accéder aux pages publiques (sauf accueil '/')
-    if (loggedIn && isPublicPage && to.path !== "/") {
-        console.log("Redirecting logged user from public page to /home");
+    // 1. Rediriger les utilisateurs connectés qui tentent d'accéder aux pages d'auth uniquement (login/register)
+    const authOnlyPages = ["/auth-pages/login", "/auth-pages/register"];
+    if (loggedIn && authOnlyPages.includes(to.path)) {
+        console.log("Redirecting logged user from auth page to /home");
         return next("/home");
     }
 

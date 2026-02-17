@@ -297,8 +297,8 @@ import $ from "jquery";
 
 import * as JSZip from "../../../node_modules/jszip";
 window.JSZip = JSZip;
-import pdfMake from "../../../node_modules/pdfmake/build/pdfmake";
-import vfsFonts from "../../../node_modules/pdfmake/build/vfs_fonts";
+import pdfMake from "pdfmake/build/pdfmake";
+import vfsFonts from "pdfmake/build/vfs_fonts";
 pdfMake.vfs = vfsFonts.pdfMake.vfs;
 import "../../../node_modules/datatables.net-dt";
 import "../../../node_modules/datatables.net-bs4/js/dataTables.bootstrap4";

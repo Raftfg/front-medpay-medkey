@@ -28,6 +28,14 @@ import VueSweetalert2 from "vue-sweetalert2";
 import Axios from "./_services/caller.services";
 import Toast, { POSITION } from "vue-toastification";
 import "vue-toastification/dist/index.css";
+import $ from 'jquery';
+
+window.$ = window.jQuery = $;
+window.Swiper = require("@/assets/flex-it/js/vendors/swiper-bundle.min.js");
+window.WOW = require("@/assets/flex-it/js/vendors/wow.min.js").WOW;
+
+// Import template's main.js for sticky header and other functionality
+require("@/assets/flex-it/js/main.js");
 
 Vue.use(BootstrapVue);
 Vue.use(VueSweetalert2);
