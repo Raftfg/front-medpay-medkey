@@ -1,7 +1,11 @@
 <template>
   <div id="app">
+    <div style="position: fixed; top: 0; right: 0; background: rgba(0,0,0,0.5); color: white; padding: 5px; z-index: 9999;">
+      {{ $t('general.welcome') }}
+    </div>
     <router-view></router-view>
   </div>
+
 </template>
 
 <script>

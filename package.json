@@ -70,6 +70,7 @@
         "vue-gallery": "^2.0.1",
         "vue-good-wizard": "^1.4.1",
         "vue-google-charts": "^0.3.2",
+        "vue-i18n": "8.28.2",
         "vue-justgage": "^1.0.6",
         "vue-kanban": "^1.6.0-0",
         "vue-recaptcha": "^2.0.3",

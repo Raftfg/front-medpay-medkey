@@ -4,7 +4,8 @@
     <div class="header-search-box">
       <div class="close-search"></div>
       <form class="search-form" action="#" method="get">
-        <input class="search-input" type="search" name="s" placeholder="Search" autofocus="autofocus"/>
+        <input class="search-input" type="search" name="s" :placeholder="$t('header.search_placeholder')" autofocus="autofocus"/>
+
         <button class="search-btn" type="submit"><i class="bi bi-search icon"></i></button>
       </form>
     </div>
@@ -31,9 +32,10 @@
           </div>
           <!-- CTA Buttons -->
           <div class="cta-area">
-            <router-link class="btn-solid" to="/auth-pages/register">Accéder gratuitement</router-link>
-            <router-link class="btn-outline" to="/auth-pages/login">Login</router-link>
+            <router-link class="btn-solid" to="/auth-pages/register">{{ $t('header.cta_register') }}</router-link>
+            <router-link class="btn-outline" to="/auth-pages/login">{{ $t('header.cta_login') }}</router-link>
           </div>
+
         </div>
       </nav>
     </div>

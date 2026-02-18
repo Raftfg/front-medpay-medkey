@@ -1,0 +1,19 @@
+{
+    "general": {
+        "welcome": "Welcome to Medkey",
+        "save": "Save",
+        "cancel": "Cancel",
+        "edit": "Edit",
+        "delete": "Delete"
+    },
+    "menu": {
+        "dashboard": "Dashboard",
+        "settings": "Settings",
+        "profile": "Profile"
+    },
+    "header": {
+        "search_placeholder": "Search",
+        "cta_register": "Register for free",
+        "cta_login": "Login"
+    }
+}

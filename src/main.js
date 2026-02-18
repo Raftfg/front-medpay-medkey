@@ -69,7 +69,11 @@ window.addEventListener('keypress', resetInactivityTimeout);
 // Initialisez le timeout au chargement de la page
 resetInactivityTimeout();
 
+import i18n from './i18n';
+
 new Vue({
   router,
+  i18n,
   render: (h) => h(App),
 }).$mount("#app");
+
