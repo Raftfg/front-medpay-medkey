@@ -2,7 +2,9 @@
 
 ## 📌 Contexte du Projet
 
-Ce projet constitue l'interface utilisateur de la plateforme **Medkey**, une solution de gestion de Dossier Médical Électronique (DME). Elle permet aux praticiens et au personnel hospitalier de gérer les dossiers patients (antécédents, allergies, vaccinations, prescriptions) de manière intuitive et sécurisée.
+MedKey est une plateforme de gestion des systeme d'information hospitalier qui vise à dématérialiser la gestion des recettes sanitaires et assurer la transparence dans la gestion de tout l'hopital. Son objectif est de simplifier et d'optimiser la gestion des opérations financières liées aux soins de santé.
+
+Elle permet à l'hôpital de gérer électroniquement toutes les transactions financières liées aux soins de santé, telles que la facturation, la gestion des paiements, la gestion des patients, la gestion de la carte sanitaire, la gestion des actes médicaux et la gestion de la trésorerie.
 
 Le frontend est conçu pour s'intégrer à un backend multi-tenant, supportant ainsi plusieurs établissements hospitaliers via une architecture modulaire.
 
