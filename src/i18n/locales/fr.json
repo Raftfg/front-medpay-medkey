@@ -38,7 +38,7 @@
                     "adt_basic": "Gestion des patients",
                     "patient_registration": "Gestion des mouvements",
                     "dme_simple": "Gestion de la caisse",
-                    "admission_discharge": "Gestion de la pharmacie",
+                    "admission_discharge": "Gestion de la pharmacie"
                 },
                 "limitations": {
                     "no_hl7": "Pas d'intégration HL7 / FHIR",

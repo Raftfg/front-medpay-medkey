@@ -53,6 +53,13 @@ module.exports = {
         },
       },
     },
+    // Cache pour améliorer les performances de développement
+    cache: {
+      type: 'filesystem',
+      buildDependencies: {
+        config: [__filename]
+      }
+    }
   },
   devServer: {
     disableHostCheck: true,
@@ -60,6 +67,14 @@ module.exports = {
     port: 8080,
     // OPTIMISATION: Compression gzip pour le développement
     compress: true,
+    // Optimisations de performance
+    client: {
+      overlay: {
+        warnings: false,
+        errors: true
+      },
+      progress: false // Désactiver la barre de progression pour améliorer les performances
+    },
     // Hot Module Replacement (HMR) - activé par défaut mais explicite pour garantir le fonctionnement
     hot: true,
     // Live reload activé
@@ -71,18 +86,24 @@ module.exports = {
       warnings: false,
       errors: true
     },
-    // Polling pour la détection des fichiers dans Docker (nécessaire sur Windows/Mac)
+    // Polling pour la détection des fichiers dans Docker (désactivé par défaut pour performance)
     watchOptions: {
-      poll: process.env.CHOKIDAR_USEPOLLING === 'true' ? 1000 : false,
-      aggregateTimeout: 300,
-      ignored: /node_modules/
+      poll: process.env.CHOKIDAR_USEPOLLING === 'true' ? 2000 : false, // Augmenté à 2000ms si activé
+      aggregateTimeout: 500, // Augmenté pour réduire les recompilations
+      ignored: [
+        /node_modules/,
+        /\.git/,
+        /dist/,
+        /build/,
+        /\.cache/
+      ]
     },
     proxy: {
       '/api': {
         target: 'http://127.0.0.1:8000',
         changeOrigin: false, // Important: garder le header Host original pour le middleware tenant
         secure: false,
-        logLevel: 'debug',
+        logLevel: 'warn', // Réduit les logs pour améliorer les performances
         ws: true, // Support WebSocket si nécessaire
         onProxyReq: (proxyReq, req, res) => {
           // Préserver le header Host original pour que le middleware tenant fonctionne
