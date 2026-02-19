@@ -17,11 +17,11 @@ $violet: #41478a;
 $darkslategray : #2e383e;
 $dodger-blue : #3498db;
 
-// Akasi Branding
-$akasi-blue: #011c61;
-$akasi-red: #fb0205;
-$akasi-dark-gray: #1f2937;
-$akasi-light-gray: #e5e7eb;
+// Template Branding (Restored)
+$template-blue: #09aff4;
+$template-dark-blue: #0d1857;
+$template-purple: #4820a7;
+$template-grey: #f1f1f1;
 
 
 $colors: (
@@ -46,13 +46,13 @@ $colors: (
 
 
 $theme-colors: (
-  primary: $akasi-blue,
-  secondary: $akasi-dark-gray,
+  primary: #09aff4,
+  secondary: #4820a7,
   success: #28a745,
   info: #198ae3,
   warning: #fed713,
-  danger: $akasi-red,
-  light: $akasi-light-gray,
+  danger: #fc0000,
+  light: #f1f1f1,
   dark: #3e4b5b,
   green-sid: #19bba3,
   black: #000000

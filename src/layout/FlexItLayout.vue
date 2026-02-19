@@ -122,8 +122,8 @@ export default {
 
 /* Ensure template colors use Akasi branding variables */
 .flex-it-layout {
-  --clr-main: var(--akasi-blue, #011c61);
-  --clr-accent: var(--akasi-red, #fb0205);
+  --clr-main: #09aff4;
+  --clr-accent: #0d1857;
 }
 
 /* 
