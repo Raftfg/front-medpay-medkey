@@ -56,9 +56,27 @@ module.exports = {
   },
   devServer: {
     disableHostCheck: true,
+    host: '0.0.0.0', // Permet d'accéder depuis l'extérieur du conteneur Docker
     port: 8080,
     // OPTIMISATION: Compression gzip pour le développement
     compress: true,
+    // Hot Module Replacement (HMR) - activé par défaut mais explicite pour garantir le fonctionnement
+    hot: true,
+    // Live reload activé
+    liveReload: true,
+    // Ouvrir automatiquement le navigateur
+    open: false,
+    // Overlay pour les erreurs de compilation
+    overlay: {
+      warnings: false,
+      errors: true
+    },
+    // Polling pour la détection des fichiers dans Docker (nécessaire sur Windows/Mac)
+    watchOptions: {
+      poll: process.env.CHOKIDAR_USEPOLLING === 'true' ? 1000 : false,
+      aggregateTimeout: 300,
+      ignored: /node_modules/
+    },
     proxy: {
       '/api': {
         target: 'http://127.0.0.1:8000',
