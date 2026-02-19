@@ -1,8 +1,6 @@
-
-
 <template>
   <!--Start Page Header-->
-  <header :class="['page-header', headerClass, 'header-basic']" id="page-header">
+  <header :class="['page-header', headerClass, 'header-basic', { 'is-sticky': isSticky }]" id="page-header">
     <div class="header-search-box">
       <div class="close-search"></div>
       <form class="search-form" action="#" method="get">
@@ -53,12 +51,35 @@
 <script>
 import FlexItNavbar from "./FlexItNavbar.vue";
 
+const STICKY_SCROLL_THRESHOLD = 50;
+
 export default {
   props: {
     headerClass: { type: String, default: "content-always-light" }
   },
   components: {
     FlexItNavbar
+  },
+  data() {
+    return {
+      isSticky: false
+    };
+  },
+  mounted() {
+    this.updateSticky();
+    window.addEventListener("scroll", this.onScroll, { passive: true });
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.onScroll);
+  },
+  methods: {
+    onScroll() {
+      this.updateSticky();
+    },
+    updateSticky() {
+      const scrollY = window.scrollY ?? window.pageYOffset;
+      this.isSticky = scrollY > STICKY_SCROLL_THRESHOLD;
+    }
   }
 };
 </script>
@@ -146,9 +167,9 @@ export default {
   color: var(--clr-main) !important;
 }
 
-/* ---- is-sticky : header au défilement (Original Template Style) ---- */
+/* ---- is-sticky : fond bleu au défilement (style Flex-IT) ---- */
 .is-sticky.header-basic {
-  background: var(--clr-main) !important;
+  background: #2563eb !important; /* Bleu vif uniforme au scroll */
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
   transition: all 0.4s ease !important;
 }
@@ -160,15 +181,15 @@ export default {
 /* Logo sur sticky */
 .is-sticky.header-basic .medkey-svg-logo .key { fill: var(--clr-white) !important; opacity: 1; }
 
-/* CTA buttons sur sticky */
+/* CTA buttons sur sticky (fond bleu) */
 .is-sticky.header-basic .cta-area .btn-solid {
   background-color: var(--clr-white) !important;
   border-color: var(--clr-white) !important;
-  color: var(--clr-main) !important;
+  color: #2563eb !important;
 }
 .is-sticky.header-basic .cta-area .btn-solid:hover {
-  background-color: var(--clr-main) !important;
-  color: var(--clr-white) !important;
+  background-color: var(--clr-white) !important;
+  color: #1d4ed8 !important;
   border-color: var(--clr-white) !important;
 }
 
@@ -378,9 +399,9 @@ export default {
   }
 }
 
-/* ---- is-sticky : fond solide au défilement ---- */
+/* ---- is-sticky : fond bleu au défilement ---- */
 #page-header.is-sticky {
-  background: var(--clr-main) !important;
+  background: #2563eb !important;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
   transition: all 0.4s ease !important;
 }
@@ -395,5 +416,4 @@ export default {
   color: var(--clr-white) !important;
   opacity: 0.8;
 }
-
 </style>

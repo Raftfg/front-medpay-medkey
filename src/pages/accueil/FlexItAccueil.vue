@@ -26,7 +26,6 @@ import FlexItBISection from "@/components/FlexIt/FlexItBISection.vue";
 import FlexItStats from "@/components/FlexIt/FlexItStats.vue";
 import FlexItTestimonials from "@/components/FlexIt/FlexItTestimonials.vue";
 import FlexItCtaFinal from "@/components/FlexIt/FlexItCtaFinal.vue";
-import $ from 'jquery';
 
 export default {
   name: "FlexItAccueil",
@@ -44,16 +43,9 @@ export default {
     FlexItCtaFinal
   },
   mounted() {
-    try {
-      // Re-initialize template JS logic
-      // Note: We use require to execute the script in the context of this component
-      require("@/assets/flex-it/js/main.js");
-
-      if ($('.loading-screen').length) {
-         $('.loading-screen').fadeOut(500);
-      }
-    } catch (e) {
-      console.warn("Template JS initialization warning:", e);
+    // Les animations (WOW, tilt, countTo, sticky) sont initialisées par FlexItLayout.initAnimations()
+    if (window.$ && window.$('.loading-screen').length) {
+      window.$('.loading-screen').fadeOut(500);
     }
   }
 };

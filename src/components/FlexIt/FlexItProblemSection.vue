@@ -11,7 +11,7 @@
       </div>
       <div class="row gx-4 gy-4 services-row text-center">
         <div v-for="(point, index) in points" :key="index" class="col-12 col-md-6 col-lg-4 mx-auto">
-          <div class="box service-box wow fadeInUp reveal-start" :data-wow-delay="(index + 1) * 0.2 + 's'">
+          <div class="box service-box wow fadeInUp reveal-start" data-wow-offset="0" :data-wow-delay="(index + 1) * 0.2 + 's'">
             <div class="service-icon"><i :class="point.icone + ' font-icon'"></i></div>
             <span class="service-num hollow-text">{{ String(index + 1).padStart(2, '0') }}</span>
             <div class="service-content">

@@ -6,7 +6,7 @@
       <div class="stats-inner">
         <div class="row">
           <div v-for="(stat, idx) in stats" :key="idx" class="col-12 col-md-6 col-lg-3 stat-box">
-            <div class="stat-box-inner" data-tilt>
+            <div class="stat-box-inner wow fadeInUp" :data-wow-delay="(idx * 0.1) + 's'" data-tilt>
               <i :class="stat.icone + ' stat-icon'"></i>
               <p class="stat-num">
                 <span class="counter" :data-from="0" :data-to="stat.valeur" data-speed="3000" data-refresh-interval="50">{{ stat.valeur }}</span>

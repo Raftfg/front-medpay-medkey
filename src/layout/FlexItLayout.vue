@@ -46,21 +46,16 @@ export default {
   },
   methods: {
     initAnimations() {
-      console.log('[FLEX-IT] initAnimations called');
       this.$nextTick(() => {
-        // Add delay to ensure Vue components are fully rendered
+        // Délai pour que router-view et tous les composants FlexIt soient rendus
         setTimeout(() => {
           try {
-            // Re-run template JS logic (Swiper, Splitting, etc.)
             if (window.initFlexItTemplate) {
-              console.log('[FLEX-IT] Calling initFlexItTemplate');
               window.initFlexItTemplate();
             }
-
-            console.log('[WOW] Checking for window.WOW:', !!window.WOW);
+            // Ré-init WOW pour les pages FlexIt (animations au scroll)
             if (window.WOW) {
               if (!this.wowInstance) {
-                console.log('[WOW] Creating new WOW instance');
                 this.wowInstance = new window.WOW({
                   boxClass: 'wow',
                   animateClass: 'animated',
@@ -70,14 +65,15 @@ export default {
                 });
                 this.wowInstance.init();
               } else {
-                console.log('[WOW] Syncing existing WOW instance');
                 this.wowInstance.sync();
               }
+              // Resync après un court délai pour contenu chargé dynamiquement
+              setTimeout(() => this.wowInstance && this.wowInstance.sync(), 200);
             }
           } catch (e) {
             console.error("[FLEX-IT] Initialization failed:", e);
           }
-        }, 300); // 300ms delay to ensure all nested components are ready
+        }, 500);
       });
     }
   },
@@ -126,8 +122,14 @@ export default {
   --clr-accent: #0d1857;
 }
 
-/* 
-   Note: Sticky header styles are now managed in FlexItHeader.vue 
-   using Akasi branding colors. 
-*/
+/* Header fixe + fond bleu au défilement (comportement template) */
+.flex-it-layout .page-header.header-basic {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1030 !important;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
 </style>

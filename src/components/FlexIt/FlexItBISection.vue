@@ -11,7 +11,7 @@
       </div>
       <div class="row gx-4 gy-4 services-row text-center">
         <div v-for="(indicateur, index) in indicateurs" :key="index" class="col-12 col-md-6 col-lg-3 mx-auto">
-          <div class="box service-box wow fadeInUp reveal-start" :data-wow-delay="(index + 1) * 0.2 + 's'">
+          <div class="box service-box wow fadeInUp reveal-start" data-wow-offset="0" :data-wow-delay="(index + 1) * 0.2 + 's'">
             <div class="service-icon"><i :class="indicateur.icone + ' font-icon'"></i></div>
             <div class="service-content">
               <h3 class="service-title">{{ indicateur.titre }}</h3>

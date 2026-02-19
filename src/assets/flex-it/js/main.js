@@ -387,9 +387,14 @@ window.initFlexItTemplate = function () {
     });
   }
 
-  /* *******  loading tilt.js library ********/
+  /* *******  loading tilt (jQuery or VanillaTilt) ********/
   if (jQuery().tilt) {
     $("[data-tilt]").tilt({ perspective: 1000 });
+  } else if (typeof window.VanillaTilt !== "undefined") {
+    const tiltEls = document.querySelectorAll("[data-tilt]");
+    if (tiltEls.length) {
+      window.VanillaTilt.init(tiltEls, { max: 5, perspective: 1000, glare: false });
+    }
   }
 
   /* *******  Loading the isotope plugin ********/

@@ -34,7 +34,13 @@ window.$ = window.jQuery = $;
 window.Swiper = require("@/assets/flex-it/js/vendors/swiper-bundle.min.js");
 window.WOW = require("@/assets/flex-it/js/vendors/wow.min.js").WOW;
 
-// Import template's main.js for sticky header and other functionality
+// Plugins requis par le template Flex-IT (animations, compteurs, tilt)
+require("@/assets/flex-it/js/vendors/appear.min.js");
+require("@/assets/flex-it/js/vendors/jquery.countTo.js");
+const VanillaTilt = require("@/assets/flex-it/js/vendors/vanilla-tilt.min.js");
+window.VanillaTilt = VanillaTilt && (VanillaTilt.default || VanillaTilt);
+
+// Import template's main.js for sticky header, WOW, countTo, tilt, etc.
 require("@/assets/flex-it/js/main.js");
 
 Vue.use(BootstrapVue);

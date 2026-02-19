@@ -1,5 +1,5 @@
 <template>
-  <div class="box service-box wow fadeInUp reveal-start" :data-wow-delay="delay">
+  <div class="box service-box wow fadeInUp reveal-start" :data-wow-offset="0" :data-wow-delay="delay">
     <div class="service-icon"><i :class="icon + ' font-icon'"></i></div>
     <div class="service-content">
       <h3 class="service-title">{{ titre }}</h3>
