@@ -137,5 +137,275 @@
             "included": "Included",
             "not_included": "Not included"
         }
+    },
+    "accueil": {
+        "hero": {
+            "slides": [
+                {
+                    "pre_titre": "Digital transformation of healthcare facilities",
+                    "titre": "Modernize hospital management for a more",
+                    "mot_cle": "Resilient",
+                    "sous_titre": "A comprehensive HIS platform designed to strengthen care quality, ensure continuity of medical services, and sustainably structure clinical data for the benefit of populations.",
+                    "cta_principal": "Request a demo",
+                    "cta_secondaire": "Discover the platform"
+                },
+                {
+                    "pre_titre": "Health governance & institutional performance",
+                    "titre": "Turn your hospital data into strategic decisions for a",
+                    "mot_cle": "Measurable",
+                    "sous_titre": "Centralize clinical, financial, and logistical data to improve transparency, budget efficiency, and real-time public health indicator monitoring.",
+                    "cta_principal": "Request a demo",
+                    "cta_secondaire": "Contact us"
+                },
+                {
+                    "pre_titre": "Secure & interoperable digital infrastructure",
+                    "titre": "Deploy an HIS compliant with international standards for",
+                    "mot_cle": "Sovereign",
+                    "sous_titre": "Modular architecture compatible with HL7 FHIR and DICOM, ensuring secure medical data exchange and integration with national health surveillance systems.",
+                    "cta_principal": "Request a demo",
+                    "cta_secondaire": "Contact us"
+                }
+            ]
+        },
+        "probleme": {
+            "pre_titre": "The challenge",
+            "titre": "Healthcare facilities in Africa face critical challenges",
+            "sous_titre": "Most hospitals still operate with fragmented processes that compromise care quality and governance.",
+            "points": [
+                {
+                    "titre": "Fragmented data",
+                    "description": "Paper records, isolated spreadsheets, disconnected software: patient information is scattered across departments with no unified view.",
+                    "icone": "flaticon-web-development"
+                },
+                {
+                    "titre": "Costly manual processes",
+                    "description": "Billing, inventory management, and scheduling rely on repetitive manual entries, leading to errors and financial losses.",
+                    "icone": "flaticon-strategy"
+                },
+                {
+                    "titre": "Lack of traceability",
+                    "description": "Without audit trails or logging, facilities struggle to ensure regulatory compliance and medical data security.",
+                    "icone": "flaticon-search"
+                }
+            ]
+        },
+        "solution": {
+            "pre_titre": "Our answer",
+            "titre": "An integrated platform for the entire hospital workflow",
+            "description": "Medkey centralizes all clinical, administrative, and financial workflows in a single system. From electronic medical records to billing, from pharmacy to laboratory, every module communicates natively with the others.",
+            "points": [
+                "Unified patient record accessible to all departments",
+                "Financial flows tracked from admission to discharge",
+                "Real-time performance indicators",
+                "Progressive deployment, module by module"
+            ],
+            "cta": "View the architecture"
+        },
+        "modules": {
+            "pre_titre": "Functional coverage",
+            "titre": "14 modules to cover all hospital needs",
+            "sous_titre": "Each module can be deployed independently and integrates natively with the other platform components.",
+            "liste": {
+                "adt": {
+                    "titre": "Admissions, Transfers, Discharges",
+                    "description": "Complete patient journey management: from registration to discharge, bed tracking and inter-department movements."
+                },
+                "dme": {
+                    "titre": "Electronic Medical Record",
+                    "description": "Centralization of medical history, observations, prescriptions, and results in a single structured patient record."
+                },
+                "cpoe": {
+                    "titre": "Prescriptions & Clinical Decision Support",
+                    "description": "Electronic prescription entry with drug interaction alerts and therapeutic protocols."
+                },
+                "pharmacie": {
+                    "titre": "Pharmacy Management",
+                    "description": "Inventory tracking, nominative dispensing, batch traceability, and supply management."
+                },
+                "lis": {
+                    "titre": "Laboratory Information System",
+                    "description": "Complete analysis workflow: requests, sampling, results, biological validation, and patient history."
+                },
+                "ris_pacs": {
+                    "titre": "Medical Imaging (RIS/PACS)",
+                    "description": "Imaging exam scheduling, DICOM-standard archiving and image viewing."
+                },
+                "facturation": {
+                    "titre": "Billing & Revenue Cycle",
+                    "description": "Automated procedure pricing, third-party payer management, outstanding payment tracking, and financial reporting."
+                },
+                "planification": {
+                    "titre": "Scheduling & Calendar",
+                    "description": "Medical schedule management, appointment booking, and resource utilization optimization."
+                },
+                "rh": {
+                    "titre": "Human Resources",
+                    "description": "Healthcare and administrative staff management: schedules, skills, training, and evaluations."
+                },
+                "maintenance": {
+                    "titre": "Biomedical Maintenance",
+                    "description": "Equipment fleet tracking, preventive maintenance scheduling, and intervention management."
+                },
+                "supply_chain": {
+                    "titre": "Supply Chain",
+                    "description": "Procurement management, consumable and medication inventory tracking, threshold alerts, and ordering."
+                },
+                "bi": {
+                    "titre": "Business Intelligence",
+                    "description": "Decision-making dashboards, clinical and financial performance indicators, automated reports."
+                },
+                "portail_patient": {
+                    "titre": "Patient Portal & Telemedicine",
+                    "description": "Secure patient access to their record, online appointment booking, and video consultations."
+                },
+                "interop": {
+                    "titre": "Interoperability (HL7/FHIR/DICOM)",
+                    "description": "Standardized data exchange with third-party systems, national platforms, and connected devices."
+                }
+            },
+            "cta": "Explore modules"
+        },
+        "interoperabilite": {
+            "pre_titre": "International standards",
+            "titre": "Interoperable by design",
+            "sous_titre": "Medkey adheres to digital health reference standards to ensure seamless medical data exchange.",
+            "standards": [
+                {
+                    "titre": "HL7 FHIR",
+                    "description": "Structured clinical data exchange with any FHIR R4 compatible system.",
+                    "icone": "fas fa-exchange-alt"
+                },
+                {
+                    "titre": "DICOM",
+                    "description": "Native integration with imaging equipment and PACS servers.",
+                    "icone": "fas fa-x-ray"
+                },
+                {
+                    "titre": "Open REST APIs",
+                    "description": "Connect your existing tools via a documented and secured API (OAuth2).",
+                    "icone": "fas fa-plug"
+                },
+                {
+                    "titre": "National systems",
+                    "description": "Connectors adapted to epidemiological surveillance and health reporting platforms.",
+                    "icone": "fas fa-globe-africa"
+                }
+            ],
+            "cta": "View technical documentation"
+        },
+        "securite": {
+            "pre_titre": "Trust & compliance",
+            "titre": "Medical data security at the core of the architecture",
+            "sous_titre": "Every layer of the platform is designed to protect sensitive patient data and ensure regulatory compliance.",
+            "garanties": [
+                {
+                    "titre": "End-to-end encryption",
+                    "description": "Data encrypted at rest (AES-256) and in transit (TLS 1.3).",
+                    "icone": "fas fa-lock"
+                },
+                {
+                    "titre": "Complete audit trail",
+                    "description": "Every access and modification is logged with timestamp and user identity.",
+                    "icone": "fas fa-clipboard-list"
+                },
+                {
+                    "titre": "Role-based access control",
+                    "description": "Granular permissions by department, function, and data sensitivity level.",
+                    "icone": "fas fa-user-shield"
+                },
+                {
+                    "titre": "Sovereign hosting",
+                    "description": "On-premise or regional cloud deployment compliant with local data protection regulations.",
+                    "icone": "fas fa-server"
+                }
+            ],
+            "cta": "Download security whitepaper"
+        },
+        "bi_reporting": {
+            "pre_titre": "Decision-making tools",
+            "titre": "From raw data to strategic decisions",
+            "sous_titre": "Turn your facility's daily activity into actionable indicators for management and oversight authorities.",
+            "indicateurs": [
+                {
+                    "titre": "Bed occupancy rate",
+                    "description": "Real-time tracking by department, activity peak anticipation.",
+                    "icone": "fas fa-bed"
+                },
+                {
+                    "titre": "Average length of stay",
+                    "description": "Analysis by pathology and department to optimize patient pathways.",
+                    "icone": "fas fa-clock"
+                },
+                {
+                    "titre": "Financial performance",
+                    "description": "Collection rate, cost per stay, margin per activity.",
+                    "icone": "fas fa-chart-line"
+                },
+                {
+                    "titre": "Public health indicators",
+                    "description": "Automated reports compliant with WHO and ministerial requirements.",
+                    "icone": "fas fa-heartbeat"
+                }
+            ],
+            "cta": "See a dashboard in action"
+        },
+        "stats": {
+            "items": [
+                {
+                    "valeur": 50,
+                    "suffixe": "+",
+                    "description": "Connected facilities",
+                    "icone": "fas fa-hospital"
+                },
+                {
+                    "valeur": 500000,
+                    "suffixe": "+",
+                    "description": "Patient records managed",
+                    "icone": "fas fa-users"
+                },
+                {
+                    "valeur": 14,
+                    "suffixe": "",
+                    "description": "Available modules",
+                    "icone": "fas fa-th-large"
+                },
+                {
+                    "valeur": 99.9,
+                    "suffixe": "%",
+                    "description": "Guaranteed uptime",
+                    "icone": "fas fa-shield-alt"
+                }
+            ]
+        },
+        "temoignages": {
+            "pre_titre": "Field feedback",
+            "titre": "They deployed Medkey in their facilities",
+            "liste": [
+                {
+                    "citation": "Medkey helped us reduce admission processing time by 40% and finally gain a consolidated view of hospital activity.",
+                    "auteur": "Dr. Amadou Diallo",
+                    "poste": "General Director",
+                    "etablissement": "Conakry University Hospital"
+                },
+                {
+                    "citation": "Integrating the laboratory with the patient record transformed our care workflow. Results are now available in real time for clinicians.",
+                    "auteur": "Ms. Fatou Ndiaye",
+                    "poste": "CIO",
+                    "etablissement": "Dakar Main Hospital"
+                },
+                {
+                    "citation": "The billing module made our financial flows transparent. We improved our collection rate by 25% in six months.",
+                    "auteur": "Mr. Jean-Baptiste Kouamé",
+                    "poste": "CFO",
+                    "etablissement": "Abidjan International Clinic"
+                }
+            ]
+        },
+        "cta_final": {
+            "titre": "Build a lasting hospital information system",
+            "sous_titre": "Join the facilities that chose Medkey to centralize their data, streamline their processes, and improve care quality.",
+            "cta_principal": "Schedule a demonstration",
+            "cta_secondaire": "Contact the team"
+        }
     }
 }

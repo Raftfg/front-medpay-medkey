@@ -4,28 +4,28 @@
       <!-- Product Overview -->
       <li class="menu-item">
         <router-link class="menu-link" to="/">
-          <span class="no-split">Product Overview</span>
+          <span class="no-split">Présentation</span>
         </router-link>
       </li>
       
       <!-- Features -->
       <li class="menu-item">
         <router-link class="menu-link" to="/services">
-          <span class="no-split">Features</span>
+          <span class="no-split">Fonctionnalités</span>
         </router-link>
       </li>
       
       <!-- Pricing Plan -->
       <li class="menu-item">
         <router-link class="menu-link" to="/pricing">
-          <span class="no-split">Pricing Plan</span>
+          <span class="no-split">Tarifs</span>
         </router-link>
       </li>
       
       <!-- Resource Center -->
       <li class="menu-item has-sub-menu">
         <router-link class="menu-link" to="/faq">
-          <span class="no-split">Resource Center</span>
+          <span class="no-split">Resource</span>
           <i class="fas fa-plus plus-icon"></i>
         </router-link>
         <ul class="sub-menu" style="list-style: none !important;">
@@ -37,14 +37,14 @@
       <!-- Support -->
       <li class="menu-item">
         <router-link class="menu-link" to="/faq">
-          <span class="no-split">Support</span>
+          <span class="no-split">Assistance</span>
         </router-link>
       </li>
       
       <!-- Contact sales -->
       <li class="menu-item">
         <router-link class="menu-link" to="/contact-us">
-          <span class="no-split">Contact sales</span>
+          <span class="no-split">Contact</span>
         </router-link>
       </li>
     </ul>

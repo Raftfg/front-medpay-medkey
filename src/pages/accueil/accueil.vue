@@ -20,7 +20,7 @@
 
   
   export default {
-    name: "accueil",
+    name: "Accueil",
     components: {
       NavbarComponent,
       BodyComponent,
