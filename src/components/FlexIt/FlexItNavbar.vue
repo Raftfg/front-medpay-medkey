@@ -1,32 +1,32 @@
 <template>
-  <div class="links menu-wrapper" id="nav-medkey-wrapper" style="overflow: visible !important; width: auto !important;">
-    <ul class="links-list" id="nav-medkey-list" style="display: table !important; border-collapse: separate !important; border-spacing: 20px 0 !important; list-style: none !important; margin: 0 auto !important; padding: 0 !important; width: auto !important; table-layout: auto !important;">
+  <div class="links menu-wrapper" id="nav-medkey-wrapper">
+    <ul class="links-list" id="nav-medkey-list">
       <!-- Product Overview -->
-      <li class="menu-item" style="display: table-cell !important; white-space: nowrap !important; vertical-align: middle !important; padding: 0 !important; float: none !important; list-style-type: none !important;">
-        <router-link class="menu-link" to="/" style="white-space: nowrap !important; display: inline-flex !important; align-items: center !important; padding: 0 !important; color: inherit; font-size: 15px; font-weight: 500; line-height: 1.2 !important; height: 90px; text-decoration: none !important;">
-          <span class="no-split" style="display: inline !important; white-space: nowrap !important;">Product&nbsp;Overview</span>
+      <li class="menu-item">
+        <router-link class="menu-link" to="/">
+          <span class="no-split">Product Overview</span>
         </router-link>
       </li>
       
       <!-- Features -->
-      <li class="menu-item" style="display: table-cell !important; white-space: nowrap !important; vertical-align: middle !important; padding: 0 !important; float: none !important; list-style-type: none !important;">
-        <router-link class="menu-link" to="/services" style="white-space: nowrap !important; display: inline-flex !important; align-items: center !important; padding: 0 !important; color: inherit; font-size: 15px; font-weight: 500; line-height: 1.2 !important; height: 90px; text-decoration: none !important;">
-          <span class="no-split" style="display: inline !important; white-space: nowrap !important;">Features</span>
+      <li class="menu-item">
+        <router-link class="menu-link" to="/services">
+          <span class="no-split">Features</span>
         </router-link>
       </li>
       
       <!-- Pricing Plan -->
-      <li class="menu-item" style="display: table-cell !important; white-space: nowrap !important; vertical-align: middle !important; padding: 0 !important; float: none !important; list-style-type: none !important;">
-        <router-link class="menu-link" to="/pricing" style="white-space: nowrap !important; display: inline-flex !important; align-items: center !important; padding: 0 !important; color: inherit; font-size: 15px; font-weight: 500; line-height: 1.2 !important; height: 90px; text-decoration: none !important;">
-          <span class="no-split" style="display: inline !important; white-space: nowrap !important;">Pricing&nbsp;Plan</span>
+      <li class="menu-item">
+        <router-link class="menu-link" to="/pricing">
+          <span class="no-split">Pricing Plan</span>
         </router-link>
       </li>
       
       <!-- Resource Center -->
-      <li class="menu-item has-sub-menu" style="display: table-cell !important; white-space: nowrap !important; vertical-align: middle !important; padding: 0 !important; float: none !important; list-style-type: none !important;">
-        <router-link class="menu-link" to="/faq" style="white-space: nowrap !important; display: inline-flex !important; align-items: center !important; padding: 0 !important; color: inherit; font-size: 15px; font-weight: 500; line-height: 1.2 !important; height: 90px; text-decoration: none !important;">
-          <span class="no-split" style="display: inline !important; white-space: nowrap !important;">Resource&nbsp;Center</span>
-          <i class="fas fa-plus plus-icon" style="margin-left: 4px !important; font-size: 9px !important; display: inline-block !important;"></i>
+      <li class="menu-item has-sub-menu">
+        <router-link class="menu-link" to="/faq">
+          <span class="no-split">Resource Center</span>
+          <i class="fas fa-plus plus-icon"></i>
         </router-link>
         <ul class="sub-menu" style="list-style: none !important;">
           <li class="menu-item sub-menu-item"><router-link class="menu-link sub-menu-link" to="/faq">Documentation</router-link></li>
@@ -35,16 +35,16 @@
       </li>
       
       <!-- Support -->
-      <li class="menu-item" style="display: table-cell !important; white-space: nowrap !important; vertical-align: middle !important; padding: 0 !important; float: none !important; list-style-type: none !important;">
-        <router-link class="menu-link" to="/faq" style="white-space: nowrap !important; display: inline-flex !important; align-items: center !important; padding: 0 !important; color: inherit; font-size: 15px; font-weight: 500; line-height: 1.2 !important; height: 90px; text-decoration: none !important;">
-          <span class="no-split" style="display: inline !important; white-space: nowrap !important;">Support</span>
+      <li class="menu-item">
+        <router-link class="menu-link" to="/faq">
+          <span class="no-split">Support</span>
         </router-link>
       </li>
       
       <!-- Contact sales -->
-      <li class="menu-item" style="display: table-cell !important; white-space: nowrap !important; vertical-align: middle !important; padding: 0 !important; float: none !important; list-style-type: none !important;">
-        <router-link class="menu-link" to="/contact-us" style="white-space: nowrap !important; display: inline-flex !important; align-items: center !important; padding: 0 !important; color: inherit; font-size: 15px; font-weight: 500; line-height: 1.2 !important; height: 90px; text-decoration: none !important;">
-          <span class="no-split" style="display: inline !important; white-space: nowrap !important;">Contact&nbsp;sales</span>
+      <li class="menu-item">
+        <router-link class="menu-link" to="/contact-us">
+          <span class="no-split">Contact sales</span>
         </router-link>
       </li>
     </ul>
@@ -53,67 +53,59 @@
 
 <script>
 export default {
-  name: "FlexItNavbar",
-  mounted() {
-    this.forceSingleLine();
-    window.addEventListener('load', this.forceSingleLine);
-    window.addEventListener('resize', this.forceSingleLine);
-    setInterval(this.forceSingleLine, 1000);
-  },
-  methods: {
-    forceSingleLine() {
-      const container = document.getElementById('nav-medkey-list');
-      if (!container) return;
-      
-      const elements = container.querySelectorAll('.word, .char, .no-split, span');
-      elements.forEach(el => {
-        el.style.display = 'inline';
-        el.style.whiteSpace = 'nowrap';
-        el.style.float = 'none';
-        el.style.position = 'static';
-        el.style.transform = 'none';
-      });
-    }
-  }
+  name: "FlexItNavbar"
 };
 </script>
 
 <style>
-/* PROTECTION TRIDENT - NIVEAU 3 */
-#nav-medkey-list, 
-#nav-medkey-list * {
-  list-style: none !important;
-  list-style-type: none !important;
+#nav-medkey-list {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  gap: 25px !important;
 }
 
-#nav-medkey-list .menu-link::before,
-#nav-medkey-list .menu-link::after,
-#nav-medkey-list .menu-item::before,
-#nav-medkey-list .menu-item::after {
-  display: none !important;
-  content: none !important;
-}
-
-#nav-medkey-list .word, 
-#nav-medkey-list .char {
-  display: inline !important;
-  white-space: nowrap !important;
-  float: none !important;
-  position: static !important;
-  transform: none !important;
-  opacity: 1 !important;
-  visibility: visible !important;
+#nav-medkey-list .menu-item {
+  position: relative !important;
+  padding: 0 !important;
 }
 
 #nav-medkey-list .menu-link {
   height: 90px !important;
-  line-height: normal !important;
-  display: inline-flex !important;
+  display: flex !important;
   align-items: center !important;
+  color: var(--clr-white) !important; /* Force blanc sur fond sombre */
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
 }
 
-@media (max-width: 1400px) {
-  #nav-medkey-list { border-spacing: 6px 0 !important; }
+#nav-medkey-list .menu-link:hover,
+#nav-medkey-list .menu-link.active {
+  color: var(--clr-accent) !important; /* Rouge Akasi au survol/actif */
+}
+
+#nav-medkey-list .plus-icon {
+  font-size: 10px !important;
+  margin-left: 6px !important;
+}
+
+/* Sub-menu styling */
+#nav-medkey-list .sub-menu {
+  background-color: var(--clr-main) !important;
+  border-top: 3px solid var(--clr-accent) !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
+}
+
+#nav-medkey-list .sub-menu-link {
+  color: var(--clr-white) !important;
+}
+
+#nav-medkey-list .sub-menu-link:hover {
+  color: var(--clr-accent) !important;
+  background-color: rgba(255,255,255,0.05) !important;
 }
 </style>
 

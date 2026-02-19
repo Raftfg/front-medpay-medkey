@@ -132,6 +132,13 @@ const router = new Router({
         },
 
         {
+            path: "/onboarding",
+            name: "onboarding",
+            component: () =>
+                import("@/pages/onboarding/AkasiOnboarding.vue"),
+        },
+
+        {
             path: "/home",
             component: layout2,
             children: [{
@@ -243,6 +250,7 @@ router.beforeEach((to, from, next) => {
         "/auth-pages/forget-password",
         "/auth-pages/reset",
         "/auth-pages/forget-password-confirm",
+        "/onboarding"
     ];
 
     // Vérification intelligente : soit correspondance exacte, soit le début du chemin (ex: /our-team/member)

@@ -11,18 +11,27 @@
     </div>
     <div class="container-fluid px-lg-5">
       <nav class="menu-navbar">
-        <div class="header-logo" style="flex-shrink: 0 !important; margin-right: 20px !important;">
-          <router-link class="logo-link" to="/">
-            <img class="logo-img light-logo" src="@/assets/flex-it/assets/images/logo/logo-light.png" alt="logo" style="max-width: 150px !important;"/>
-            <img class="logo-img dark-logo" src="@/assets/flex-it/assets/images/logo/logo-colored.png" alt="logo" style="max-width: 150px !important;"/>
+        <div class="header-logo" style="flex-shrink: 0 !important; margin-right: 30px !important;">
+          <router-link class="logo-link" to="/" style="text-decoration: none !important; display: flex; align-items: center;">
+            <svg width="180" height="60" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" class="medkey-svg-logo">
+              <!-- Med -->
+              <text x="0" y="50" font-family="'ITC Avant Garde Gothic Std', sans-serif" font-weight="700" font-size="42" letter-spacing="-1.5" class="med">Med</text>
+              <!-- Key -->
+              <text x="88" y="50" font-family="'ITC Avant Garde Gothic Std', sans-serif" font-weight="700" font-size="42" letter-spacing="-1.5" class="key">Key</text>
+              <!-- Signature -->
+              <text x="90" y="68" font-family="'ITC Avant Garde Gothic Std', sans-serif" font-weight="300" font-size="12" class="signature">by Akasi Group</text>
+            </svg>
           </router-link>
         </div>
         
         <FlexItNavbar />
 
         <div class="controls-box">
-          <!--Menu Toggler button-->
-          <div class="control menu-toggler" id="menu-toggler-btn"><span></span><span></span><span></span></div>
+          <!-- CTA Buttons -->
+          <div class="cta-area">
+            <router-link class="btn-solid" to="/onboarding">{{ $t('header.cta_register') }}</router-link>
+            <router-link class="btn-outline" to="/auth-pages/login">{{ $t('header.cta_login') }}</router-link>
+          </div>
           <!--search Icon button-->
           <div class="control header-search-btn"><i class="bi bi-search icon"></i></div>
           <!--Dark/Light mode button-->
@@ -30,12 +39,8 @@
             <div class="switch-inner go-light" title="Switch To Light Mode"><i class="bi bi-sun icon"></i></div>
             <div class="switch-inner go-dark" title="Switch To Dark Mode"><i class="bi bi-moon icon"></i></div>
           </div>
-          <!-- CTA Buttons -->
-          <div class="cta-area">
-            <router-link class="btn-solid" to="/auth-pages/register">{{ $t('header.cta_register') }}</router-link>
-            <router-link class="btn-outline" to="/auth-pages/login">{{ $t('header.cta_login') }}</router-link>
-          </div>
-
+          <!--Menu Toggler button-->
+          <div class="control menu-toggler" id="menu-toggler-btn"><span></span><span></span><span></span></div>
         </div>
       </nav>
     </div>
@@ -59,12 +64,12 @@ export default {
 <style scoped>
 .menu-navbar {
   display: grid !important;
-  /* Réduction de la marge des contrôles pour laisser plus de place au menu */
-  grid-template-columns: minmax(120px, auto) 1fr minmax(220px, auto) !important;
+  /* Plus d'espace pour le bouton "Accéder gratuitement" qui est long */
+  grid-template-columns: minmax(130px, auto) 1fr minmax(280px, auto) !important;
   align-items: center !important;
   width: 100% !important;
   height: 90px !important;
-  gap: 10px !important;
+  gap: 15px !important;
 }
 
 .header-logo {
@@ -85,34 +90,122 @@ export default {
   display: flex !important;
   align-items: center !important;
   justify-content: flex-end !important;
-  gap: 10px !important;
+  gap: 12px !important;
 }
 
 .cta-area {
   display: flex !important;
-  gap: 5px !important;
+  gap: 10px !important;
   align-items: center !important;
 }
 
 .cta-area .btn-solid,
 .cta-area .btn-outline {
   white-space: nowrap !important;
-  padding: 6px 12px !important;
-  font-size: 12px !important;
+  padding: 10px 18px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
 }
+
+.cta-area .btn-solid {
+  background-color: var(--clr-main) !important;
+  border-color: var(--clr-main) !important;
+  color: var(--clr-white) !important;
+}
+
+.cta-area .btn-solid:hover {
+  background-color: var(--clr-accent) !important;
+  border-color: var(--clr-accent) !important;
+}
+
+.cta-area .btn-outline {
+  background-color: transparent !important;
+  border: 2px solid var(--clr-main) !important;
+  color: var(--clr-main) !important;
+}
+
+.cta-area .btn-outline:hover {
+  background-color: var(--clr-main) !important;
+  color: var(--clr-white) !important;
+}
+
+.content-always-light .cta-area .btn-outline,
+.is-sticky .cta-area .btn-outline {
+  border-color: var(--clr-white) !important;
+  color: var(--clr-white) !important;
+}
+
+.content-always-light .cta-area .btn-outline:hover,
+.is-sticky .cta-area .btn-outline:hover {
+  background-color: var(--clr-white) !important;
+  color: var(--clr-main) !important;
+}
+
+/* ---- is-sticky : header au défilement (style Akasi) ---- */
+.is-sticky.header-basic {
+  background: rgba(var(--clr-main-rgb), 0.98) !important;  /* Akasi Blue - Solid Visibility */
+  backdrop-filter: blur(10px) saturate(1.8) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(1.8) !important;
+  box-shadow: 0 4px 30px rgba(var(--clr-main-rgb), 0.4) !important;
+  border-bottom: 2px solid var(--clr-accent) !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Bokeh effect on scroll */
+.is-sticky.header-basic::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 50%, rgba(var(--clr-accent-rgb), 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 85% 30%, rgba(var(--clr-white-rgb), 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(var(--clr-accent-rgb), 0.08) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: 0;
+}
+.is-sticky.header-basic .container-fluid,
+.is-sticky.header-basic nav,
+.is-sticky.header-basic .menu-navbar { position: relative; z-index: 1; }
+
+/* Logo sur sticky */
+.is-sticky.header-basic .medkey-svg-logo .key { fill: var(--clr-accent) !important; opacity: 1; }
+
+/* CTA buttons sur sticky */
+.is-sticky.header-basic .cta-area .btn-solid {
+  background-color: var(--clr-accent) !important;
+  border-color: var(--clr-accent) !important;
+  color: var(--clr-white) !important;
+  box-shadow: 0 0 15px rgba(var(--clr-accent-rgb), 0.4) !important;
+}
+.is-sticky.header-basic .cta-area .btn-solid:hover {
+  background-color: var(--clr-white) !important;
+  color: var(--clr-accent) !important;
+}
+
+/* Icons sur sticky */
+.is-sticky.header-basic .mode-switcher .icon,
+.is-sticky.header-basic .header-search-btn .icon { color: var(--clr-white) !important; }
 
 @media (max-width: 1450px) {
   .menu-navbar {
-     grid-template-columns: 130px 1fr 250px !important;
+     grid-template-columns: 130px 1fr 300px !important;
   }
 }
 
 @media (max-width: 1250px) {
+  /* Garder les icônes visibles comme demandé */
   .header-search-btn, .mode-switcher {
-    display: none !important;
+    display: flex !important;
   }
   .menu-navbar {
-     grid-template-columns: 120px 1fr 200px !important;
+     grid-template-columns: 120px 1fr 320px !important;
+  }
+  .cta-area .btn-solid,
+  .cta-area .btn-outline {
+    padding: 8px 12px !important;
+    font-size: 12px !important;
   }
 }
 
@@ -147,6 +240,29 @@ export default {
   padding-bottom: 0 !important;
 }
 
+/* FIX: Mode switcher visibility on dark backgrounds */
+.content-always-light .mode-switcher .icon, 
+.is-sticky .mode-switcher .icon {
+  color: var(--clr-white) !important;
+}
+
+/* Adaptive Logo Colors (SVG) */
+.medkey-svg-logo .med { fill: var(--clr-main); }
+.medkey-svg-logo .key { fill: var(--clr-accent); }
+.medkey-svg-logo .signature { fill: var(--clr-main); }
+
+.content-always-light .medkey-svg-logo .med,
+.is-sticky .medkey-svg-logo .med,
+.content-always-light .medkey-svg-logo .signature,
+.is-sticky .medkey-svg-logo .signature { 
+  fill: var(--clr-white) !important; 
+}
+.content-always-light .medkey-svg-logo .key,
+.is-sticky .medkey-svg-logo .key {
+  fill: var(--clr-accent) !important;
+  opacity: 1;
+}
+
 .menu-navbar .links-list,
 #nav-medkey-list {
   display: flex !important;
@@ -178,5 +294,30 @@ export default {
   .menu-navbar .menu-item {
     margin-right: 8px !important;
   }
+}
+
+/* ---- is-sticky : fond Akasi solide au défilement ---- */
+#page-header.is-sticky {
+  background: rgba(var(--clr-main-rgb), 0.98) !important;
+  backdrop-filter: blur(10px) saturate(1.8) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(1.8) !important;
+  box-shadow: 0 4px 30px rgba(var(--clr-main-rgb), 0.4) !important;
+  border-bottom: 2px solid var(--clr-accent) !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* ---- Navigation Sticky Visibility ---- */
+#page-header.is-sticky :deep(.menu-link) {
+  color: var(--clr-white) !important;
+}
+
+#page-header.is-sticky :deep(.menu-link:hover),
+#page-header.is-sticky :deep(.menu-link.active) {
+  color: var(--clr-accent) !important;
+}
+
+/* Background Branding Akasi with animated-like gradient */
+#page-header.is-sticky {
+  background: linear-gradient(135deg, rgba(var(--clr-main-rgb), 0.98) 0%, rgba(var(--clr-main-rgb), 0.95) 100%) !important;
 }
 </style>

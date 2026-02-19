@@ -46,38 +46,38 @@ export default {
   },
   methods: {
     initAnimations() {
-      console.log('[WOW] initAnimations called');
+      console.log('[FLEX-IT] initAnimations called');
       this.$nextTick(() => {
         // Add delay to ensure Vue components are fully rendered
         setTimeout(() => {
           try {
+            // Re-run template JS logic (Swiper, Splitting, etc.)
+            if (window.initFlexItTemplate) {
+              console.log('[FLEX-IT] Calling initFlexItTemplate');
+              window.initFlexItTemplate();
+            }
+
             console.log('[WOW] Checking for window.WOW:', !!window.WOW);
             if (window.WOW) {
               if (!this.wowInstance) {
                 console.log('[WOW] Creating new WOW instance');
-                // Create instance only once with original template configuration
                 this.wowInstance = new window.WOW({
                   boxClass: 'wow',
                   animateClass: 'animated',
-                  offset: 100,  // Match original template (was 0)
+                  offset: 100,
                   mobile: true,
                   live: true
                 });
                 this.wowInstance.init();
-                console.log('[WOW] WOW instance initialized');
               } else {
                 console.log('[WOW] Syncing existing WOW instance');
-                // Sync existing instance on route change instead of re-initializing
                 this.wowInstance.sync();
-                console.log('[WOW] WOW instance synced');
               }
-            } else {
-              console.error('[WOW] window.WOW is not available!');
             }
           } catch (e) {
-            console.error("[WOW] Initialization failed:", e);
+            console.error("[FLEX-IT] Initialization failed:", e);
           }
-        }, 100); // 100ms delay for proper DOM rendering
+        }, 300); // 300ms delay to ensure all nested components are ready
       });
     }
   },
@@ -120,42 +120,14 @@ export default {
   font-family: 'Jost', sans-serif !important;
 }
 
-/* Ensure template colors are preserved if they are also overridden elsewhere */
+/* Ensure template colors use Akasi branding variables */
 .flex-it-layout {
-  --clr-main: #09aff4;
+  --clr-main: var(--akasi-blue, #011c61);
+  --clr-accent: var(--akasi-red, #fb0205);
 }
 
-/* Ensure sticky header is bright blue and text is white in all themes */
-.header-basic.is-sticky {
-  background-color: #09aff4 !important;
-}
-
-.header-basic.is-sticky .menu-link,
-.header-basic.is-sticky .controls-box .header-search-btn {
-  color: #ffffff !important;
-}
-
-/* Ensure inner-page-header also has a background */
-.header-basic.inner-page-header {
-  background-color: #09aff4 !important;
-}
-
-.header-basic.inner-page-header .menu-link,
-.header-basic.inner-page-header .controls-box .header-search-btn {
-  color: #ffffff !important;
-}
-
-/* Mobile view - ensure header is always visible */
-@media (max-width: 1199px) {
-  .header-basic,
-  body.dark-theme .header-basic,
-  body.dark-theme .header-basic.is-sticky {
-    background-color: #09aff4 !important;
-  }
-  
-  .header-basic .menu-link,
-  .header-basic .controls-box .header-search-btn {
-    color: var(--clr-white) !important;
-  }
-}
+/* 
+   Note: Sticky header styles are now managed in FlexItHeader.vue 
+   using Akasi branding colors. 
+*/
 </style>
