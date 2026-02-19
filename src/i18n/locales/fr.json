@@ -15,5 +15,127 @@
         "search_placeholder": "Rechercher",
         "cta_register": "Accéder gratuitement",
         "cta_login": "Connexion"
+    },
+    "pricing": {
+        "section": {
+            "pre_title": "Plans tarifaires",
+            "title": "Tarifs",
+            "subtitle": "Choisissez le plan adapté à votre établissement de santé",
+            "cta_see_all": "Voir tous les plans",
+            "cta_select": "Sélectionner le plan",
+            "per_month": "par mois",
+            "currency": "€"
+        },
+        "plans": {
+            "free": {
+                "name": "Starter Clinic",
+                "subtitle": "Plan GRATUIT",
+                "price": "0",
+                "target": "Centres de santé, cabinets médicaux, structures < 10 lits",
+                "features": {
+                    "adt_basic": "Administration des patients (ADT basique)",
+                    "patient_registration": "Enregistrement patient",
+                    "admission_discharge": "Admission / sortie",
+                    "dme_simple": "Dossier Médical Électronique simplifié",
+                    "consultation": "Consultation",
+                    "medical_history": "Antécédents",
+                    "prescriptions_pdf": "Ordonnances PDF",
+                    "appointments": "Agenda & rendez-vous",
+                    "max_users": "3 utilisateurs maximum",
+                    "cloud_hosting": "Hébergement cloud partagé",
+                    "email_support": "Support email standard"
+                },
+                "limitations": {
+                    "no_hl7": "Pas d'intégration HL7 / FHIR",
+                    "no_billing": "Pas de module facturation avancée",
+                    "no_pharmacy": "Pas de pharmacie ni laboratoire",
+                    "storage_limit": "Stockage limité (5 Go)",
+                    "branding": "Branding imposé"
+                }
+            },
+            "essential": {
+                "name": "Clinique Pro",
+                "subtitle": "Plan ESSENTIEL",
+                "price_from": "149",
+                "price_to": "299",
+                "target": "Cliniques privées, hôpitaux < 50 lits",
+                "features": {
+                    "includes_free": "Tout le plan Free +",
+                    "dme_complete": "DME complet",
+                    "billing": "Facturation & tiers payant",
+                    "pharmacy": "Pharmacie & gestion des stocks",
+                    "dashboard": "Tableau de bord opérationnel",
+                    "roles_permissions": "Gestion des rôles & permissions",
+                    "accounting_export": "Export comptable",
+                    "api_rest": "API REST standard",
+                    "max_users": "20 utilisateurs inclus",
+                    "storage": "100 Go stockage"
+                },
+                "benefits": {
+                    "automation": "Automatisation administrative",
+                    "stock_management": "Gestion des stocks médicaux",
+                    "financial_indicators": "Indicateurs financiers"
+                }
+            },
+            "professional": {
+                "name": "Hôpital Général",
+                "subtitle": "Plan PROFESSIONNEL",
+                "price_from": "799",
+                "price_to": "1500",
+                "target": "Hôpitaux 50 – 200 lits",
+                "features": {
+                    "includes_essential": "Tout Essential +",
+                    "lis": "Laboratoire (LIS)",
+                    "ris": "Imagerie (RIS léger)",
+                    "hl7_fhir": "Intégration HL7 v2 / FHIR R4",
+                    "dicom_viewer": "DICOM Viewer intégré",
+                    "cpoe": "CPOE & aide à la décision clinique",
+                    "hr_planning": "Gestion RH & plannings",
+                    "bi_advanced": "Business Intelligence avancée",
+                    "multi_sites": "Multi-sites",
+                    "sla": "SLA 99,5 %",
+                    "backups": "Sauvegardes automatisées",
+                    "priority_support": "Support prioritaire"
+                },
+                "benefits": {
+                    "interoperability": "Interopérabilité",
+                    "medical_traceability": "Traçabilité médicale complète",
+                    "strategic_management": "Pilotage stratégique"
+                }
+            },
+            "enterprise": {
+                "name": "Réseau Hospitalier",
+                "subtitle": "Plan ENTERPRISE",
+                "price": "Sur devis",
+                "target": "CHU, groupes hospitaliers, ministères de la santé",
+                "features": {
+                    "includes_professional": "Tout Professional +",
+                    "data_warehouse": "Data Warehouse & BI avancé",
+                    "dhis2": "Intégration DHIS2 / surveillance épidémiologique",
+                    "telemedicine": "Télémédecine & portail patient",
+                    "full_interoperability": "Interopérabilité complète (HL7, FHIR, DICOM, LOINC, SNOMED CT)",
+                    "sso": "Authentification SSO (OAuth2 / OpenID Connect)",
+                    "hosting": "Hébergement dédié ou On-premise",
+                    "sla": "SLA 99,9 %",
+                    "pra_pca": "PRA/PCA avancé",
+                    "customization": "Personnalisation métier",
+                    "dedicated_support": "Support dédié 24/7"
+                }
+            }
+        },
+        "comparison": {
+            "title": "Tableau Comparatif",
+            "features": "Fonctionnalités",
+            "free": "Free",
+            "essential": "Essential",
+            "professional": "Professional",
+            "enterprise": "Enterprise",
+            "basic": "Basique",
+            "standard": "Standard",
+            "advanced": "Avancée",
+            "simple_api": "API simple",
+            "included": "Inclus",
+            "not_included": "Non inclus"
+        }
     }
 }
