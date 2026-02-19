@@ -24,7 +24,9 @@
             "cta_see_all": "Voir tous les plans",
             "cta_select": "Sélectionner le plan",
             "per_month": "par mois",
-            "currency": "€"
+            "currency": "FCFA",
+            "see_more": "Voir plus",
+            "see_less": "Voir moins"
         },
         "plans": {
             "free": {
@@ -33,17 +35,10 @@
                 "price": "0",
                 "target": "Centres de santé, cabinets médicaux, structures < 10 lits",
                 "features": {
-                    "adt_basic": "Administration des patients (ADT basique)",
-                    "patient_registration": "Enregistrement patient",
-                    "admission_discharge": "Admission / sortie",
-                    "dme_simple": "Dossier Médical Électronique simplifié",
-                    "consultation": "Consultation",
-                    "medical_history": "Antécédents",
-                    "prescriptions_pdf": "Ordonnances PDF",
-                    "appointments": "Agenda & rendez-vous",
-                    "max_users": "3 utilisateurs maximum",
-                    "cloud_hosting": "Hébergement cloud partagé",
-                    "email_support": "Support email standard"
+                    "adt_basic": "Gestion des patients",
+                    "patient_registration": "Gestion des mouvements",
+                    "dme_simple": "Gestion de la caisse",
+                    "admission_discharge": "Gestion de la pharmacie",
                 },
                 "limitations": {
                     "no_hl7": "Pas d'intégration HL7 / FHIR",

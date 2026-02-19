@@ -24,7 +24,9 @@
             "cta_see_all": "See all plans",
             "cta_select": "Select plan",
             "per_month": "per month",
-            "currency": "$"
+            "currency": "$",
+            "see_more": "See more",
+            "see_less": "See less"
         },
         "plans": {
             "free": {

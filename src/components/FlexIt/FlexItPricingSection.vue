@@ -29,11 +29,8 @@
                 <h3 class="price" v-if="plan.isCustom">
                   {{ plan.price }}
                 </h3>
-                <h3 class="price" v-else-if="plan.priceFrom && plan.priceTo">
-                  {{ plan.priceFrom }}{{ plan.currency }} - {{ plan.priceTo }}{{ plan.currency }}
-                </h3>
                 <h3 class="price" v-else>
-                  {{ plan.price }}<sup class="currency-symbol">{{ plan.currency }}</sup>
+                  {{ getDisplayPrice(plan) }}<sup class="currency-symbol" v-if="!plan.isCustom">{{ plan.currency }}</sup>
                 </h3>
                 <span class="per" v-if="!plan.isCustom">{{ $t('pricing.section.per_month') }}</span>
               </div>
@@ -41,30 +38,20 @@
             </div>
             <div class="plan-details">
               <ul class="plan-list">
-                <li v-for="(feat, fIdx) in plan.features" :key="fIdx" class="plan-feat">
+                <li v-for="(feat, fIdx) in displayedFeatures(plan)" :key="fIdx" class="plan-feat">
                   <i class="bi bi-check-circle-fill feat-icon"></i>
                   <span class="feat-text">{{ feat }}</span>
                 </li>
               </ul>
-              <!-- Limitations pour le plan FREE -->
-              <div v-if="plan.limitations && plan.limitations.length > 0" class="plan-limitations">
-                <h5 class="limitations-title">{{ $t('pricing.comparison.not_included') }}</h5>
-                <ul class="limitations-list">
-                  <li v-for="(limitation, lIdx) in plan.limitations" :key="lIdx" class="limitation-item">
-                    <i class="bi bi-x-circle-fill limitation-icon"></i>
-                    <span class="limitation-text">{{ limitation }}</span>
-                  </li>
-                </ul>
-              </div>
-              <!-- Avantages clés pour Essential et Professional -->
-              <div v-if="plan.benefits && plan.benefits.length > 0" class="plan-benefits">
-                <h5 class="benefits-title">{{ $t('pricing.comparison.included') }}</h5>
-                <ul class="benefits-list">
-                  <li v-for="(benefit, bIdx) in plan.benefits" :key="bIdx" class="benefit-item">
-                    <i class="bi bi-star-fill benefit-icon"></i>
-                    <span class="benefit-text">{{ benefit }}</span>
-                  </li>
-                </ul>
+              <div v-if="plan.features.length > 7" class="plan-see-more">
+                <button 
+                  @click="toggleFeatures(plan.id)" 
+                  class="see-more-btn"
+                  :aria-expanded="expandedPlans[plan.id]"
+                >
+                  {{ expandedPlans[plan.id] ? $t('pricing.section.see_less') : $t('pricing.section.see_more') }}
+                  <i :class="['bi', expandedPlans[plan.id] ? 'bi-chevron-up' : 'bi-chevron-down']"></i>
+                </button>
               </div>
             </div>
             <div class="plan-cta">
@@ -81,6 +68,11 @@
 <script>
 export default {
   name: "FlexItPricingSection",
+  data() {
+    return {
+      expandedPlans: {}
+    };
+  },
   computed: {
     plans() {
       return [
@@ -92,7 +84,6 @@ export default {
           currency: this.$t('pricing.section.currency'),
           target: this.$t('pricing.plans.free.target'),
           features: this.getTranslatedFeatures('free'),
-          limitations: this.getTranslatedLimitations('free'),
           icon: 'flaticon-nft-1',
           delay: '.1s',
           featured: false,
@@ -107,7 +98,6 @@ export default {
           currency: this.$t('pricing.section.currency'),
           target: this.$t('pricing.plans.essential.target'),
           features: this.getTranslatedFeatures('essential'),
-          benefits: this.getTranslatedBenefits('essential'),
           icon: 'flaticon-virtual-reality',
           delay: '.3s',
           featured: false,
@@ -122,7 +112,6 @@ export default {
           currency: this.$t('pricing.section.currency'),
           target: this.$t('pricing.plans.professional.target'),
           features: this.getTranslatedFeatures('professional'),
-          benefits: this.getTranslatedBenefits('professional'),
           icon: 'flaticon-box',
           delay: '.5s',
           featured: true,
@@ -145,6 +134,28 @@ export default {
     }
   },
   methods: {
+    getDisplayPrice(plan) {
+      if (plan.isCustom) {
+        return plan.price;
+      }
+      // Afficher uniquement le prix de départ pour les plans avec range
+      if (plan.priceFrom) {
+        return plan.priceFrom;
+      }
+      return plan.price;
+    },
+    displayedFeatures(plan) {
+      if (plan.features.length <= 7) {
+        return plan.features;
+      }
+      if (this.expandedPlans[plan.id]) {
+        return plan.features;
+      }
+      return plan.features.slice(0, 7);
+    },
+    toggleFeatures(planId) {
+      this.$set(this.expandedPlans, planId, !this.expandedPlans[planId]);
+    },
     getTranslatedFeatures(planId) {
       const featuresObj = this.$t(`pricing.plans.${planId}.features`, { returnObjects: true });
       if (typeof featuresObj === 'object' && featuresObj !== null) {
@@ -152,28 +163,6 @@ export default {
       }
       return [];
     },
-    getTranslatedLimitations(planId) {
-      try {
-        const limitationsObj = this.$t(`pricing.plans.${planId}.limitations`, { returnObjects: true });
-        if (typeof limitationsObj === 'object' && limitationsObj !== null) {
-          return Object.values(limitationsObj);
-        }
-      } catch (e) {
-        // Plan doesn't have limitations
-      }
-      return [];
-    },
-    getTranslatedBenefits(planId) {
-      try {
-        const benefitsObj = this.$t(`pricing.plans.${planId}.benefits`, { returnObjects: true });
-        if (typeof benefitsObj === 'object' && benefitsObj !== null) {
-          return Object.values(benefitsObj);
-        }
-      } catch (e) {
-        // Plan doesn't have benefits
-      }
-      return [];
-    }
   }
 };
 </script>
@@ -246,87 +235,40 @@ export default {
   line-height: 1.5;
 }
 
-/* Limitations styling */
-.plan-limitations {
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px dashed #ddd;
+/* See more button styling */
+.plan-see-more {
+  margin-top: 15px;
+  text-align: center;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
 }
 
-.limitations-title {
+.see-more-btn {
+  background: transparent;
+  border: none;
+  color: #667eea;
   font-size: 14px;
   font-weight: 600;
-  color: #dc3545;
-  margin-bottom: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
 }
 
-.limitations-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.see-more-btn:hover {
+  color: #764ba2;
+  text-decoration: underline;
 }
 
-.limitation-item {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 8px;
-  font-size: 13px;
+.see-more-btn i {
+  font-size: 12px;
+  transition: transform 0.3s ease;
 }
 
-.limitation-icon {
-  color: #dc3545;
-  margin-right: 8px;
-  margin-top: 2px;
-  font-size: 14px;
-  flex-shrink: 0;
-}
-
-.limitation-text {
-  flex: 1;
-  color: #666;
-  line-height: 1.4;
-}
-
-/* Benefits styling */
-.plan-benefits {
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px dashed #ddd;
-}
-
-.benefits-title {
-  font-size: 14px;
-  font-weight: 600;
-  color: #28a745;
-  margin-bottom: 10px;
-}
-
-.benefits-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.benefit-item {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 8px;
-  font-size: 13px;
-}
-
-.benefit-icon {
-  color: #ffc107;
-  margin-right: 8px;
-  margin-top: 2px;
-  font-size: 14px;
-  flex-shrink: 0;
-}
-
-.benefit-text {
-  flex: 1;
-  color: #333;
-  font-weight: 500;
-  line-height: 1.4;
+.see-more-btn[aria-expanded="true"] i {
+  transform: rotate(180deg);
 }
 
 /* Responsive adjustments */
