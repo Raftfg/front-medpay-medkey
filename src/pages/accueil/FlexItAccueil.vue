@@ -1,48 +1,54 @@
 <template>
   <div class="flex-it-accueil">
     <FlexItHero />
-    <FlexItServicesSection />
-    <FlexItAboutSection />
-    <FlexItStats />
-    <FlexItPortfolioSection />
-    <FlexItClientsSlider />
+    <FlexItProblemSection />
+    <FlexItSolutionSection />
+    <FlexItModulesSection />
+    <FlexItInteropSection />
+    <FlexItSecuritySection />
+    <FlexItBISection />
     <FlexItPricingSection />
+    <FlexItStats />
     <FlexItTestimonials />
-    <FlexItBlogSection />
+    <FlexItCtaFinal />
   </div>
 </template>
 
 <script>
 import FlexItHero from "@/components/FlexIt/FlexItHero.vue";
-import FlexItServicesSection from "@/components/FlexIt/FlexItServicesSection.vue";
-import FlexItAboutSection from "@/components/FlexIt/FlexItAboutSection.vue";
-import FlexItStats from "@/components/FlexIt/FlexItStats.vue";
-import FlexItPortfolioSection from "@/components/FlexIt/FlexItPortfolioSection.vue";
-import FlexItClientsSlider from "@/components/FlexIt/FlexItClientsSlider.vue";
 import FlexItPricingSection from "@/components/FlexIt/FlexItPricingSection.vue";
+import FlexItProblemSection from "@/components/FlexIt/FlexItProblemSection.vue";
+import FlexItSolutionSection from "@/components/FlexIt/FlexItSolutionSection.vue";
+import FlexItModulesSection from "@/components/FlexIt/FlexItModulesSection.vue";
+import FlexItInteropSection from "@/components/FlexIt/FlexItInteropSection.vue";
+import FlexItSecuritySection from "@/components/FlexIt/FlexItSecuritySection.vue";
+import FlexItBISection from "@/components/FlexIt/FlexItBISection.vue";
+import FlexItStats from "@/components/FlexIt/FlexItStats.vue";
 import FlexItTestimonials from "@/components/FlexIt/FlexItTestimonials.vue";
-import FlexItBlogSection from "@/components/FlexIt/FlexItBlogSection.vue";
+import FlexItCtaFinal from "@/components/FlexIt/FlexItCtaFinal.vue";
 import $ from 'jquery';
 
 export default {
   name: "FlexItAccueil",
   components: {
     FlexItHero,
-    FlexItServicesSection,
-    FlexItAboutSection,
-    FlexItStats,
-    FlexItPortfolioSection,
-    FlexItClientsSlider,
     FlexItPricingSection,
+    FlexItProblemSection,
+    FlexItSolutionSection,
+    FlexItModulesSection,
+    FlexItInteropSection,
+    FlexItSecuritySection,
+    FlexItBISection,
+    FlexItStats,
     FlexItTestimonials,
-    FlexItBlogSection
+    FlexItCtaFinal
   },
   mounted() {
     try {
       // Re-initialize template JS logic
       // Note: We use require to execute the script in the context of this component
       require("@/assets/flex-it/js/main.js");
-      
+
       if ($('.loading-screen').length) {
          $('.loading-screen').fadeOut(500);
       }

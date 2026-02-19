@@ -4,28 +4,28 @@
       <!-- Product Overview -->
       <li class="menu-item">
         <router-link class="menu-link" to="/">
-          <span class="no-split">Product Overview</span>
+          <span class="no-split">Présentation</span>
         </router-link>
       </li>
       
       <!-- Features -->
       <li class="menu-item">
         <router-link class="menu-link" to="/services">
-          <span class="no-split">Features</span>
+          <span class="no-split">Fonctionnalités</span>
         </router-link>
       </li>
       
       <!-- Pricing Plan -->
       <li class="menu-item">
         <router-link class="menu-link" to="/pricing">
-          <span class="no-split">Pricing Plan</span>
+          <span class="no-split">Tarifs</span>
         </router-link>
       </li>
       
       <!-- Resource Center -->
       <li class="menu-item has-sub-menu">
         <router-link class="menu-link" to="/faq">
-          <span class="no-split">Resource Center</span>
+          <span class="no-split">Resource</span>
           <i class="fas fa-plus plus-icon"></i>
         </router-link>
         <ul class="sub-menu" style="list-style: none !important;">
@@ -37,14 +37,14 @@
       <!-- Support -->
       <li class="menu-item">
         <router-link class="menu-link" to="/faq">
-          <span class="no-split">Support</span>
+          <span class="no-split">Assistance</span>
         </router-link>
       </li>
       
       <!-- Contact sales -->
       <li class="menu-item">
         <router-link class="menu-link" to="/contact-us">
-          <span class="no-split">Contact sales</span>
+          <span class="no-split">Contact</span>
         </router-link>
       </li>
     </ul>
@@ -59,32 +59,48 @@ export default {
 
 <style>
 #nav-medkey-list {
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: nowrap !important;
-  align-items: center !important;
-  gap: 25px !important;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 25px;
 }
 
 #nav-medkey-list .menu-item {
-  position: relative !important;
-  padding: 0 !important;
+  position: relative;
+  padding: 0;
 }
 
 #nav-medkey-list .menu-link {
-  height: 90px !important;
-  display: flex !important;
-  align-items: center !important;
-  color: var(--clr-white) !important; /* Force blanc sur fond sombre */
-  font-size: 15px !important;
-  font-weight: 600 !important;
-  text-decoration: none !important;
-  transition: all 0.3s ease !important;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  color: var(--clr-white); /* Force blanc sur fond sombre */
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 1199px) {
+  #nav-medkey-list {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0 !important;
+    width: 100% !important;
+  }
+  
+  #nav-medkey-list .menu-link {
+    height: auto !important;
+    line-height: normal !important;
+    padding: 15px 0 !important;
+    width: 100% !important;
+  }
 }
 
 #nav-medkey-list .menu-link:hover,
 #nav-medkey-list .menu-link.active {
-  color: var(--clr-accent) !important; /* Rouge Akasi au survol/actif */
+  color: var(--clr-main) !important;
 }
 
 #nav-medkey-list .plus-icon {
@@ -95,7 +111,7 @@ export default {
 /* Sub-menu styling */
 #nav-medkey-list .sub-menu {
   background-color: var(--clr-main) !important;
-  border-top: 3px solid var(--clr-accent) !important;
+  border-top: 3px solid var(--clr-white) !important;
   box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
 }
 
@@ -104,52 +120,53 @@ export default {
 }
 
 #nav-medkey-list .sub-menu-link:hover {
-  color: var(--clr-accent) !important;
+  color: var(--clr-white) !important;
+  opacity: 0.8;
   background-color: rgba(255,255,255,0.05) !important;
 }
 </style>
 
 <style scoped>
 .menu-wrapper {
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: nowrap !important;
-  align-items: center !important;
-  width: auto !important;
-  max-width: none !important;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: auto;
+  max-width: none;
 }
 
 .links-list {
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: nowrap !important;
-  align-items: center !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  list-style: none !important;
-  gap: 12px !important; /* Espacement réduit pour éviter l'overflow */
-  width: auto !important;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  gap: 12px; /* Espacement réduit pour éviter l'overflow */
+  width: auto;
 }
 
 .menu-item {
-  display: block !important;
-  flex: 0 0 auto !important; /* Empêche tout redimensionnement */
-  white-space: nowrap !important;
-  min-width: max-content !important;
+  display: block;
+  flex: 0 0 auto; /* Empêche tout redimensionnement */
+  white-space: nowrap;
+  min-width: max-content;
 }
 
 .menu-link {
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: nowrap !important;
-  align-items: center !important;
-  white-space: nowrap !important;
-  width: auto !important;
-  min-width: max-content !important;
-  padding: 0 4px !important;
-  font-size: 14px !important; /* Réduit pour éviter l'overlap */
-  line-height: 90px !important;
-  text-decoration: none !important;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  white-space: nowrap;
+  width: auto;
+  min-width: max-content;
+  padding: 0 4px;
+  font-size: 14px; /* Réduit pour éviter l'overlap */
+  line-height: 90px;
+  text-decoration: none;
 }
 
 /* On s'assure que si Splitting.js a injecté des spans, ils ne wrappent pas non plus */
@@ -160,19 +177,38 @@ export default {
 
 @media (max-width: 1500px) {
   .links-list {
-    gap: 10px !important;
+    gap: 10px;
   }
   .menu-link {
-    font-size: 12px !important;
+    font-size: 12px;
   }
 }
 
 @media (max-width: 1199px) {
-  /* Forcer l'horizontalité même sur tablettes si l'espace le permet */
   .menu-wrapper {
-    position: relative !important;
-    left: auto !important;
-    top: auto !important;
+    display: none; /* Cache par défaut si pas la classe .show (géré par le template JS) */
+  }
+  
+  .menu-wrapper.show {
+    display: flex !important;
+  }
+
+  /* Reset des styles desktop qui cassent le mobile menu */
+  .links-list {
+    flex-direction: column !important;
+    gap: 0 !important;
+    width: 100% !important;
+  }
+
+  .menu-item {
+    width: 100% !important;
+    border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+  }
+
+  .menu-link {
+    line-height: normal !important;
+    padding: 12px 1.5rem !important;
+    font-size: 16px !important;
   }
 }
 </style>
