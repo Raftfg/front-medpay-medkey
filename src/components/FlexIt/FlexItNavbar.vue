@@ -84,7 +84,7 @@ export default {
 
 #nav-medkey-list .menu-link:hover,
 #nav-medkey-list .menu-link.active {
-  color: var(--clr-accent) !important; /* Rouge Akasi au survol/actif */
+  color: var(--clr-main) !important;
 }
 
 #nav-medkey-list .plus-icon {
@@ -95,7 +95,7 @@ export default {
 /* Sub-menu styling */
 #nav-medkey-list .sub-menu {
   background-color: var(--clr-main) !important;
-  border-top: 3px solid var(--clr-accent) !important;
+  border-top: 3px solid var(--clr-white) !important;
   box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
 }
 
@@ -104,7 +104,8 @@ export default {
 }
 
 #nav-medkey-list .sub-menu-link:hover {
-  color: var(--clr-accent) !important;
+  color: var(--clr-white) !important;
+  opacity: 0.8;
   background-color: rgba(255,255,255,0.05) !important;
 }
 </style>

@@ -144,45 +144,30 @@ export default {
   color: var(--clr-main) !important;
 }
 
-/* ---- is-sticky : header au défilement (style Akasi) ---- */
+/* ---- is-sticky : header au défilement (Original Template Style) ---- */
 .is-sticky.header-basic {
-  background: rgba(var(--clr-main-rgb), 0.98) !important;  /* Akasi Blue - Solid Visibility */
-  backdrop-filter: blur(10px) saturate(1.8) !important;
-  -webkit-backdrop-filter: blur(10px) saturate(1.8) !important;
-  box-shadow: 0 4px 30px rgba(var(--clr-main-rgb), 0.4) !important;
-  border-bottom: 2px solid var(--clr-accent) !important;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  background: var(--clr-main) !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.4s ease !important;
 }
 
-/* Bokeh effect on scroll */
-.is-sticky.header-basic::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 15% 50%, rgba(var(--clr-accent-rgb), 0.12) 0%, transparent 50%),
-    radial-gradient(circle at 85% 30%, rgba(var(--clr-white-rgb), 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 50% 80%, rgba(var(--clr-accent-rgb), 0.08) 0%, transparent 45%);
-  pointer-events: none;
-  z-index: 0;
-}
 .is-sticky.header-basic .container-fluid,
 .is-sticky.header-basic nav,
 .is-sticky.header-basic .menu-navbar { position: relative; z-index: 1; }
 
 /* Logo sur sticky */
-.is-sticky.header-basic .medkey-svg-logo .key { fill: var(--clr-accent) !important; opacity: 1; }
+.is-sticky.header-basic .medkey-svg-logo .key { fill: var(--clr-white) !important; opacity: 1; }
 
 /* CTA buttons sur sticky */
 .is-sticky.header-basic .cta-area .btn-solid {
-  background-color: var(--clr-accent) !important;
-  border-color: var(--clr-accent) !important;
-  color: var(--clr-white) !important;
-  box-shadow: 0 0 15px rgba(var(--clr-accent-rgb), 0.4) !important;
+  background-color: var(--clr-white) !important;
+  border-color: var(--clr-white) !important;
+  color: var(--clr-main) !important;
 }
 .is-sticky.header-basic .cta-area .btn-solid:hover {
-  background-color: var(--clr-white) !important;
-  color: var(--clr-accent) !important;
+  background-color: var(--clr-main) !important;
+  color: var(--clr-white) !important;
+  border-color: var(--clr-white) !important;
 }
 
 /* Icons sur sticky */
@@ -299,14 +284,11 @@ export default {
   }
 }
 
-/* ---- is-sticky : fond Akasi solide au défilement ---- */
+/* ---- is-sticky : fond solide au défilement ---- */
 #page-header.is-sticky {
-  background: rgba(var(--clr-main-rgb), 0.98) !important;
-  backdrop-filter: blur(10px) saturate(1.8) !important;
-  -webkit-backdrop-filter: blur(10px) saturate(1.8) !important;
-  box-shadow: 0 4px 30px rgba(var(--clr-main-rgb), 0.4) !important;
-  border-bottom: 2px solid var(--clr-accent) !important;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  background: var(--clr-main) !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.4s ease !important;
 }
 
 /* ---- Navigation Sticky Visibility ---- */
@@ -316,11 +298,8 @@ export default {
 
 #page-header.is-sticky :deep(.menu-link:hover),
 #page-header.is-sticky :deep(.menu-link.active) {
-  color: var(--clr-accent) !important;
+  color: var(--clr-white) !important;
+  opacity: 0.8;
 }
 
-/* Background Branding Akasi with animated-like gradient */
-#page-header.is-sticky {
-  background: linear-gradient(135deg, rgba(var(--clr-main-rgb), 0.98) 0%, rgba(var(--clr-main-rgb), 0.95) 100%) !important;
-}
 </style>
