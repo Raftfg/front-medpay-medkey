@@ -10,11 +10,11 @@
           </h2>
           <p class="subtitle wow fadeInUp" data-wow-delay=".6s">{{ $t('pricing.section.subtitle') }}</p>
         </div>
-        <div class="cta-area wow fadeInUp" data-wow-delay=".8s">
+        <!-- <div class="cta-area wow fadeInUp" data-wow-delay=".8s">
           <router-link class="cta-btn btn-solid" to="/pricing">
             {{ $t('pricing.section.cta_see_all') }}<i class="bi bi-arrow-right icon"></i>
           </router-link>
-        </div>
+        </div> -->
       </div>
       <div class="row">
         <!--Plans-->
