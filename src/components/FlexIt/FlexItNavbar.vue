@@ -127,7 +127,7 @@ export default {
   margin: 0 !important;
   padding: 0 !important;
   list-style: none !important;
-  gap: 20px !important; /* Espacement fixe */
+  gap: 12px !important; /* Espacement réduit pour éviter l'overflow */
   width: auto !important;
 }
 
@@ -146,8 +146,8 @@ export default {
   white-space: nowrap !important;
   width: auto !important;
   min-width: max-content !important;
-  padding: 0 5px !important;
-  font-size: 15px !important; /* Taille un peu plus grande pour la lisibilité */
+  padding: 0 4px !important;
+  font-size: 14px !important; /* Réduit pour éviter l'overlap */
   line-height: 90px !important;
   text-decoration: none !important;
 }
@@ -163,7 +163,7 @@ export default {
     gap: 10px !important;
   }
   .menu-link {
-    font-size: 13px !important;
+    font-size: 12px !important;
   }
 }
 

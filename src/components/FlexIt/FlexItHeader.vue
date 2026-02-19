@@ -65,11 +65,11 @@ export default {
 .menu-navbar {
   display: grid !important;
   /* Plus d'espace pour le bouton "Accéder gratuitement" qui est long */
-  grid-template-columns: minmax(130px, auto) 1fr minmax(280px, auto) !important;
+  grid-template-columns: minmax(130px, auto) 1fr minmax(380px, auto) !important;
   align-items: center !important;
   width: 100% !important;
   height: 90px !important;
-  gap: 15px !important;
+  gap: 100px !important; /* Gap global extrême */
 }
 
 .header-logo {
@@ -81,7 +81,7 @@ export default {
 :deep(.menu-wrapper) {
   grid-column: 2 !important;
   display: flex !important;
-  justify-content: center !important;
+  justify-content: flex-end !important; /* Aligne à droite pour que la marge de sécurité soit effective */
   overflow: visible !important;
 }
 
@@ -95,15 +95,16 @@ export default {
 
 .cta-area {
   display: flex !important;
-  gap: 10px !important;
+  gap: 15px !important;
   align-items: center !important;
+  margin-left: 80px !important; /* Espace forcé à gauche des boutons */
 }
 
 .cta-area .btn-solid,
 .cta-area .btn-outline {
   white-space: nowrap !important;
-  padding: 10px 18px !important;
-  font-size: 14px !important;
+  padding: 10px 15px !important; /* Réduit pour gagner de la place */
+  font-size: 13px !important; /* Légèrement plus petit */
   font-weight: 600 !important;
   border-radius: 8px !important;
   transition: all 0.3s ease !important;
@@ -190,7 +191,8 @@ export default {
 
 @media (max-width: 1450px) {
   .menu-navbar {
-     grid-template-columns: 130px 1fr 300px !important;
+     grid-template-columns: 130px 1fr 340px !important;
+     gap: 40px !important; /* Augmenté de 20px à 40px */
   }
 }
 
@@ -200,7 +202,8 @@ export default {
     display: flex !important;
   }
   .menu-navbar {
-     grid-template-columns: 120px 1fr 320px !important;
+     grid-template-columns: 120px 1fr 350px !important;
+     gap: 30px !important; /* Augmenté de 15px à 30px */
   }
   .cta-area .btn-solid,
   .cta-area .btn-outline {
@@ -286,13 +289,13 @@ export default {
   display: inline !important; /* Force inline pour empêcher le wrap des lettres */
 }
 
-.menu-navbar .menu-item {
-  margin-right: 15px !important;
+.menu-navbar .menu-item:last-child {
+  margin-right: 120px !important; /* Espace de sécurité extrême avant les boutons CTA */
 }
 
 @media (max-width: 1400px) {
-  .menu-navbar .menu-item {
-    margin-right: 8px !important;
+  .menu-navbar .menu-item:last-child {
+    margin-right: 40px !important; /* Augmenté de 20px à 40px */
   }
 }
 
