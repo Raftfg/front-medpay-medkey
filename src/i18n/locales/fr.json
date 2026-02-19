@@ -15,5 +15,281 @@
         "search_placeholder": "Rechercher",
         "cta_register": "Accéder gratuitement",
         "cta_login": "Connexion"
+    },
+    "accueil": {
+        "hero": {
+            "slides": [
+                {
+                    "pre_titre": "Transformation digitale des établissements de santé",
+                    "titre": "Modernisez votre gestion",
+                    "mot_cle": "hospitalière",
+                    "sous_titre": "Une plateforme SIH complète conçue pour renforcer la qualité des soins, assurer la continuité des services médicaux et structurer durablement les données cliniques au service des populations.",
+                    "cta_principal": "Essayer gratuitement",
+                    "cta_secondaire": "Découvrir la plateforme"
+                },
+                {
+                    "pre_titre": "Pilotage & performance institutionnelle",
+                    "titre": "Transformez vos données",
+                    "mot_cle": "hospitalières",
+                    "sous_titre": "Centralisez les données cliniques, financières et logistiques afin d'améliorer la transparence, l'efficacité budgétaire et le suivi des indicateurs de santé publique en temps réel.",
+                    "cta_principal": "Essayer gratuitement",
+                    "cta_secondaire": "Découvrir la plateforme"
+                },
+                {
+                    "pre_titre": "Infrastructure sécurisée & interopérable",
+                    "titre": "Déployez un SIH conforme aux",
+                    "mot_cle": "standards",
+                    "sous_titre": "Architecture modulaire compatible HL7 FHIR et DICOM, garantissant l'échange sécurisé des données médicales et l'intégration avec les systèmes nationaux de surveillance sanitaire.",
+                    "cta_principal": "Essayer gratuitement",
+                    "cta_secondaire": "Découvrir la plateforme"
+                }
+            ]
+        },
+        "probleme": {
+            "pre_titre": "La transformation",
+            "titre": "Transformer votre SIH grâce à MedKey",
+            "sous_titre": "MedKey unifie les données, automatise les processus et sécurise les échanges pour renforcer la performance et la gouvernance hospitalière.",
+            "points": [
+                {
+                    "titre": "Données unifiées",
+                    "description": "Centralisez les données patients, médicales et administratives au sein d’une plateforme unique garantissant une prise en charge continue.",
+                    "icone": "flaticon-web-development"
+                },
+                {
+                    "titre": "Processus automatisés",
+                    "description": "Digitalisez l’admission, la facturation, la gestion des stocks et la planification pour réduire les erreurs et améliorer la performance financière.",
+                    "icone": "flaticon-strategy"
+                },
+                {
+                    "titre": "Sécurité & Traçabilité",
+                    "description": "Assurez la protection, et l’interopérabilité des données médicales grâce à une architecture conforme aux standards internationaux.",
+                    "icone": "flaticon-search"
+                }
+            ]
+        },
+        "solution": {
+            "pre_titre": "Notre solution",
+            "titre": "Une plateforme intégrée pour tout le parcours hospitalier",
+            "description": "Medkey centralise l'ensemble des flux cliniques, administratifs et financiers dans un système unique. Du dossier médical électronique à la facturation, de la pharmacie au laboratoire, chaque module communique nativement avec les autres.",
+            "points": [
+                "Dossier patient unifié accessible à tous les services",
+                "Flux financiers tracés de l'admission à la sortie",
+                "Indicateurs de performance en temps réel"
+            ],
+            "cta": "Commencer gratuitement"
+        },
+        "modules": {
+            "pre_titre": "Couverture fonctionnelle",
+            "titre": "17 modules pour couvrir l'ensemble des besoins hospitaliers",
+            "sous_titre": "Chaque module peut être déployé indépendamment et s'intègre nativement avec les autres composants de la plateforme.",
+            "liste": {
+                "adt": {
+                    "titre": "Gestion ADT",
+                    "description": "Admissions, transferts et sorties patients avec suivi des lits."
+                },
+                "dme": {
+                    "titre": "Dossier Médical",
+                    "description": "Antécédents, prescriptions et observations centralisés."
+                },
+                "cpoe": {
+                    "titre": "Prescriptions CPOE",
+                    "description": "Saisie électronique avec alertes cliniques CDS."
+                },
+                "pharmacie": {
+                    "titre": "Pharmacie & Stocks",
+                    "description": "Dispensation, lots et gestion des inventaires."
+                },
+                "lis": {
+                    "titre": "Laboratoire LIS",
+                    "description": "Demandes d’analyses, validation et transmission automatique."
+                },
+                "ris_pacs": {
+                    "titre": "Imagerie RIS/PACS",
+                    "description": "Planification et archivage d’images DICOM."
+                },
+                "facturation": {
+                    "titre": "Facturation",
+                    "description": "Tarification, encaissements et tiers payant."
+                },
+                "planification": {
+                    "titre": "Planification RDV",
+                    "description": "Agenda médicaL, notifications SMS et gestion de salles."
+                },
+                "rh": {
+                    "titre": "Ressources Humaines",
+                    "description": "Plannings, habilitations et gestion du personnel."
+                },
+                "maintenance": {
+                    "titre": "Maintenance et patrimoine",
+                    "description": "Suivi des équipements biomédicaux."
+                },
+                "stocks": {
+                    "titre": "Gestion des stocks",
+                    "description": "Approvisionnements et commandes fournisseurs."
+                },
+                "bi": {
+                    "titre": "Business Intelligence",
+                    "description": "Tableaux de bord et indicateurs stratégiques."
+                },
+                "portail_patient": {
+                    "titre": "Portail Patient",
+                    "description": "Accès dossier et téléconsultation sécurisée."
+                },
+                "epidemiologie": {
+                    "titre": "Surveillance Sanitaire",
+                    "description": "Statistiques et suivi épidémiologique."
+                },
+                "ehr": {
+                    "titre": "Santé Communautaire",
+                    "description": "Dossiers électroniques et suivi terrain."
+                },
+                "telemedecine": {
+                    "titre": "Télémédecine",
+                    "description": "Consultations à distance et santé mobile."
+                },
+                "datawarehouse": {
+                    "titre": "Data Warehouse",
+                    "description": "Analyse décisionnelle et rapports avancés."
+                }
+            },
+            "cta": "Démarrer dès maintenants"
+        },
+        "interoperabilite": {
+            "pre_titre": "Standards internationaux",
+            "titre": "Interopérable par conception",
+            "sous_titre": "Medkey respecte les standards de référence en santé numérique pour garantir l'échange fluide des données médicales.",
+            "standards": [
+                {
+                    "titre": "HL7 FHIR",
+                    "description": "Échange structuré des données cliniques avec tout système compatible FHIR R4.",
+                    "icone": "fas fa-exchange-alt"
+                },
+                {
+                    "titre": "DICOM",
+                    "description": "Intégration native avec les équipements d'imagerie et les serveurs PACS.",
+                    "icone": "fas fa-x-ray"
+                },
+                {
+                    "titre": "Echanges des données",
+                    "description": "Journalisation, gestion des accès par rôles.",
+                    "icone": "fas fa-plug"
+                }
+            ],
+            "cta": "Consulter la documentation technique"
+        },
+        "securite": {
+            "pre_titre": "Confiance & conformité",
+            "titre": "La sécurité des données médicales au centre de l'architecture",
+            "sous_titre": "Chaque couche de la plateforme est conçue pour protéger les données sensibles des patients et garantir la conformité réglementaire.",
+            "garanties": [
+                {
+                    "titre": "Chiffrement de bout en bout",
+                    "description": "Données chiffrées au repos (AES-256) et en transit (TLS 1.3).",
+                    "icone": "fas fa-lock"
+                },
+                {
+                    "titre": "Audit trail complet",
+                    "description": "Chaque accès et modification est journalisé avec horodatage et identité de l'utilisateur.",
+                    "icone": "fas fa-clipboard-list"
+                },
+                {
+                    "titre": "Contrôle d'accès par rôle",
+                    "description": "Permissions granulaires par service, fonction et niveau de sensibilité des données.",
+                    "icone": "fas fa-user-shield"
+                },
+                {
+                    "titre": "Hébergement souverain",
+                    "description": "Déploiement sur cloud régional conforme aux réglementations locales de protection des données.",
+                    "icone": "fas fa-server"
+                }
+            ],
+            "cta": "Télécharger le livre blanc sécurité"
+        },
+        "bi_reporting": {
+            "pre_titre": "Pilotage décisionnel",
+            "titre": "Des données brutes aux décisions stratégiques",
+            "sous_titre": "Transformez l'activité quotidienne de votre établissement en indicateurs actionnables pour la direction et les tutelles.",
+            "indicateurs": [
+                {
+                    "titre": "Taux d'occupation des lits",
+                    "description": "Suivi en temps réel par service, anticipation des pics d'activité.",
+                    "icone": "fas fa-bed"
+                },
+                {
+                    "titre": "Durée moyenne de séjour",
+                    "description": "Analyse par pathologie et par service pour optimiser les parcours.",
+                    "icone": "fas fa-clock"
+                },
+                {
+                    "titre": "Performance financière",
+                    "description": "Taux de recouvrement, coût par séjour, marge par activité.",
+                    "icone": "fas fa-chart-line"
+                },
+                {
+                    "titre": "Indicateurs de santé publique",
+                    "description": "Rapports automatisés conformes aux exigences OMS et ministérielles.",
+                    "icone": "fas fa-heartbeat"
+                }
+            ],
+            "cta": "Accéder à la démo BI"
+        },
+        "stats": {
+            "items": [
+                {
+                    "valeur": 50,
+                    "suffixe": "+",
+                    "description": "Établissements connectés",
+                    "icone": "fas fa-hospital"
+                },
+                {
+                    "valeur": 500000,
+                    "suffixe": "+",
+                    "description": "Dossiers patients gérés",
+                    "icone": "fas fa-users"
+                },
+                {
+                    "valeur": 14,
+                    "suffixe": "",
+                    "description": "Modules disponibles",
+                    "icone": "fas fa-th-large"
+                },
+                {
+                    "valeur": 99.9,
+                    "suffixe": "%",
+                    "description": "Disponibilité garantie",
+                    "icone": "fas fa-shield-alt"
+                }
+            ]
+        },
+        "temoignages": {
+            "pre_titre": "Retours du terrain",
+            "titre": "Ils ont déployé Medkey dans leurs établissements",
+            "liste": [
+                {
+                    "citation": "Medkey nous a permis de réduire de 40% le temps de traitement administratif des admissions et d'avoir enfin une vue consolidée de l'activité de l'hôpital.",
+                    "auteur": "Dr. Amadou Diallo",
+                    "poste": "Directeur Général",
+                    "etablissement": "CHU de Conakry"
+                },
+                {
+                    "citation": "L'intégration du laboratoire avec le dossier patient a transformé notre circuit de soins. Les résultats sont disponibles en temps réel pour les cliniciens.",
+                    "auteur": "Mme. Fatou Ndiaye",
+                    "poste": "DSI",
+                    "etablissement": "Hôpital Principal de Dakar"
+                },
+                {
+                    "citation": "Le module de facturation a rendu transparents nos flux financiers. Nous avons amélioré notre taux de recouvrement de 25% en six mois.",
+                    "auteur": "M. Jean-Baptiste Kouamé",
+                    "poste": "Directeur Financier",
+                    "etablissement": "Clinique Internationale d'Abidjan"
+                }
+            ]
+        },
+        "cta_final": {
+            "titre": "Structurez durablement votre système d'information hospitalier",
+            "sous_titre": "Rejoignez les établissements qui ont choisi Medkey pour centraliser leurs données, fiabiliser leurs processus et améliorer la qualité des soins.",
+            "cta_principal": "Commencez dès maintenant",
+            "cta_secondaire": "Contacter l'équipe"
+        }
     }
 }

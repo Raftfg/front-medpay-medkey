@@ -28,6 +28,7 @@ import rendezvousRoutes from './rendezvous.js';
 // Import New Template Components
 import FlexItLayout from "../layout/FlexItLayout.vue";
 import FlexItAccueil from "../pages/accueil/FlexItAccueil.vue";
+import Accueil from "../pages/accueil/accueil.vue";
 import FlexItAbout from "../pages/accueil/FlexItAbout.vue";
 import FlexItServices from "../pages/accueil/FlexItServices.vue";
 import FlexItPortfolio from "../pages/accueil/FlexItPortfolio.vue";
@@ -63,6 +64,7 @@ const router = new Router({
             component: FlexItLayout,
             children: [
                 { path: "", name: "landing", component: FlexItAccueil },
+                { path: "accueil", name: "accueil", component: Accueil },
                 { path: "home-1", name: "home-1", component: Home1 },
                 { path: "home-2", name: "home-2", component: Home2 },
                 { path: "home-3", name: "home-3", component: Home3 },

@@ -236,7 +236,7 @@ a:hover {
   transition: all 0.3s ease-in-out 0s;
 }
 .init-text::first-letter {
-  text-transform: capitalize;
+  text-transform: none;
 }
 .init-text::before {
   content: "";
@@ -304,7 +304,7 @@ a:hover {
   margin-bottom: 0.75rem;
   font-size: 3rem;
   font-weight: 500;
-  text-transform: capitalize;
+  text-transform: none;
   letter-spacing: 1.5px;
   line-height: 1.3;
   display: inline-block;
@@ -320,7 +320,7 @@ a:hover {
   margin-bottom: 1.25rem;
   font-size: 1.1rem;
   font-weight: 400;
-  text-transform: capitalize;
+  text-transform: none;
   opacity: 0.75;
 }
 @media (max-width: 767px) {
@@ -427,7 +427,7 @@ a:hover {
 .see-more-area {
   display: block;
   text-align: center;
-  text-transform: capitalize;
+  text-transform: none;
 }
 .see-more-area.btn-on-start-align {
   text-align: left;
@@ -492,7 +492,7 @@ a:hover {
   font-weight: 600;
 }
 .skills .skill-data .skill-name {
-  text-transform: capitalize;
+  text-transform: none;
 }
 .skills .skill-bar {
   width: 100%;
@@ -588,7 +588,7 @@ a:hover {
   margin-bottom: 0.75rem;
   font-weight: 500;
   font-size: 1.5rem;
-  text-transform: capitalize;
+  text-transform: none;
 }
 .info-items-list .info-text {
   font-size: 1.1;
@@ -867,7 +867,7 @@ a:hover {
   align-items: center;
   text-decoration: none !important;
   text-align: center;
-  text-transform: capitalize;
+  text-transform: none;
   letter-spacing: 1px;
   outline: none;
   border: 2px solid transparent;
@@ -972,7 +972,7 @@ a:hover {
 .play-btn-row-dir .play-btn-text, .play-btn-col-dir .play-btn-text {
   position: relative;
   text-align: center;
-  text-transform: capitalize;
+  text-transform: none;
   font-weight: 600;
   color: var(--clr-white);
 }
@@ -1246,7 +1246,7 @@ body.rounded-btns .read-more {
 }
 
 .read-more {
-  text-transform: capitalize;
+  text-transform: none;
   color: var(--clr-main);
   font-weight: 600;
   position: relative;
@@ -1282,7 +1282,7 @@ body.rounded-btns .read-more {
 }
 .breadcrumb-item {
   display: inline-block;
-  text-transform: capitalize;
+  text-transform: none;
   font-size: 1rem;
   font-weight: 600;
 }
@@ -1325,7 +1325,7 @@ body.rounded-btns .read-more {
   margin: 0;
   font-size: 1rem;
   font-weight: 600;
-  text-transform: capitalize;
+  text-transform: none;
   position: absolute;
   left: 0;
   top: 0px;
@@ -1427,7 +1427,7 @@ body.rounded-btns .read-more {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  text-transform: capitalize;
+  text-transform: none;
 }
 .custom-form-area textarea {
   min-height: 10rem;
@@ -1547,7 +1547,7 @@ body.rounded-btns .read-more {
   display: inline-block;
   padding: 0;
   margin-bottom: 0;
-  text-transform: capitalize;
+  text-transform: none;
   color: var(--clr-white);
 }
 .one-field-form input[type=email] {
@@ -1579,7 +1579,7 @@ body.rounded-btns .read-more {
   opacity: 0.5;
   font-weight: 100;
   font-size: 0.85rem;
-  text-transform: capitalize;
+  text-transform: none;
 }
 
 .three-field-form {
@@ -1591,7 +1591,7 @@ body.rounded-btns .read-more {
   color: var(--clr-semi-dark-blue);
   border-bottom: 2px solid var(--clr-main);
   padding-bottom: 0.75rem;
-  text-transform: capitalize;
+  text-transform: none;
   font-size: 2rem;
   font-weight: 600;
 }
@@ -2042,7 +2042,7 @@ body.rounded-btns .read-more {
   width: 100%;
   text-decoration: none !important;
   color: inherit;
-  text-transform: capitalize;
+  text-transform: none;
   font-size: 1rem;
   font-weight: 500;
   line-height: 90px;
@@ -2181,7 +2181,7 @@ body.rounded-btns .read-more {
 .hero-swiper-slider .slide-title, .page-hero .hero-text-area .hero-title {
   font-weight: 900;
   font-size: 3.5rem;
-  text-transform: capitalize;
+  text-transform: none;
   margin-bottom: 1.75rem;
   line-height: 1.2;
 }
@@ -2649,9 +2649,13 @@ body.rounded-btns .read-more {
 }
 .services-boxed .service-content {
   margin-bottom: 1.5rem;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  display: -webkit-box;
+  overflow: hidden;
 }
 .services-boxed .service-title {
-  text-transform: capitalize;
+  text-transform: none;
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 1rem;
@@ -2808,7 +2812,7 @@ body.rounded-btns .read-more {
   font-size: 1.5rem;
   font-weight: 500;
   margin-bottom: 1.5rem;
-  text-transform: capitalize;
+  text-transform: none;
 }
 .service-single .service-sidebar .sidebar-pane .list {
   list-style: none;
@@ -2835,7 +2839,7 @@ body.rounded-btns .read-more {
 }
 .service-single .service-sidebar .sidebar-pane .list-item a {
   position: relative;
-  text-transform: capitalize;
+  text-transform: none;
   width: 100%;
   color: inherit;
   display: flex;
@@ -2884,7 +2888,7 @@ body.rounded-btns .read-more {
   overflow: hidden;
 }
 .service-single .service-content-area .service-title {
-  text-transform: capitalize;
+  text-transform: none;
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 1.75rem;
@@ -2926,7 +2930,7 @@ body.rounded-btns .read-more {
   letter-spacing: 0.5px;
 }
 .about .text-area .about-text::first-letter {
-  text-transform: capitalize;
+  text-transform: none;
 }
 .about .text-area .cta-area {
   display: flex;
@@ -2957,7 +2961,7 @@ body.rounded-btns .read-more {
   display: block;
   color: var(--clr-main);
   margin-top: -0.5rem;
-  text-transform: capitalize;
+  text-transform: none;
 }
 @media (max-width: 575px) {
   .about .text-area .cta-area .signature .signature-name {
@@ -2985,7 +2989,7 @@ body.rounded-btns .read-more {
   padding: 0.25rem 0.5rem;
   margin: 0;
   margin-bottom: 1rem;
-  text-transform: capitalize;
+  text-transform: none;
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
@@ -3081,7 +3085,7 @@ body.rounded-btns .read-more {
   display: flex;
   align-items: center;
   font-size: 1.25rem;
-  text-transform: capitalize;
+  text-transform: none;
   position: absolute;
   width: 100%;
   max-width: 100%;
@@ -3219,7 +3223,7 @@ body.rounded-btns .read-more {
   display: inline-block;
   font-size: 1.25rem;
   font-weight: 400;
-  text-transform: capitalize;
+  text-transform: none;
   margin-bottom: 0;
   line-height: 1;
 }
@@ -3242,7 +3246,7 @@ body.rounded-btns .read-more {
   color: inherit;
 }
 .portfolio-single .main-area .sub-heading {
-  text-transform: capitalize;
+  text-transform: none;
   font-size: 2.25rem;
   font-weight: 600;
   margin-bottom: 1.25rem;
@@ -3266,7 +3270,7 @@ body.rounded-btns .read-more {
   padding: 0.5rem 1.5rem;
   padding-left: 0;
   position: relative;
-  text-transform: capitalize;
+  text-transform: none;
   font-weight: 400;
   font-size: 1rem;
   opacity: 0.85;
@@ -3378,13 +3382,13 @@ body.rounded-btns .read-more {
   padding: 2rem 0;
 }
 .our-team .tm-member-card .tm-details .tm-name {
-  text-transform: capitalize;
+  text-transform: none;
   font-size: 1.5rem;
   font-weight: 400;
   margin-bottom: 0;
 }
 .our-team .tm-member-card .tm-details .tm-role {
-  text-transform: capitalize;
+  text-transform: none;
   font-size: 1rem;
   font-weight: 500;
   opacity: 0.75;
@@ -3411,13 +3415,13 @@ body.rounded-btns .read-more {
 .team-member .profile .tm-details .name {
   font-size: 1.5rem;
   font-weight: 400;
-  text-transform: capitalize;
+  text-transform: none;
   margin-bottom: 0;
 }
 .team-member .profile .tm-details .role {
   font-size: 1rem;
   font-weight: 400;
-  text-transform: capitalize;
+  text-transform: none;
   opacity: 0.75;
 }
 .team-member .profile .tm-social {
@@ -3428,7 +3432,7 @@ body.rounded-btns .read-more {
   margin-bottom: 1.5rem;
   font-size: 2rem;
   font-weight: 500;
-  text-transform: capitalize;
+  text-transform: none;
 }
 .team-member .tm-description .tm-title:first-of-type {
   margin-top: 0;
@@ -3459,7 +3463,7 @@ body.rounded-btns .read-more {
   width: 50%;
   margin-bottom: 0.5rem;
   position: relative;
-  text-transform: capitalize;
+  text-transform: none;
   font-size: 1.1rem;
   opacity: 0.75;
   display: flex;
@@ -3549,7 +3553,7 @@ body.rounded-btns .read-more {
   padding-right: 20px;
   text-align: left;
   text-decoration: none;
-  text-transform: capitalize;
+  text-transform: none;
   border-radius: 0;
   font-size: 1.1rem;
   font-weight: 700;
@@ -3643,7 +3647,7 @@ body.rounded-btns .read-more {
 }
 .testimonials .customer-details .customer-name,
 .testimonials .customer-details .customer-role {
-  text-transform: capitalize;
+  text-transform: none;
   margin-bottom: 0;
   padding-top: 0;
   padding-bottom: 0;
@@ -3727,7 +3731,7 @@ body.rounded-btns .read-more {
   font-size: 1.5rem;
   font-weight: 500;
   margin-bottom: 0.5rem;
-  text-transform: capitalize;
+  text-transform: none;
 }
 .contact-us .contact-info-panel .info-panel .line-on-side {
   margin-bottom: 2rem;
@@ -3737,7 +3741,7 @@ body.rounded-btns .read-more {
 .contact-us .contact-info-panel .info-panel .location-address {
   font-size: 1.25rem;
   margin-bottom: 2.25rem;
-  text-transform: capitalize;
+  text-transform: none;
   opacity: 0.75;
 }
 .contact-us .contact-info-panel .info-panel .location-card {
@@ -3768,7 +3772,7 @@ body.rounded-btns .read-more {
 .contact-us .contact-info-panel .info-panel .location-card .content-title {
   font-size: 1.25rem;
   font-weight: 500;
-  text-transform: capitalize;
+  text-transform: none;
   margin-bottom: 0;
   color: rgba(var(--clr-main-rgb), 0.75);
 }
@@ -3869,7 +3873,7 @@ body.rounded-btns .read-more {
 .footer-col-title {
   font-size: 1.25rem;
   font-weight: 600;
-  text-transform: capitalize;
+  text-transform: none;
   margin-bottom: 1.5rem;
   color: var(--clr-semi-dark-blue);
 }
@@ -3945,7 +3949,7 @@ body.rounded-btns .read-more {
   font-weight: 500;
   font-size: 0.85rem;
   text-decoration: none;
-  text-transform: capitalize;
+  text-transform: none;
   text-decoration: none;
   color: var(--clr-semi-dark);
   display: inline-block;
@@ -4093,7 +4097,7 @@ body.rounded-btns .read-more {
   display: inline-flex;
   align-items: center;
   font-size: 0.85rem;
-  text-transform: capitalize;
+  text-transform: none;
   text-decoration: none;
   margin-right: 1.5rem;
   opacity: 0.75;
@@ -4141,7 +4145,7 @@ body.rounded-btns .read-more {
   margin-bottom: 1.25rem;
   font-size: 1.25rem;
   font-weight: 700;
-  text-transform: capitalize;
+  text-transform: none;
   padding: 1rem 0;
 }
 .blog .search .search-form {
@@ -4195,7 +4199,7 @@ body.rounded-btns .read-more {
 }
 .blog .cats .cat-item .cat-link {
   font-weight: 400;
-  text-transform: capitalize;
+  text-transform: none;
   text-decoration: none;
   color: inherit;
   width: 100%;
@@ -4270,7 +4274,7 @@ body.rounded-btns .read-more {
   height: 100%;
 }
 .blog .recent-posts .content {
-  text-transform: capitalize;
+  text-transform: none;
 }
 .blog .recent-posts .content .r-post-title {
   font-size: 1rem;
@@ -4299,7 +4303,7 @@ body.rounded-btns .read-more {
 }
 .blog .breadcrumb-item {
   color: var(--clr-main);
-  text-transform: capitalize;
+  text-transform: none;
   font-weight: 700;
 }
 .blog .breadcrumb-item:before {
@@ -4382,7 +4386,7 @@ body.rounded-btns .read-more {
   font-weight: 600;
   line-height: 1.5;
   margin-bottom: 0.5rem;
-  text-transform: capitalize;
+  text-transform: none;
   transition: color 0.3s ease 0s;
 }
 .blog .posts-grid .post-summary .post-title:hover {
@@ -4511,7 +4515,7 @@ body.rounded-btns .read-more {
 .blog .post-title {
   font-size: 3rem;
   font-weight: 800;
-  text-transform: capitalize;
+  text-transform: none;
   margin-bottom: 3rem;
 }
 @media (max-width: 991px) {
@@ -4531,7 +4535,7 @@ body.rounded-btns .read-more {
   margin-bottom: 0.75rem;
   font-size: 1.75rem;
   font-weight: 700;
-  text-transform: capitalize;
+  text-transform: none;
   padding-bottom: 0.5rem;
   margin-bottom: 0.5rem;
 }
@@ -4552,7 +4556,7 @@ body.rounded-btns .read-more {
 .blog .post-main-area .share-title {
   margin-right: 1.5rem;
   margin-bottom: 0%;
-  text-transform: capitalize;
+  text-transform: none;
   opacity: 0.75;
   font-weight: 800;
 }
@@ -4575,7 +4579,7 @@ body.rounded-btns .read-more {
   font-size: 1.75rem;
   font-weight: 600;
   line-height: 1.2;
-  text-transform: capitalize;
+  text-transform: none;
   margin-top: 2.5rem;
   margin-bottom: 1rem;
 }
@@ -4618,7 +4622,7 @@ body.rounded-btns .read-more {
   align-items: center;
 }
 .blog .post-main-area .post-content .post-list .post-list-item .post-list-text {
-  text-transform: capitalize;
+  text-transform: none;
 }
 .blog .post-main-area .post-content .post-list .post-list-item .icon {
   color: var(--clr-main);
@@ -4651,7 +4655,7 @@ body.rounded-btns .read-more {
   display: block;
   font-size: 1rem;
   font-weight: 500;
-  text-transform: capitalize;
+  text-transform: none;
   color: var(--clr-main);
 }
 .blog .post-main-area .post-content blockquote .icon {
@@ -4694,7 +4698,7 @@ body.rounded-btns .read-more {
   font-size: 1.25rem;
   font-weight: 700;
   line-height: 1.5;
-  text-transform: capitalize;
+  text-transform: none;
   padding-top: 1.5rem;
   margin: 0;
   transition: color 0.2s ease-in-out 0s;
@@ -4763,7 +4767,7 @@ body.rounded-btns .read-more {
   color: var(--clr-main);
   font-size: 1.1rem;
   font-weight: 700;
-  text-transform: capitalize;
+  text-transform: none;
 }
 .blog .post-main-area .comments-area .comment-wrapper {
   margin-bottom: 2rem;
@@ -4795,7 +4799,7 @@ body.rounded-btns .read-more {
   color: var(--clr-main);
   font-size: 1.1rem;
   font-weight: 700;
-  text-transform: capitalize;
+  text-transform: none;
   transition: color 0.3s ease-in-out 0s;
 }
 .blog .post-main-area .comments-area .comment-body .comment-date {
@@ -4879,7 +4883,7 @@ body.rounded-btns .read-more {
 .err-404 .err-subtitle {
   color: var(--clr-grey);
   font-size: 4rem;
-  text-transform: capitalize;
+  text-transform: none;
   font-weight: 700;
   margin-bottom: 1rem;
 }
@@ -4891,7 +4895,7 @@ body.rounded-btns .read-more {
 .err-404 .err-text {
   color: var(--clr-grey);
   font-size: 1.25rem;
-  text-transform: capitalize;
+  text-transform: none;
   margin-bottom: 1rem;
 }
 @media (max-width: 991px) {
@@ -5001,7 +5005,7 @@ body.rounded-btns .read-more {
 .benefits .benefits-boxes-area .benefit-box .benefit-title {
   font-size: 1.35rem;
   font-weight: 700;
-  text-transform: capitalize;
+  text-transform: none;
 }
 .benefits .benefits-boxes-area .benefit-box .benefit-text {
   font-size: 1rem;
@@ -5075,7 +5079,7 @@ body.rounded-btns .read-more {
   border: 1px solid rgba(var(--clr-main-rgb), 0.35);
   border-radius: 0.5rem 0.5rem 0 0;
   padding: 2rem 1rem;
-  text-transform: capitalize;
+  text-transform: none;
   transition: all 0.3s ease-in-out 0s;
   box-shadow: 1px 1px 10px 0px rgba(var(--clr-dark-blue-rgb), 0.15);
 }
@@ -5272,7 +5276,7 @@ body.rounded-btns .read-more {
   font-size: 1.25rem;
   font-weight: 400;
   display: block;
-  text-transform: capitalize;
+  text-transform: none;
 }
 
 /*  End  stats section Rules    */

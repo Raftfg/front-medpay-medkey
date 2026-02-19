@@ -1,2 +1,6 @@
 node_modules
 dist
+.github/
+CLAUDE.md
+Dockerfile
+REACT_TO_VUE_QUICKSTART.md

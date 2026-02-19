@@ -5,11 +5,14 @@
     <div class="container">
       <div class="stats-inner">
         <div class="row">
-          <!--Info One-->
           <div v-for="(stat, idx) in stats" :key="idx" class="col-12 col-md-6 col-lg-3 stat-box">
-            <div class="stat-box-inner" data-tilt><i :class="stat.icon + ' stat-icon'"></i>
-              <p class="stat-num"><span class="counter" :data-from="stat.from" :data-to="stat.to" data-speed="3000" data-refresh-interval="50">{{ stat.to }}</span><span class="sign">+</span></p>
-              <span class="stat-desc">{{ stat.desc }}</span>
+            <div class="stat-box-inner" data-tilt>
+              <i :class="stat.icone + ' stat-icon'"></i>
+              <p class="stat-num">
+                <span class="counter" :data-from="0" :data-to="stat.valeur" data-speed="3000" data-refresh-interval="50">{{ stat.valeur }}</span>
+                <span class="sign">{{ stat.suffixe }}</span>
+              </p>
+              <span class="stat-desc">{{ stat.description }}</span>
             </div>
           </div>
         </div>
@@ -24,14 +27,13 @@ export default {
   name: "FlexItStats",
   data() {
     return {
-      patternBg3: require("@/assets/flex-it/assets/images/sections-bg-images/pattern-bg-3.jpg"),
-      stats: [
-        { from: 10, to: 750, icon: "flaticon-project-management", desc: "finished projects" },
-        { from: 0, to: 23, icon: "flaticon-content-management", desc: "Created jobs" },
-        { from: 0, to: 200, icon: "flaticon-user", desc: "happy customers" },
-        { from: 0, to: 28, icon: "flaticon-aim", desc: "years Of exprience" }
-      ]
+      patternBg3: require("@/assets/flex-it/assets/images/sections-bg-images/pattern-bg-3.jpg")
     };
+  },
+  computed: {
+    stats() {
+      return this.$t('accueil.stats.items');
+    }
   }
 };
 </script>
