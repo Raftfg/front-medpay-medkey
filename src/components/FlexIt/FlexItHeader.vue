@@ -1,3 +1,5 @@
+
+
 <template>
   <!--Start Page Header-->
   <header :class="['page-header', headerClass, 'header-basic']" id="page-header">
@@ -35,7 +37,7 @@
           <!--search Icon button-->
           <div class="control header-search-btn"><i class="bi bi-search icon"></i></div>
           <!--Dark/Light mode button-->
-          <div class="mode-switcher">
+          <div class="control mode-switcher dark-theme">
             <div class="switch-inner go-light" title="Switch To Light Mode"><i class="bi bi-sun icon"></i></div>
             <div class="switch-inner go-dark" title="Switch To Dark Mode"><i class="bi bi-moon icon"></i></div>
           </div>
@@ -64,8 +66,8 @@ export default {
 <style scoped>
 .menu-navbar {
   display: grid !important;
-  /* Plus d'espace pour le bouton "Accéder gratuitement" qui est long */
-  grid-template-columns: minmax(130px, auto) 1fr minmax(380px, auto) !important;
+  /* Plus d'espace pour le bouton "Accéder gratuitement" qui est long et les icônes de contrôle */
+  grid-template-columns: minmax(130px, auto) 1fr minmax(420px, auto) !important;
   align-items: center !important;
   width: 100% !important;
   height: 90px !important;
@@ -188,7 +190,7 @@ export default {
   }
   .menu-navbar {
      grid-template-columns: 120px 1fr 350px !important;
-     gap: 30px !important; /* Augmenté de 15px à 30px */
+     gap: 30px !important;
   }
   .cta-area .btn-solid,
   .cta-area .btn-outline {
@@ -197,35 +199,125 @@ export default {
   }
 }
 
+/* Force visibility and styling for controls on all screens */
+.controls-box {
+  display: flex !important;
+  align-items: center !important;
+  gap: 15px !important;
+}
+
+.mode-switcher, .header-search-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.mode-switcher {
+  position: relative !important;
+  width: 2.25rem !important;
+  height: 2.25rem !important;
+  background-color: #ffffff !important;
+  border-radius: 4px !important;
+}
+
+.mode-switcher .icon, .header-search-btn .icon {
+  font-size: 1.25rem !important;
+  color: var(--clr-accent) !important;
+}
+
+/* Internal icon alignment for switcher */
+.mode-switcher .switch-inner {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Theme specific overrides */
+.mode-switcher.dark-theme { background-color: #ffffff !important; }
+.mode-switcher.dark-theme .icon { color: #0d1857 !important; }
+.mode-switcher.light-theme { background-color: #0d1857 !important; }
+.mode-switcher.light-theme .icon { color: #ffffff !important; }
+
 @media (max-width: 1199px) {
-  /* En dessous de 1200px, on laisse le comportement standard du template pour le mobile */
   .menu-navbar {
     display: flex !important;
     justify-content: space-between !important;
+    padding: 0 15px !important;
+  }
+
+  .cta-area {
+    display: none !important;
+  }
+
+  .controls-box {
+    flex-grow: 1 !important;
+    justify-content: flex-end !important;
+  }
+
+  .menu-toggler {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    width: 30px !important;
+    height: 18px !important;
+    cursor: pointer !important;
+    margin-left: 20px !important;
+    z-index: 1000 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+  }
+
+  .menu-toggler span {
+    display: block !important;
+    width: 100% !important;
+    height: 2px !important;
+    background-color: #ffffff !important;
+    transition: all 0.3s ease !important;
+    border-radius: 2px !important;
+  }
+
+  .menu-toggler.close-menu span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px) !important;
+  }
+
+  .menu-toggler.close-menu span:nth-child(2) {
+    opacity: 0 !important;
+  }
+
+  .menu-toggler.close-menu span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px) !important;
   }
 }
 </style>
 
 <style>
 /* Styles globaux pour forcer l'alignement horizontal (sans scoped pour écraser les styles du template) */
-.menu-navbar .menu-link, 
-.menu-navbar .menu-item,
-.menu-navbar .word,
-.menu-navbar .char,
-.menu-navbar .whitespace,
-#nav-medkey-list .menu-link, #nav-medkey-list .menu-link *, #nav-medkey-list .word, #nav-medkey-list .char {
-  white-space: nowrap !important;
-  display: inline !important; /* Force inline pour empêcher le stacking vertical */
-  float: none !important;
-  vertical-align: middle !important;
-  align-items: center !important;
-  flex-direction: row !important;
-  flex-wrap: nowrap !important;
-  width: auto !important;
-  min-width: max-content !important;
-  margin: 0 !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
+/* FIX: On mobile, we need to let the links stack vertically */
+@media (min-width: 1200px) {
+  .menu-navbar .menu-link, 
+  .menu-navbar .menu-item,
+  .menu-navbar .word,
+  .menu-navbar .char,
+  .menu-navbar .whitespace,
+  #nav-medkey-list .menu-link, #nav-medkey-list .menu-link *, #nav-medkey-list .word, #nav-medkey-list .char {
+    white-space: nowrap !important;
+    display: inline !important; /* Force inline pour empêcher le stacking vertical sur desktop */
+    float: none !important;
+    vertical-align: middle !important;
+    align-items: center !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    width: auto !important;
+    min-width: max-content !important;
+    margin: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
 }
 
 /* FIX: Mode switcher visibility on dark backgrounds */
@@ -251,15 +343,17 @@ export default {
   opacity: 1;
 }
 
-.menu-navbar .links-list,
-#nav-medkey-list {
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: nowrap !important;
-  justify-content: center !important;
-  width: auto !important;
-  overflow: visible !important;
-  flex: 1 1 auto !important;
+@media (min-width: 1200px) {
+  .menu-navbar .links-list,
+  #nav-medkey-list {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    width: auto !important;
+    overflow: visible !important;
+    flex: 1 1 auto !important;
+  }
 }
 
 /* Neutralisation totale de Splitting.js pour le menu */
