@@ -4,7 +4,7 @@
       <nav aria-label="breadcrumb"></nav>
     </div>
     <div class="row mb-4">
-      <div v-if="hasPermission('Voir_module_patient')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+      <div v-if="showModule('Voir_module_patient')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
         <div class="card card-img-holder text-black text-center module-card">
           <router-link to="/patients/list" class="card-link">
             <img 
@@ -21,12 +21,12 @@
           </router-link>
         </div>
       </div>
-      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
+<div v-else-if="showDisabledModule('Voir_module_patient')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
         <div class="card card-img-holder text-black text-center module-card">
           <img 
-            src="@/assets/images/patients.png" 
-            class="module-icon mt-3 mb-2 disabled-icon" 
-            alt="Patients"
+              src="@/assets/images/patients.png" 
+              class="module-icon mt-3 mb-2 disabled-icon" 
+              alt="Patients"
             loading="lazy"
             width="64"
             height="64"
@@ -36,7 +36,7 @@
           </div>
         </div>
       </div>
-      <div v-if="hasPermission('Voir_module_mouvement')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+      <div v-if="showModule('Voir_module_mouvement')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
         <div class="card card-img-holder text-black text-center module-card">
           <router-link to="/movments/list" class="card-link">
             <img 
@@ -54,7 +54,7 @@
         </div>
       </div>
 
-      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
+      <div v-else-if="showDisabledModule('Voir_module_mouvement')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
         <div class="card card-img-holder text-black text-center module-card">
           <img 
             src="@/assets/images/movment.png" 
@@ -70,7 +70,7 @@
         </div>
       </div>
 
-      <div v-if="hasPermission('Voir_module_Service')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+      <div v-if="showModule('Voir_module_Service')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
         <div class="card card-img-holder text-black text-center module-card">
           <router-link to="/medical-services/urgences" class="card-link">
             <img src="@/assets/images/actsmedicaux.png" class="module-icon mt-3 mb-2" alt="Services Médicaux" />
@@ -81,7 +81,7 @@
         </div>
       </div>
 
-      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
+      <div v-else-if="showDisabledModule('Voir_module_Service')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
         <div class="card card-img-holder text-black text-center module-card">
           <img 
             src="@/assets/images/actsmedicaux.png" 
@@ -97,7 +97,7 @@
         </div>
       </div>
 
-      <div v-if="hasPermission('Voir_module_pharmacie')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+      <div v-if="showModule('Voir_module_pharmacie')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
         <div class="card card-img-holder text-black text-center module-card">
           <button @click="selectCashRegisterP" class="bien w-100 h-100 border-0 bg-transparent p-0">
             <img src="@/assets/images/pharmacie.png" class="module-icon mt-3 mb-2" alt="Pharmacies" />
@@ -107,7 +107,7 @@
           </button>
         </div>
       </div>
-      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
+      <div v-else-if="showDisabledModule('Voir_module_pharmacie')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
         <div class="card card-img-holder text-black text-center module-card">
           <img src="@/assets/images/pharmacie.png" class="module-icon mt-3 mb-2 disabled-icon" alt="Pharmacies" />
           <div class="p-2 text-center">
@@ -116,7 +116,7 @@
         </div>
       </div>
 
-      <div v-if="hasPermission('Voir_module_caisse')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+      <div v-if="showModule('Voir_module_caisse')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
         <div class="card card-img-holder text-black text-center module-card">
           <button @click="selectCashRegisterA" class="bien w-100 h-100 border-0 bg-transparent p-0">
             <img src="@/assets/images/treasury.png" class="module-icon mt-3 mb-2" alt="Caisses" />
@@ -126,7 +126,7 @@
           </button>
         </div>
       </div>
-      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
+      <div v-else-if="showDisabledModule('Voir_module_caisse')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
         <div class="card card-img-holder text-black text-center module-card">
           <img src="@/assets/images/treasury.png" class="module-icon mt-3 mb-2 disabled-icon" alt="Caisses" />
           <div class="p-2 text-center">
@@ -134,7 +134,7 @@
           </div>
         </div>
       </div>
-      <div v-if="hasPermission('Voir_module_facturation')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+      <div v-if="showModule('Voir_module_facturation')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
         <div class="card card-img-holder text-black text-center module-card">
           <router-link to="/service/facturation" class="card-link">
             <img src="@/assets/images/facture.png" class="module-icon mt-3 mb-2" alt="Facturations" />
@@ -144,7 +144,7 @@
           </router-link>
         </div>
       </div>
-      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
+      <div v-else-if="showDisabledModule('Voir_module_facturation')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
         <div class="card card-img-holder text-black text-center module-card">
           <img src="@/assets/images/facture.png" class="module-icon mt-3 mb-2 disabled-icon" alt="Facturations" />
           <div class="p-2 text-center">
@@ -154,7 +154,7 @@
       </div>
     </div>
     <div class="row mb-4">
-      <div v-if="hasPermission('Voir_module_hospitalisation')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+      <div v-if="showModule('Voir_module_hospitalisation')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
         <div class="card card-img-holder text-black text-center module-card">
           <router-link to="/hospitalization/bed/list" class="card-link">
             <img src="@/assets/images/hopital.png" class="module-icon mt-3 mb-2" alt="Hospitalisations" />
@@ -164,7 +164,7 @@
           </router-link>
         </div>
       </div>
-      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
+      <div v-else-if="showDisabledModule('Voir_module_hospitalisation')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
         <div class="card card-img-holder text-black text-center module-card">
           <img src="@/assets/images/hopital.png" class="module-icon mt-3 mb-2 disabled-icon" alt="Hospitalisations" />
           <div class="p-2 text-center">
@@ -172,7 +172,7 @@
           </div>
         </div>
       </div>
-      <div v-if="hasPermission('Voir_module_Recouvrement')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+      <div v-if="showModule('Voir_module_Recouvrement')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
         <div class="card card-img-holder text-black text-center module-card">
           <router-link to="/rembourse_recouvre/recouvrement_patient" class="card-link">
             <img src="@/assets/images/money-flow.png" class="module-icon mt-3 mb-2" alt="Recouvrements" />
@@ -182,7 +182,7 @@
           </router-link>
         </div>
       </div>
-      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
+      <div v-else-if="showDisabledModule('Voir_module_Recouvrement')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
         <div class="card card-img-holder text-black text-center module-card">
           <img src="@/assets/images/money-flow.png" class="module-icon mt-3 mb-2 disabled-icon" alt="Recouvrements" />
           <div class="p-2 text-center">
@@ -191,7 +191,7 @@
         </div>
       </div>
 
-      <div v-if="hasPermission('Voir_module_stock')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+      <div v-if="showModule('Voir_module_stock')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
         <div class="card card-img-holder text-black text-center module-card">
           <router-link to="/medicaments/list" class="card-link">
             <img src="@/assets/images/package.png" class="module-icon mt-3 mb-2" alt="Stocks" />
@@ -201,7 +201,7 @@
           </router-link>
         </div>
       </div>
-      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
+      <div v-else-if="showDisabledModule('Voir_module_stock')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
         <div class="card card-img-holder text-black text-center module-card">
           <img src="@/assets/images/package.png" class="module-icon mt-3 mb-2 disabled-icon" alt="Stocks" />
           <div class="p-2 text-center">
@@ -209,7 +209,7 @@
           </div>
         </div>
       </div>
-      <div v-if="hasPermission('Voir_module_Ressources')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+      <div v-if="showModule('Voir_module_Ressources')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
         <div class="card card-img-holder text-black text-center module-card">
           <router-link to="/grh/list" class="card-link">
             <img src="@/assets/images/teamwork.png" class="module-icon mt-3 mb-2" alt="Ressources Humaines" />
@@ -219,7 +219,7 @@
           </router-link>
         </div>
       </div>
-      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
+      <div v-else-if="showDisabledModule('Voir_module_Ressources')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
         <div class="card card-img-holder text-black text-center module-card">
           <img src="@/assets/images/teamwork.png" class="module-icon mt-3 mb-2 disabled-icon" alt="Ressources Humaines" />
           <div class="p-2 text-center">
@@ -227,7 +227,7 @@
           </div>
         </div>
       </div>
-      <div v-if="hasPermission('Voir_module_assurance')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+      <div v-if="showModule('Voir_module_assurance')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
         <div class="card card-img-holder text-black text-center module-card">
           <router-link to="priseencharge/list" class="card-link">
             <img src="@/assets/images/assurancee.png" class="module-icon mt-3 mb-2" alt="Assurances" />
@@ -237,7 +237,7 @@
           </router-link>
         </div>
       </div>
-      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
+      <div v-else-if="showDisabledModule('Voir_module_assurance')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
         <div class="card card-img-holder text-black text-center module-card">
           <img src="@/assets/images/assurancee.png" class="module-icon mt-3 mb-2 disabled-icon" alt="Assurances" />
           <div class="p-2 text-center">
@@ -246,7 +246,7 @@
         </div>
       </div>
 
-      <div v-if="hasPermission('Voir_module_rendezvous')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+      <div v-if="showModule('Voir_module_rendezvous')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
         <div class="card card-img-holder text-black text-center module-card">
           <router-link to="/rendezvous/planning" class="card-link">
             <img src="@/assets/images/calendrier.png" class="module-icon mt-3 mb-2" alt="Rendez-vous" />
@@ -256,7 +256,7 @@
           </router-link>
         </div>
       </div>
-      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
+      <div v-else-if="showDisabledModule('Voir_module_rendezvous')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
         <div class="card card-img-holder text-black text-center module-card">
           <img src="@/assets/images/calendrier.png" class="module-icon mt-3 mb-2 disabled-icon" alt="Rendez-vous" />
           <div class="p-2 text-center">
@@ -266,7 +266,7 @@
       </div>
     </div>
     <div class="row mb-2">
-      <div v-if="hasPermission('Voir_module_Rapport')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+      <div v-if="showModule('Voir_module_Rapport')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
         <div class="card card-img-holder text-center bg-success module-card">
           <router-link to="/rapport_statistique/list" class="card-link">
             <img src="@/assets/images/data-report.png" class="module-icon mt-3 mb-2" alt="Rapports" />
@@ -276,7 +276,7 @@
           </router-link>
         </div>
       </div>
-      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
+      <div v-else-if="showDisabledModule('Voir_module_Rapport')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
         <div class="card card-img-holder text-black text-center module-card">
           <img src="@/assets/images/data-report.png" class="module-icon mt-3 mb-2 disabled-icon" alt="Rapports" />
           <div class="p-2 text-center">
@@ -285,7 +285,7 @@
         </div>
       </div>
 
-      <div v-if="hasPermission('Voir_module_Configuration')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+      <div v-if="showModule('Voir_module_Configuration')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
         <div class="card card-img-holder text-black text-center bg-danger module-card">
           <router-link to="/configuration/store/list" class="card-link">
             <img src="@/assets/images/parametrage.png" class="module-icon mt-3 mb-2" alt="Configuration" />
@@ -295,7 +295,7 @@
           </router-link>
         </div>
       </div>
-      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
+      <div v-else-if="showDisabledModule('Voir_module_Configuration')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
         <div class="card card-img-holder text-black text-center module-card">
           <img src="@/assets/images/parametrage.png" class="module-icon mt-3 mb-2 disabled-icon" alt="Configuration" />
           <div class="p-2 text-center">
@@ -403,12 +403,19 @@ export default {
       listCashRegisterA: [],
       listCashRegisterP: [],
       // permission: JSON.parse(localStorage.getItem("permission")),
-      user: JSON.parse(localStorage.getItem("user")),
+      user: JSON.parse(localStorage.getItem("user")) || null,
       permission: JSON.parse(localStorage.getItem("permission")) || [], // Initialisation avec un tableau vide
+      freePlanModules: ["Voir_module_patient", "Voir_module_mouvement", "Voir_module_pharmacie", "Voir_module_caisse"],
       // accessToken: JSON.parse(localStorage.getItem("access_token")) || null,
     };
   },
 
+  computed: {
+    isFreePlan() {
+      const u = this.user;
+      return !!(u && (u.plan === "free" || u.plan === "trial"));
+    },
+  },
   mounted() {
     // L'appel API pour charger les caisses est maintenant fait de manière lazy
     // seulement quand l'utilisateur ouvre un modal (selectCashRegisterA ou selectCashRegisterP)
@@ -416,6 +423,15 @@ export default {
   },
 
   methods: {
+    isFreePlanModule(perm) {
+      return this.freePlanModules.includes(perm);
+    },
+    showModule(perm) {
+      return this.hasPermission(perm) && (!this.isFreePlan || this.isFreePlanModule(perm));
+    },
+    showDisabledModule(perm) {
+      return (!this.isFreePlan || this.isFreePlanModule(perm)) && !this.hasPermission(perm);
+    },
     hasPermission(permission) {
       if (!this.permission) return false;
       // Comparaison insensible à la casse

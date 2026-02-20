@@ -13,20 +13,6 @@
       <div class="container">
         <div class="row">
           <div class="col-12 col-lg-10 mx-auto">
-            <!-- Social Share -->
-            <div class="social">
-              <div class="share-us">
-                <h6 class="share-title">share post:</h6>
-                <div class="sc-wrapper dir-row sc-flat">
-                  <ul class="sc-list">
-                    <li class="sc-item" title="Facebook"><a class="sc-link" href="#0"><i class="fab fa-facebook-f sc-icon"></i></a></li>
-                    <li class="sc-item" title="X"><a class="sc-link" href="#0"><i class="fab fa-x-twitter sc-icon"></i></a></li>
-                    <li class="sc-item" title="LinkedIn"><a class="sc-link" href="#0"><i class="fab fa-linkedin-in sc-icon"></i></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            
             <!-- Post Title -->
             <h2 class="post-title">{{ postTitle }}</h2>
             

@@ -9,12 +9,37 @@
     "menu": {
         "dashboard": "Dashboard",
         "settings": "Settings",
-        "profile": "Profile"
+        "profile": "Profile",
+        "presentation": "Overview",
+        "features": "Features",
+        "pricing": "Pricing",
+        "resources": "Resources",
+        "documentation": "Documentation",
+        "faq": "FAQ",
+        "assistance": "Support",
+        "contact": "Contact"
     },
     "header": {
         "search_placeholder": "Search",
         "cta_register": "Register for free",
         "cta_login": "Login"
+    },
+    "onboarding": {
+        "title": "Create your MedKey space",
+        "subtitle": "A few details to get started for free.",
+        "email_label": "Email address",
+        "email_placeholder": "you@your-organization.com",
+        "organization_label": "Organization name",
+        "organization_placeholder": "e.g. Dupont Medical Practice",
+        "continuer": "Continue",
+        "continuer_loading": "Sending...",
+        "creating_title": "Your space is being created",
+        "creating_message": "We are setting up your space with Patients, Movements, Pharmacy and Cashier modules. This will only take a moment.",
+        "creating_loading": "Loading",
+        "email_sent_title": "Email sent",
+        "email_sent_message": "An email has been sent to you. It contains a link to create your password and activate your access to the platform.",
+        "email_sent_hint": "Check your inbox (and spam folder) then click the link to complete your registration.",
+        "error_default": "An error occurred. Please try again."
     },
     "pricing": {
         "section": {
@@ -24,7 +49,7 @@
             "cta_see_all": "See all plans",
             "cta_select": "Select plan",
             "per_month": "per month",
-            "currency": "$"
+            "currency": " FCFA"
         },
         "plans": {
             "free": {
@@ -33,22 +58,13 @@
                 "price": "0",
                 "target": "Health centers, medical practices, facilities < 10 beds",
                 "features": {
-                    "adt_basic": "Patient administration (Basic ADT)",
-                    "patient_registration": "Patient registration",
-                    "admission_discharge": "Admission / discharge",
-                    "dme_simple": "Simplified Electronic Medical Record",
-                    "consultation": "Consultation",
-                    "medical_history": "Medical history",
-                    "prescriptions_pdf": "PDF prescriptions",
-                    "appointments": "Appointments & scheduling",
-                    "max_users": "Maximum 3 users",
-                    "cloud_hosting": "Shared cloud hosting",
-                    "email_support": "Standard email support"
+                    "patient": "Patient",
+                    "mouvement_patient": "Patient Movement",
+                    "pharmacie": "Pharmacy",
+                    "caisse": "Cashier"
                 },
                 "limitations": {
                     "no_hl7": "No HL7 / FHIR integration",
-                    "no_billing": "No advanced billing module",
-                    "no_pharmacy": "No pharmacy or laboratory",
                     "storage_limit": "Limited storage (5 GB)",
                     "branding": "Branding required"
                 }
@@ -56,8 +72,8 @@
             "essential": {
                 "name": "Pro Clinic",
                 "subtitle": "ESSENTIAL Plan",
-                "price_from": "149",
-                "price_to": "299",
+                "price_from": "98,000",
+                "price_to": "196,000",
                 "target": "Private clinics, hospitals < 50 beds",
                 "features": {
                     "includes_free": "Everything in Free plan +",
@@ -80,8 +96,8 @@
             "professional": {
                 "name": "General Hospital",
                 "subtitle": "PROFESSIONAL Plan",
-                "price_from": "799",
-                "price_to": "1500",
+                "price_from": "524,000",
+                "price_to": "984,000",
                 "target": "Hospitals 50 – 200 beds",
                 "features": {
                     "includes_essential": "Everything in Essential +",
@@ -136,6 +152,16 @@
             "simple_api": "Simple API",
             "included": "Included",
             "not_included": "Not included"
+        },
+        "page": {
+            "page_title": "Pricing",
+            "breadcrumb": "Pricing",
+            "take_action": {
+                "pre_title": "Have a question?",
+                "title": "Let's talk about your project",
+                "subtitle": "Personalized demo, deployment support or a quick chat: our team replies within 24 hours.",
+                "cta": "Contact us"
+            }
         }
     },
     "accueil": {
@@ -162,6 +188,14 @@
                     "titre": "Deploy an HIS compliant with international standards for",
                     "mot_cle": "Sovereign",
                     "sous_titre": "Modular architecture compatible with HL7 FHIR and DICOM, ensuring secure medical data exchange and integration with national health surveillance systems.",
+                    "cta_principal": "Request a demo",
+                    "cta_secondaire": "Contact us"
+                },
+                {
+                    "pre_titre": "Support & implementation",
+                    "titre": "A partner by your side to",
+                    "mot_cle": "succeed",
+                    "sous_titre": "Staff training, deployment assistance, and ongoing support to ensure adoption and long-term success of your health information system.",
                     "cta_principal": "Request a demo",
                     "cta_secondaire": "Contact us"
                 }
@@ -202,9 +236,9 @@
             "cta": "View the architecture"
         },
         "modules": {
-            "pre_titre": "Functional coverage",
-            "titre": "14 modules to cover all hospital needs",
-            "sous_titre": "Each module can be deployed independently and integrates natively with the other platform components.",
+            "pre_titre": "Our features",
+            "titre": "A complete suite for clinic and hospital",
+            "sous_titre": "From front desk to OR, pharmacy to lab: one platform, building blocks that fit together. Start with the essentials, scale on demand.",
             "liste": {
                 "adt": {
                     "titre": "Admissions, Transfers, Discharges",
@@ -264,6 +298,19 @@
                 }
             },
             "cta": "Explore modules"
+        },
+        "services_page": {
+            "page_title": "Features",
+            "breadcrumb": "Features",
+            "pre_titre": "Our features",
+            "titre": "A complete suite for clinic and hospital",
+            "sous_titre": "From front desk to OR, pharmacy to lab: one platform, building blocks that fit together. Start with the essentials, scale on demand.",
+            "take_action": {
+                "pre_title": "Have a question?",
+                "title": "Let's talk about your project",
+                "subtitle": "Personalized demo, deployment support or a quick chat: our team replies within 24 hours.",
+                "cta": "Contact us"
+            }
         },
         "interoperabilite": {
             "pre_titre": "International standards",
@@ -406,6 +453,77 @@
             "sous_titre": "Join the facilities that chose Medkey to centralize their data, streamline their processes, and improve care quality.",
             "cta_principal": "Schedule a demonstration",
             "cta_secondaire": "Contact the team"
+        }
+    },
+    "contact": {
+        "breadcrumb": "Contact",
+        "page_title": "Contact",
+        "offices_title": "Our headquarters",
+        "map_title": "Find us on the map",
+        "form_title": "Have a question? Get in touch",
+        "form_intro": "Demo request, technical support or partnership: we reply within 24 hours.",
+        "office": {
+            "name": "Cotonou",
+            "address": "Benin, Cotonou.",
+            "email_label": "Email",
+            "phone_label": "Phone",
+            "email": "support@medkey.com",
+            "phone": "+225 07 00 00 00 00"
+        },
+        "form": {
+            "name": "Name",
+            "email": "Email",
+            "subject": "Subject",
+            "message": "Your message",
+            "submit": "Send message",
+            "required": "*",
+            "sending": "Sending…",
+            "success": "Message sent. We will get back to you shortly.",
+            "error": "Sending failed. Please try again or email us directly."
+        }
+    },
+    "ressources_page": {
+        "page_title": "Resources",
+        "breadcrumb": "Resources",
+        "intro_title": "MedKey Resource Center",
+        "intro_subtitle": "Documentation, guides and support to deploy and use your HIS with confidence.",
+        "doc_title": "Documentation",
+        "doc_subtitle": "Technical and functional guides for administrators and users.",
+        "doc_items": [
+            { "title": "Getting started guide", "desc": "First steps with MedKey: account creation, facility setup and user management.", "icon": "fas fa-book" },
+            { "title": "Module manuals", "desc": "Detailed description of Patient, Pharmacy, Cashier, Laboratory modules and best practices.", "icon": "fas fa-cubes" },
+            { "title": "API and integrations", "desc": "Technical documentation for REST APIs, HL7 FHIR and third-party system interfaces.", "icon": "fas fa-plug" },
+            { "title": "Security and compliance", "desc": "Security policies, backups, GDPR and best practices for health data.", "icon": "fas fa-shield-alt" }
+        ],
+        "guides_title": "Practical guides",
+        "guides_subtitle": "Tutorials and sheets for day-to-day teams.",
+        "guides_items": [
+            { "title": "Patient admission and discharge", "desc": "ADT workflow: registration, admission, transfer, discharge and bed management." },
+            { "title": "Billing and collection", "desc": "Invoicing, third-party billing, payments and financial reports." },
+            { "title": "Pharmacy management", "desc": "Stock, dispensing, orders and inventory." }
+        ],
+        "support_title": "Need help?",
+        "support_desc": "Our support team and partners are available for training and onboarding.",
+        "support_cta": "Contact us"
+    },
+    "assistance_page": {
+        "page_title": "Support",
+        "breadcrumb": "Support",
+        "faq_title": "Frequently asked questions",
+        "faq_subtitle": "Find answers to the most common questions about MedKey.",
+        "faqs": [
+            { "q": "Is MedKey suitable for a small facility?", "a": "Yes. The free plan (Starter Clinic) includes Patient, Patient Movement, Pharmacy and Cashier modules, ideal for a practice or health center. You can upgrade to paid plans as needed." },
+            { "q": "How does go-live work?", "a": "After sign-up we configure your instance, migrate your data if needed and train your staff. Deployment support is included depending on the plan." },
+            { "q": "Is my data secure?", "a": "Yes. Data is hosted in secure environments with regular backups and compliance with applicable requirements (GDPR, health best practices)." },
+            { "q": "Can I connect my lab or PACS?", "a": "Essential and higher plans support HL7, FHIR and DICOM integrations for lab and imaging. Our team helps with setup." },
+            { "q": "What technical support is offered?", "a": "Email support for the free plan. Paid plans include priority support and, depending on the offer, dedicated onboarding and an SLA." },
+            { "q": "How do I upgrade my plan?", "a": "From your dashboard or by contacting our sales team. Migration is done without data loss and with support if needed." }
+        ],
+        "take_action": {
+            "pre_title": "Have a question?",
+            "title": "Our team will answer",
+            "subtitle": "For a demo, onboarding or technical support: contact us within 24 hours.",
+            "cta": "Contact us"
         }
     }
 }

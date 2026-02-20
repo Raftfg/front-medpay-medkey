@@ -24,20 +24,24 @@ window.initFlexItTemplate = function () {
 
   ("use strict");
 
-  // function to fire the conter plugin
+  // function to fire the counter plugin (trigger on scroll or when stats section is in view)
   let counterShowsUp = false;
 
   function fireCounter() {
     if ($(".js-stats-counter").length) {
       if (jQuery().countTo && counterShowsUp === false) {
-        let pos = $(".js-stats-counter").offset().top;
-        if (main_window.scrollTop() + main_window.innerHeight() - 50 >= pos) {
+        var $section = $(".js-stats-counter");
+        var pos = $section.offset().top;
+        var inView = main_window.scrollTop() + main_window.innerHeight() - 50 >= pos;
+        if (inView) {
           $(".counter").countTo();
           counterShowsUp = true;
         }
       }
     }
   }
+
+  window.fireFlexItCounter = fireCounter;
 
   // Start open/close navbar search box
   $(".header-search-box form").off("click").on("click", function (e) {
@@ -204,6 +208,9 @@ window.initFlexItTemplate = function () {
 
   /* *******   initialize Counter plugin ********/
   fireCounter();
+  // Re-run after delay so Vue-rendered stats are in DOM and in view on load (reload)
+  setTimeout(fireCounter, 400);
+  setTimeout(fireCounter, 1200);
 
   /* ********* set the Background Image path and opacity for elements that has the  a vlaue for data-bg-img attribute***********/
   const bg_img = $("*");
@@ -230,27 +237,7 @@ window.initFlexItTemplate = function () {
     });
   });
 
-  /* ******* Start Percentage loading screen interactions ********/
-  if ($("#loading-screen").length) {
-    let percentage = 0;
-    let LoadingCounter = setInterval(function () {
-      if (percentage <= 100) {
-        $("#loading-screen .loading-counter").text(percentage + "%");
-        $("#loading-screen .bar").css("width", (100 - percentage) / 2 + "%");
-        $("#loading-screen .progress-line").css(
-          "transform",
-          "scale(" + percentage / 100 + ")"
-        );
-        percentage++;
-      } else {
-        $("#loading-screen").fadeOut(500);
-        setTimeout(() => {
-          $("#loading-screen").remove();
-        }, 1500);
-        clearInterval(LoadingCounter);
-      }
-    }, 10);
-  }
+  /* ******* Loading screen: géré par le composant Vue FlexItLoadingScreen (affichage + animation au chargement et à chaque changement de route) ********/
 
   main_window.off("scroll.misc").on("scroll.misc", function () {
     if ($(this).scrollTop() > 50) {
@@ -305,7 +292,8 @@ window.initFlexItTemplate = function () {
       fadeEffect: { crossFade: true },
       on: {
         init: function () {
-          $(".slides-count").html("0" + (this.slides.length - 2));
+          var total = this.slides && this.slides.length ? this.slides.length : 4;
+          $(".slides-count").html("0" + (total > 2 ? total - 2 : total));
           $(".curent-slide").html("0" + (this.realIndex + 1));
         },
         slideChange: function () {
@@ -315,6 +303,30 @@ window.initFlexItTemplate = function () {
       autoplay: { delay: 5000, disableOnInteraction: true },
       pagination: { el: ".hero-swiper-slider.slide-effect .swiper-pagination", type: "bullets", clickable: true },
       navigation: { nextEl: ".hero-swiper-slider.slide-effect .swiper-button-next", prevEl: ".hero-swiper-slider.slide-effect .swiper-button-prev" },
+    });
+  }
+
+  /* *******  Start particles.js (hero background) ********/
+  if (typeof particlesJS !== "undefined" && $("#particles-js").length) {
+    var root = document.documentElement;
+    var mainColor = root && getComputedStyle(root).getPropertyValue("--clr-main") ? getComputedStyle(root).getPropertyValue("--clr-main").trim() : "#09aff4";
+    var particlesOpt = $(".particles-js.bubels").length
+      ? { particleNumber: 15, particleSize: 25, particleOpacity: 0.25 }
+      : $(".particles-js.dots").length
+        ? { particleNumber: 150, particleSize: 3, particleOpacity: 0.5 }
+        : { particleNumber: 80, particleSize: 4, particleOpacity: 0.4 };
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: particlesOpt.particleNumber, density: { enable: true, value_area: 500 } },
+        color: { value: mainColor },
+        shape: { type: "circle", stroke: { width: 0, color: "#000" } },
+        opacity: { value: particlesOpt.particleOpacity, random: true, anim: { enable: true, speed: 1, opacity_min: 0, sync: false } },
+        size: { value: particlesOpt.particleSize, random: true, anim: { enable: true, speed: 5, size_min: 0.3, sync: false } },
+        line_linked: { enable: false },
+        move: { enable: true, speed: 5, direction: "none", random: true, straight: false, out_mode: "out", bounce: false }
+      },
+      interactivity: { detect_on: "canvas", events: { onhover: { enable: false }, onclick: { enable: false }, resize: true }, modes: { push: { particles_nb: 4 }, remove: { particles_nb: 2 } } },
+      retina_detect: true
     });
   }
 

@@ -40,9 +40,9 @@
           <h2 class="footer-col-title">Resources</h2>
           <div class="footer-col-content-wrapper">
             <ul class="footer-menu">
-              <li class="footer-menu-item"><i class="bi bi-arrow-right icon"></i><router-link class="footer-menu-link" to="/faq">Documentation</router-link></li>
+              <li class="footer-menu-item"><i class="bi bi-arrow-right icon"></i><router-link class="footer-menu-link" to="/ressources">Ressources</router-link></li>
+              <li class="footer-menu-item"><i class="bi bi-arrow-right icon"></i><router-link class="footer-menu-link" to="/faq">Assistance</router-link></li>
               <li class="footer-menu-item"><i class="bi bi-arrow-right icon"></i><router-link class="footer-menu-link" to="/auth-pages/login">Espace Client</router-link></li>
-              <li class="footer-menu-item"><i class="bi bi-arrow-right icon"></i><router-link class="footer-menu-link" to="/contact-us">Assistance</router-link></li>
             </ul>
           </div>
         </div>
@@ -50,20 +50,8 @@
           <h2 class="footer-col-title">contact information</h2>
           <div class="footer-col-content-wrapper">       
             <div class="contact-info-card"><i class="bi bi-envelope icon"></i><a class="text-lowercase info" href="mailto:support@medkey.com">support@medkey.com</a></div>
-            <div class="contact-info-card"><i class="bi bi-geo-alt icon"></i><span class="text-lowercase info">Abidjan, Côte d'Ivoire</span></div>
+            <div class="contact-info-card"><i class="bi bi-geo-alt icon"></i><span class="text-lowercase info">Cotonou, Bénin</span></div>
             <div class="contact-info-card"><i class="bi bi-phone icon"></i><a class="info" href="tel:+2250102030405">+225 01 02 03 04 05</a></div>
-            <div class="contact-info-card">
-              <div class="social-icons">
-                <div class="sc-wrapper dir-row sc-size-32">
-                  <ul class="sc-list">
-                    <li class="sc-item" title="Facebook"><a class="sc-link" href="#0" title="social media icon"><i class="fab fa-facebook-f sc-icon"></i></a></li>
-                    <li class="sc-item" title="youtube"><a class="sc-link" href="#0" title="social media icon"><i class="fab fa-youtube sc-icon"></i></a></li>
-                    <li class="sc-item" title="instagram"><a class="sc-link" href="#0" title="social media icon"><i class="fab fa-instagram sc-icon"></i></a></li>
-                    <li class="sc-item" title="X"><a class="sc-link" href="#0" title="social media icon"><i class="fab fa-x-twitter sc-icon"></i></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

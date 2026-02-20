@@ -15,18 +15,6 @@
                 <div class="col-12 col-lg-8">
                   <div class="row">
                     <div class="col-12">
-                      <div class="hero-social-icons">
-                        <div class="sc-wrapper dir-row sc-flat">
-                          <ul class="sc-list">
-                            <li class="sc-item" title="Facebook"><a class="sc-link" href="#0"><i class="fab fa-facebook-f sc-icon"></i></a></li>
-                            <li class="sc-item" title="youtube"><a class="sc-link" href="#0"><i class="fab fa-youtube sc-icon"></i></a></li>
-                            <li class="sc-item" title="instagram"><a class="sc-link" href="#0"><i class="fab fa-instagram sc-icon"></i></a></li>
-                            <li class="sc-item" title="X"><a class="sc-link" href="#0"><i class="fab fa-x-twitter sc-icon"></i></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-12">
                       <div class="pre-title">{{ slide.pre_titre }}</div>
                       <h1 class="slide-title">
                         {{ slide.titre }}
@@ -46,13 +34,6 @@
                       <div class="cta-links-area">
                         <a class="btn-solid cta-link cta-link-primary" href="#0">{{ slide.cta_principal }}</a>
                         <a v-if="slide.cta_secondaire" class="btn-outline cta-link" href="#0">{{ slide.cta_secondaire }}</a>
-                        <div v-if="index === 0" class="play-btn-row-dir inverted-colors">
-                          <a class="video-link" href="https://www.youtube.com/watch?v=QI4_dGvZ5yE&amp;ab_channel=JUtah" role="button" title="play" data-fancybox="data-fancybox">
-                            <div class="play-video-btn">
-                              <div class="play-btn"><i class="fas fa-play icon"></i></div>
-                            </div>
-                          </a>
-                        </div>
                       </div>
                     </div>
                   </div>

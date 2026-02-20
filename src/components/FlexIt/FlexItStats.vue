@@ -1,6 +1,6 @@
 <template>
   <!-- Start stats Section-->
-  <section class="stats js-stats-counter mega-section">
+  <section ref="statsSection" class="stats js-stats-counter mega-section">
     <div class="overlay-photo-image-bg" :style="{ backgroundImage: 'url(' + patternBg3 + ')' }" data-bg-opacity=".2"></div>
     <div class="container">
       <div class="stats-inner">
@@ -27,12 +27,58 @@ export default {
   name: "FlexItStats",
   data() {
     return {
-      patternBg3: require("@/assets/flex-it/assets/images/sections-bg-images/pattern-bg-3.jpg")
+      patternBg3: require("@/assets/flex-it/assets/images/sections-bg-images/pattern-bg-3.jpg"),
+      counterStarted: false
     };
   },
   computed: {
     stats() {
       return this.$t('accueil.stats.items');
+    }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.observeAndFireCounter();
+      setTimeout(() => this.tryFireCounter(), 400);
+      setTimeout(() => this.tryFireCounter(), 1200);
+    });
+  },
+  methods: {
+    tryFireCounter() {
+      if (this.counterStarted) return;
+      if (typeof window.fireFlexItCounter === "function") {
+        window.fireFlexItCounter();
+      }
+    },
+    startCountTo() {
+      if (this.counterStarted) return;
+      const $ = window.jQuery || window.$;
+      if (!$ || !$.fn.countTo) return;
+      const el = this.$refs.statsSection;
+      if (!el) return;
+      const $counters = $(el).find(".counter");
+      if ($counters.length) {
+        $counters.countTo();
+        this.counterStarted = true;
+      }
+    },
+    observeAndFireCounter() {
+      const section = this.$refs.statsSection;
+      if (!section || typeof IntersectionObserver === "undefined") {
+        this.tryFireCounter();
+        return;
+      }
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !this.counterStarted) {
+              this.$nextTick(() => this.startCountTo());
+            }
+          });
+        },
+        { rootMargin: "0px", threshold: 0.1 }
+      );
+      observer.observe(section);
     }
   }
 };

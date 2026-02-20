@@ -9,12 +9,37 @@
     "menu": {
         "dashboard": "Tableau de bord",
         "settings": "Paramètres",
-        "profile": "Profil"
+        "profile": "Profil",
+        "presentation": "Présentation",
+        "features": "Fonctionnalités",
+        "pricing": "Tarifs",
+        "resources": "Ressources",
+        "documentation": "Documentation",
+        "faq": "FAQ",
+        "assistance": "Assistance",
+        "contact": "Contact"
     },
     "header": {
         "search_placeholder": "Rechercher",
         "cta_register": "Accéder gratuitement",
         "cta_login": "Connexion"
+    },
+    "onboarding": {
+        "title": "Créez votre espace MedKey",
+        "subtitle": "Quelques informations pour démarrer gratuitement.",
+        "email_label": "Adresse e-mail",
+        "email_placeholder": "vous@votre-organisation.com",
+        "organization_label": "Nom de l'organisation",
+        "organization_placeholder": "Ex. Cabinet Médical Dupont",
+        "continuer": "Continuer",
+        "continuer_loading": "Envoi en cours...",
+        "creating_title": "Votre espace est en cours de création",
+        "creating_message": "Nous configurons votre espace avec les modules Patients, Mouvements, Pharmacie et Caisse. Cela ne prend que quelques instants.",
+        "creating_loading": "Chargement",
+        "email_sent_title": "E-mail envoyé",
+        "email_sent_message": "Un e-mail vous a été envoyé. Il contient un lien pour créer votre mot de passe et activer votre accès à la plateforme.",
+        "email_sent_hint": "Consultez votre boîte de réception (et les spams) puis cliquez sur le lien pour finaliser votre inscription.",
+        "error_default": "Une erreur est survenue. Veuillez réessayer."
     },
     "pricing": {
         "section": {
@@ -24,7 +49,7 @@
             "cta_see_all": "Voir tous les plans",
             "cta_select": "Sélectionner le plan",
             "per_month": "par mois",
-            "currency": "€"
+            "currency": " FCFA"
         },
         "plans": {
             "free": {
@@ -33,22 +58,13 @@
                 "price": "0",
                 "target": "Centres de santé, cabinets médicaux, structures < 10 lits",
                 "features": {
-                    "adt_basic": "Administration des patients (ADT basique)",
-                    "patient_registration": "Enregistrement patient",
-                    "admission_discharge": "Admission / sortie",
-                    "dme_simple": "Dossier Médical Électronique simplifié",
-                    "consultation": "Consultation",
-                    "medical_history": "Antécédents",
-                    "prescriptions_pdf": "Ordonnances PDF",
-                    "appointments": "Agenda & rendez-vous",
-                    "max_users": "3 utilisateurs maximum",
-                    "cloud_hosting": "Hébergement cloud partagé",
-                    "email_support": "Support email standard"
+                    "patient": "Patient",
+                    "mouvement_patient": "Mouvement Patient",
+                    "pharmacie": "Pharmacie",
+                    "caisse": "Caisse"
                 },
                 "limitations": {
                     "no_hl7": "Pas d'intégration HL7 / FHIR",
-                    "no_billing": "Pas de module facturation avancée",
-                    "no_pharmacy": "Pas de pharmacie ni laboratoire",
                     "storage_limit": "Stockage limité (5 Go)",
                     "branding": "Branding imposé"
                 }
@@ -56,8 +72,8 @@
             "essential": {
                 "name": "Clinique Pro",
                 "subtitle": "Plan ESSENTIEL",
-                "price_from": "149",
-                "price_to": "299",
+                "price_from": "98 000",
+                "price_to": "196 000",
                 "target": "Cliniques privées, hôpitaux < 50 lits",
                 "features": {
                     "includes_free": "Tout le plan Free +",
@@ -80,8 +96,8 @@
             "professional": {
                 "name": "Hôpital Général",
                 "subtitle": "Plan PROFESSIONNEL",
-                "price_from": "799",
-                "price_to": "1500",
+                "price_from": "524 000",
+                "price_to": "984 000",
                 "target": "Hôpitaux 50 – 200 lits",
                 "features": {
                     "includes_essential": "Tout Essential +",
@@ -136,74 +152,92 @@
             "simple_api": "API simple",
             "included": "Inclus",
             "not_included": "Non inclus"
+        },
+        "page": {
+            "page_title": "Tarifs",
+            "breadcrumb": "Tarifs",
+            "take_action": {
+                "pre_title": "Une question ?",
+                "title": "Parlons de votre projet",
+                "subtitle": "Démo personnalisée, accompagnement au déploiement ou simple échange : notre équipe vous répond sous 24 h.",
+                "cta": "Nous contacter"
+            }
         }
     },
     "accueil": {
         "hero": {
             "slides": [
                 {
-                    "pre_titre": "Transformation digitale des établissements de santé",
-                    "titre": "Modernisez votre gestion",
-                    "mot_cle": "hospitalière",
-                    "sous_titre": "Une plateforme SIH complète conçue pour renforcer la qualité des soins, assurer la continuité des services médicaux et structurer durablement les données cliniques au service des populations.",
-                    "cta_principal": "Essayer gratuitement",
-                    "cta_secondaire": "Découvrir la plateforme"
+                    "pre_titre": "Le SIH qui fait la différence",
+                    "titre": "Passez à l'ère du soin",
+                    "mot_cle": "connecté",
+                    "sous_titre": "Une seule plateforme pour piloter votre établissement : données unifiées, parcours patient fluide, décisions en temps réel. La qualité des soins commence par l'information.",
+                    "cta_principal": "Démarrer gratuitement",
+                    "cta_secondaire": "Voir la démo"
                 },
                 {
-                    "pre_titre": "Pilotage & performance institutionnelle",
-                    "titre": "Transformez vos données",
-                    "mot_cle": "hospitalières",
-                    "sous_titre": "Centralisez les données cliniques, financières et logistiques afin d'améliorer la transparence, l'efficacité budgétaire et le suivi des indicateurs de santé publique en temps réel.",
-                    "cta_principal": "Essayer gratuitement",
-                    "cta_secondaire": "Découvrir la plateforme"
+                    "pre_titre": "Performance & pilotage",
+                    "titre": "Vos données deviennent",
+                    "mot_cle": "stratégiques",
+                    "sous_titre": "Tableaux de bord vivants, indicateurs à jour, recouvrement optimisé. Reprenez la main sur l'activité et la gouvernance de votre hôpital.",
+                    "cta_principal": "Démarrer gratuitement",
+                    "cta_secondaire": "Voir la démo"
                 },
                 {
-                    "pre_titre": "Infrastructure sécurisée & interopérable",
-                    "titre": "Déployez un SIH conforme aux",
-                    "mot_cle": "standards",
-                    "sous_titre": "Architecture modulaire compatible HL7 FHIR et DICOM, garantissant l'échange sécurisé des données médicales et l'intégration avec les systèmes nationaux de surveillance sanitaire.",
-                    "cta_principal": "Essayer gratuitement",
-                    "cta_secondaire": "Découvrir la plateforme"
+                    "pre_titre": "Conforme & interopérable",
+                    "titre": "Un SIH aux",
+                    "mot_cle": "standards internationaux",
+                    "sous_titre": "HL7 FHIR, DICOM, échanges sécurisés. Intégrez laboratoire, imagerie et systèmes nationaux sans vous enfermer. L'interopérabilité au cœur de l'architecture.",
+                    "cta_principal": "Démarrer gratuitement",
+                    "cta_secondaire": "Voir la démo"
+                },
+                {
+                    "pre_titre": "Accompagnement sur mesure",
+                    "titre": "Déployez avec un partenaire qui vous",
+                    "mot_cle": "accompagne",
+                    "sous_titre": "Formation, mise en production et support réactif. Nous garantissons l'adoption par les équipes et la pérennité de votre système d'information de santé.",
+                    "cta_principal": "Démarrer gratuitement",
+                    "cta_secondaire": "Nous contacter"
                 }
             ]
         },
         "probleme": {
-            "pre_titre": "La transformation",
-            "titre": "Transformer votre SIH grâce à MedKey",
-            "sous_titre": "MedKey unifie les données, automatise les processus et sécurise les échanges pour renforcer la performance et la gouvernance hospitalière.",
+            "pre_titre": "Pourquoi MedKey",
+            "titre": "Un SIH pensé pour la performance",
+            "sous_titre": "Données unifiées, processus fluidifiés, sécurité et traçabilité. Tout ce dont votre établissement a besoin pour grandir sereinement.",
             "points": [
                 {
-                    "titre": "Données unifiées",
-                    "description": "Centralisez les données patients, médicales et administratives au sein d’une plateforme unique garantissant une prise en charge continue.",
+                    "titre": "Une vision 360°",
+                    "description": "Un seul tableau de bord pour le parcours patient, les indicateurs cliniques et la facturation. La vision 360° dont chaque direction a besoin.",
                     "icone": "flaticon-web-development"
                 },
                 {
-                    "titre": "Processus automatisés",
-                    "description": "Digitalisez l’admission, la facturation, la gestion des stocks et la planification pour réduire les erreurs et améliorer la performance financière.",
+                    "titre": "Moins de paperasse, plus de soins",
+                    "description": "Admission, facturation, stocks et plannings numérisés. Moins de saisies, moins d'erreurs, plus de temps pour le soin.",
                     "icone": "flaticon-strategy"
                 },
                 {
-                    "titre": "Sécurité & Traçabilité",
-                    "description": "Assurez la protection, et l’interopérabilité des données médicales grâce à une architecture conforme aux standards internationaux.",
+                    "titre": "Sécurité & conformité",
+                    "description": "Données protégées, échanges sécurisés et conformité (HL7, FHIR, RGPD). Un SIH de niveau international, prêt pour demain.",
                     "icone": "flaticon-search"
                 }
             ]
         },
         "solution": {
-            "pre_titre": "Notre solution",
-            "titre": "Une plateforme intégrée pour tout le parcours hospitalier",
-            "description": "Medkey centralise l'ensemble des flux cliniques, administratifs et financiers dans un système unique. Du dossier médical électronique à la facturation, de la pharmacie au laboratoire, chaque module communique nativement avec les autres.",
+            "pre_titre": "Une plateforme, tout le parcours",
+            "titre": "Du premier contact à la sortie du patient",
+            "description": "MedKey relie DME, pharmacie, laboratoire, imagerie et facturation dans un écosystème cohérent. Chaque module parle aux autres : plus de silos, plus d'efficacité.",
             "points": [
-                "Dossier patient unifié accessible à tous les services",
+                "Dossier patient unifié, accessible à tous les services",
                 "Flux financiers tracés de l'admission à la sortie",
-                "Indicateurs de performance en temps réel"
+                "Indicateurs de performance en temps réel pour la direction"
             ],
-            "cta": "Commencer gratuitement"
+            "cta": "Essayer gratuitement"
         },
         "modules": {
-            "pre_titre": "Couverture fonctionnelle",
-            "titre": "17 modules pour couvrir l'ensemble des besoins hospitaliers",
-            "sous_titre": "Chaque module peut être déployé indépendamment et s'intègre nativement avec les autres composants de la plateforme.",
+            "pre_titre": "Nos fonctionnalités",
+            "titre": "Une suite complète pour la clinique et l'hôpital",
+            "sous_titre": "De l'accueil au bloc, de la pharmacie au labo : une seule plateforme, des briques qui s'assemblent. Commencez par l'essentiel, étendez à la demande.",
             "liste": {
                 "adt": {
                     "titre": "Gestion ADT",
@@ -274,11 +308,24 @@
                     "description": "Analyse décisionnelle et rapports avancés."
                 }
             },
-            "cta": "Démarrer dès maintenants"
+            "cta": "Démarrer dès maintenant"
+        },
+        "services_page": {
+            "page_title": "Fonctionnalités",
+            "breadcrumb": "Fonctionnalités",
+            "pre_titre": "Nos fonctionnalités",
+            "titre": "Une suite complète pour la clinique et l'hôpital",
+            "sous_titre": "De l'accueil au bloc, de la pharmacie au labo : une seule plateforme, des briques qui s'assemblent. Commencez par l'essentiel, étendez à la demande.",
+            "take_action": {
+                "pre_title": "Une question ?",
+                "title": "Parlons de votre projet",
+                "subtitle": "Démo personnalisée, accompagnement au déploiement ou simple échange : notre équipe vous répond sous 24 h.",
+                "cta": "Nous contacter"
+            }
         },
         "interoperabilite": {
-            "pre_titre": "Standards internationaux",
-            "titre": "Interopérable par conception",
+            "pre_titre": "Ouvert par conception",
+            "titre": "Interopérable avec l'existant",
             "sous_titre": "Medkey respecte les standards de référence en santé numérique pour garantir l'échange fluide des données médicales.",
             "standards": [
                 {
@@ -301,8 +348,8 @@
         },
         "securite": {
             "pre_titre": "Confiance & conformité",
-            "titre": "La sécurité des données médicales au centre de l'architecture",
-            "sous_titre": "Chaque couche de la plateforme est conçue pour protéger les données sensibles des patients et garantir la conformité réglementaire.",
+            "titre": "Vos données médicales, protégées de bout en bout",
+            "sous_titre": "Chiffrement, audit trail et contrôle d'accès : une architecture pensée pour la confidentialité et la conformité réglementaire.",
             "garanties": [
                 {
                     "titre": "Chiffrement de bout en bout",
@@ -328,9 +375,9 @@
             "cta": "Télécharger le livre blanc sécurité"
         },
         "bi_reporting": {
-            "pre_titre": "Pilotage décisionnel",
-            "titre": "Des données brutes aux décisions stratégiques",
-            "sous_titre": "Transformez l'activité quotidienne de votre établissement en indicateurs actionnables pour la direction et les tutelles.",
+            "pre_titre": "Pilotage en temps réel",
+            "titre": "Des données aux décisions",
+            "sous_titre": "Tableaux de bord vivants, KPIs et rapports prêts pour la direction et les tutelles. Pilotez votre établissement sur des faits, pas des intuitions.",
             "indicateurs": [
                 {
                     "titre": "Taux d'occupation des lits",
@@ -384,8 +431,8 @@
             ]
         },
         "temoignages": {
-            "pre_titre": "Retours du terrain",
-            "titre": "Ils ont déployé Medkey dans leurs établissements",
+            "pre_titre": "Ils nous font confiance",
+            "titre": "Des établissements qui ont choisi MedKey",
             "liste": [
                 {
                     "citation": "Medkey nous a permis de réduire de 40% le temps de traitement administratif des admissions et d'avoir enfin une vue consolidée de l'activité de l'hôpital.",
@@ -408,10 +455,81 @@
             ]
         },
         "cta_final": {
-            "titre": "Structurez durablement votre système d'information hospitalier",
-            "sous_titre": "Rejoignez les établissements qui ont choisi Medkey pour centraliser leurs données, fiabiliser leurs processus et améliorer la qualité des soins.",
-            "cta_principal": "Commencez dès maintenant",
-            "cta_secondaire": "Contacter l'équipe"
+            "titre": "Prêt à transformer votre SIH ?",
+            "sous_titre": "Rejoignez les établissements qui centralisent leurs données, fluidifient leurs processus et améliorent la qualité des soins avec MedKey. Démarrez en quelques clics.",
+            "cta_principal": "Démarrer gratuitement",
+            "cta_secondaire": "Parler à un expert"
+        }
+    },
+    "contact": {
+        "breadcrumb": "Contact",
+        "page_title": "Contact",
+        "offices_title": "Notre siège",
+        "map_title": "Nous trouver sur la carte",
+        "form_title": "Une question ? Écrivez-nous",
+        "form_intro": "Demande de démo, support technique ou partenariat : nous vous répondons sous 24 h.",
+        "office": {
+            "name": "Cotonou",
+            "address": "Bénin, Cotonou.",
+            "email_label": "E-mail",
+            "phone_label": "Téléphone",
+            "email": "support@medkey.com",
+            "phone": "+225 07 00 00 00 00"
+        },
+        "form": {
+            "name": "Nom",
+            "email": "E-mail",
+            "subject": "Sujet",
+            "message": "Votre message",
+            "submit": "Envoyer le message",
+            "required": "*",
+            "sending": "Envoi…",
+            "success": "Message envoyé. Nous vous recontactons rapidement.",
+            "error": "L'envoi a échoué. Réessayez ou contactez-nous par e-mail."
+        }
+    },
+    "ressources_page": {
+        "page_title": "Ressources",
+        "breadcrumb": "Ressources",
+        "intro_title": "Centre de ressources MedKey",
+        "intro_subtitle": "Documentation, guides et supports pour déployer et utiliser votre SIH en toute sérénité.",
+        "doc_title": "Documentation",
+        "doc_subtitle": "Guides techniques et fonctionnels pour les administrateurs et les utilisateurs.",
+        "doc_items": [
+            { "title": "Guide de prise en main", "desc": "Premiers pas avec MedKey : création de compte, paramétrage de l'établissement et gestion des utilisateurs.", "icon": "fas fa-book" },
+            { "title": "Manuel des modules", "desc": "Description détaillée des modules Patient, Pharmacie, Caisse, Laboratoire et des bonnes pratiques.", "icon": "fas fa-cubes" },
+            { "title": "API et intégrations", "desc": "Documentation technique des API REST, HL7 FHIR et des échanges avec des systèmes tiers.", "icon": "fas fa-plug" },
+            { "title": "Sécurité et conformité", "desc": "Politiques de sécurité, sauvegardes, RGPD et bonnes pratiques pour la donnée de santé.", "icon": "fas fa-shield-alt" }
+        ],
+        "guides_title": "Guides pratiques",
+        "guides_subtitle": "Tutoriels et fiches pour les équipes au quotidien.",
+        "guides_items": [
+            { "title": "Admission et sortie patient", "desc": "Workflow ADT : enregistrement, admission, transfert, sortie et suivi des lits." },
+            { "title": "Facturation et recouvrement", "desc": "Création de factures, tiers payant, encaissements et rapports financiers." },
+            { "title": "Gestion de la pharmacie", "desc": "Stocks, dispensation, commandes et inventaires." }
+        ],
+        "support_title": "Besoin d'aide ?",
+        "support_desc": "Notre équipe support et nos partenaires sont à votre disposition pour la formation et l'accompagnement.",
+        "support_cta": "Nous contacter"
+    },
+    "assistance_page": {
+        "page_title": "Assistance",
+        "breadcrumb": "Assistance",
+        "faq_title": "Questions fréquentes",
+        "faq_subtitle": "Retrouvez les réponses aux questions les plus posées sur MedKey.",
+        "faqs": [
+            { "q": "MedKey est-il adapté à une petite structure ?", "a": "Oui. Le plan gratuit (Starter Clinic) inclut les modules Patient, Mouvement Patient, Pharmacie et Caisse, idéal pour un cabinet ou un centre de santé. Vous pouvez évoluer vers les plans payants selon vos besoins." },
+            { "q": "Comment se déroule la mise en production ?", "a": "Après souscription, nous configurons votre instance, migrons vos données si besoin et formons vos équipes. Un accompagnement au déploiement est inclus selon le plan choisi." },
+            { "q": "Les données sont-elles sécurisées ?", "a": "Oui. Les données sont hébergées dans des environnements sécurisés, avec sauvegardes régulières et conformité aux exigences en vigueur (RGPD, bonnes pratiques santé)." },
+            { "q": "Puis-je connecter mon laboratoire ou mon PACS ?", "a": "Les plans Essential et supérieurs permettent des intégrations HL7, FHIR et DICOM pour le laboratoire et l'imagerie. Notre équipe vous accompagne sur le paramétrage." },
+            { "q": "Quel support technique est proposé ?", "a": "Support par e-mail pour le plan gratuit. Les plans payants incluent un support prioritaire et, selon l'offre, un accompagnement dédié et une SLA garantie." },
+            { "q": "Comment passer à un plan supérieur ?", "a": "Depuis votre espace ou en contactant notre équipe commerciale. La migration est réalisée sans perte de données et avec un accompagnement si nécessaire." }
+        ],
+        "take_action": {
+            "pre_title": "Une question ?",
+            "title": "Notre équipe vous répond",
+            "subtitle": "Pour une démo, un accompagnement ou un support technique : contactez-nous sous 24 h.",
+            "cta": "Nous contacter"
         }
     }
 }

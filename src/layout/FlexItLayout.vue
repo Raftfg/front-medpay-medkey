@@ -5,7 +5,7 @@
       <router-view></router-view>
     </main>
     <FlexItFooter />
-    <FlexItLoadingScreen />
+    <FlexItLoadingScreen :visible="loadingVisible" @done="loadingVisible = false" />
     <FlexItBackToTop />
   </div>
 </template>
@@ -26,7 +26,8 @@ export default {
   },
   data() {
     return {
-      wowInstance: null
+      wowInstance: null,
+      loadingVisible: true
     };
   },
   computed: {
@@ -40,7 +41,10 @@ export default {
     this.initAnimations();
   },
   watch: {
-    '$route'() {
+    '$route'(to, from) {
+      if (from && from.name) {
+        this.loadingVisible = true;
+      }
       this.initAnimations();
     }
   },

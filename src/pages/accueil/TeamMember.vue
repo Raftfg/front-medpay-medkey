@@ -28,17 +28,6 @@
                     <p><i class="bi bi-envelope"></i> {{ email }}</p>
                     <p><i class="bi bi-phone"></i> {{ phone }}</p>
                   </div>
-                  <div class="member-social">
-                    <div class="sc-wrapper dir-row sc-size-32">
-                      <ul class="sc-list">
-                        <li v-for="social in socialLinks" :key="social.platform" class="sc-item">
-                          <a class="sc-link" :href="social.url" :title="social.platform">
-                            <i :class="social.icon + ' sc-icon'"></i>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -91,12 +80,7 @@ export default {
       email: "john.anderson@example.com",
       phone: "+1 234 567 8900",
       memberPhoto: require("@/assets/flex-it/assets/images/sections-bg-images/1.jpg"),
-      socialLinks: [
-        { platform: "Facebook", url: "#", icon: "fab fa-facebook-f" },
-        { platform: "Twitter", url: "#", icon: "fab fa-x-twitter" },
-        { platform: "LinkedIn", url: "#", icon: "fab fa-linkedin-in" },
-        { platform: "GitHub", url: "#", icon: "fab fa-github" }
-      ],
+      socialLinks: [],
       bio: `
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit explicabo quis veritatis, 
         sed ipsam reprehenderit aliquam magni perferendis nobis maiores inventore, harum pariatur, 

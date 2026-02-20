@@ -1,50 +1,40 @@
 <template>
   <div class="links menu-wrapper" id="nav-medkey-wrapper">
     <ul class="links-list" id="nav-medkey-list">
-      <!-- Product Overview -->
       <li class="menu-item">
         <router-link class="menu-link" to="/">
-          <span class="no-split">Présentation</span>
+          <span class="no-split">{{ $t('menu.presentation') }}</span>
         </router-link>
       </li>
-      
-      <!-- Features -->
       <li class="menu-item">
         <router-link class="menu-link" to="/services">
-          <span class="no-split">Fonctionnalités</span>
+          <span class="no-split">{{ $t('menu.features') }}</span>
         </router-link>
       </li>
-      
-      <!-- Pricing Plan -->
       <li class="menu-item">
         <router-link class="menu-link" to="/pricing">
-          <span class="no-split">Tarifs</span>
+          <span class="no-split">{{ $t('menu.pricing') }}</span>
         </router-link>
       </li>
-      
-      <!-- Resource Center -->
       <li class="menu-item has-sub-menu">
-        <router-link class="menu-link" to="/faq">
-          <span class="no-split">Resource</span>
+        <router-link class="menu-link" to="/ressources">
+          <span class="no-split">{{ $t('menu.resources') }}</span>
           <i class="fas fa-plus plus-icon"></i>
         </router-link>
         <ul class="sub-menu" style="list-style: none !important;">
-          <li class="menu-item sub-menu-item"><router-link class="menu-link sub-menu-link" to="/faq">Documentation</router-link></li>
-          <li class="menu-item sub-menu-item"><router-link class="menu-link sub-menu-link" to="/contact-us">Assistance</router-link></li>
+          <li class="menu-item sub-menu-item"><router-link class="menu-link sub-menu-link" to="/ressources">{{ $t('menu.documentation') }}</router-link></li>
+          <li class="menu-item sub-menu-item"><router-link class="menu-link sub-menu-link" to="/faq">{{ $t('menu.faq') }}</router-link></li>
+          <li class="menu-item sub-menu-item"><router-link class="menu-link sub-menu-link" to="/contact-us">{{ $t('menu.contact') }}</router-link></li>
         </ul>
       </li>
-      
-      <!-- Support -->
       <li class="menu-item">
         <router-link class="menu-link" to="/faq">
-          <span class="no-split">Assistance</span>
+          <span class="no-split">{{ $t('menu.assistance') }}</span>
         </router-link>
       </li>
-      
-      <!-- Contact sales -->
       <li class="menu-item">
         <router-link class="menu-link" to="/contact-us">
-          <span class="no-split">Contact</span>
+          <span class="no-split">{{ $t('menu.contact') }}</span>
         </router-link>
       </li>
     </ul>

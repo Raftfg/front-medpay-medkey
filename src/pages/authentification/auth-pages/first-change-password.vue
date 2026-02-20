@@ -92,7 +92,7 @@ export default {
           new_password: this.form.new_password,
         });
         // Une fois le mot de passe changé, rediriger vers le wizard
-        this.$router.push("/onboarding/wizard");
+        this.$router.push("/home");
       } catch (e) {
         console.error("Erreur lors du changement de mot de passe:", e);
         this.errorMessage =

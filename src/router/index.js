@@ -36,6 +36,7 @@ import FlexItBlog from "../pages/accueil/FlexItBlog.vue";
 import FlexItContact from "../pages/accueil/FlexItContact.vue";
 import FlexItPricing from "../pages/accueil/FlexItPricing.vue";
 import FlexItFAQ from "../pages/accueil/FlexItFAQ.vue";
+import FlexItRessources from "../pages/accueil/FlexItRessources.vue";
 import FlexItTeam from "../pages/accueil/FlexItTeam.vue";
 import BlogSingle from "../pages/accueil/BlogSingle.vue";
 import PortfolioSingle from "../pages/accueil/PortfolioSingle.vue";
@@ -78,6 +79,7 @@ const router = new Router({
                 { path: "contact-us", name: "contact-us", component: FlexItContact },
                 { path: "pricing", name: "pricing", component: FlexItPricing },
                 { path: "faq", name: "faq", component: FlexItFAQ },
+                { path: "ressources", name: "ressources", component: FlexItRessources },
                 { path: "our-team", name: "our-team", component: FlexItTeam },
                 { path: "blog/:slug", name: "blog-single", component: BlogSingle },
                 { path: "portfolio/:slug", name: "portfolio-single", component: PortfolioSingle },
@@ -137,7 +139,7 @@ const router = new Router({
             path: "/onboarding",
             name: "onboarding",
             component: () =>
-                import("@/pages/onboarding/AkasiOnboarding.vue"),
+                import("@/pages/onboarding/Onboarding.vue"),
         },
 
         {
@@ -150,18 +152,6 @@ const router = new Router({
                     import("@/pages/dashboard/home"),
             },],
         },
-        {
-            path: "/onboarding/wizard",
-            component: layout2,
-            children: [{
-                path: "",
-                name: "onboarding-wizard",
-                component: () =>
-                    import("@/pages/onboarding/OnboardingWizard.vue"),
-            },],
-        },
-
-
         //Movement routes
         ...movmentRoutes,
         ...serviceRoutes,
@@ -245,6 +235,7 @@ router.beforeEach((to, from, next) => {
         "/contact-us",
         "/pricing",
         "/faq",
+        "/ressources",
         "/our-team",
         "/404",
         "/auth-pages/login",

@@ -38,9 +38,20 @@ window.WOW = require("@/assets/flex-it/js/vendors/wow.min.js").WOW;
 require("@/assets/flex-it/js/vendors/appear.min.js");
 require("@/assets/flex-it/js/vendors/jquery.countTo.js");
 const VanillaTilt = require("@/assets/flex-it/js/vendors/vanilla-tilt.min.js");
-window.VanillaTilt = VanillaTilt && (VanillaTilt.default || VanillaTilt);
+const TiltClass = VanillaTilt && (VanillaTilt.default || VanillaTilt);
+window.VanillaTilt = TiltClass;
+// Garantir l’API attendue par le template : VanillaTilt.init(nodeList, options)
+if (TiltClass && typeof TiltClass.init !== "function") {
+  TiltClass.init = function (elements, options) {
+    const list = elements instanceof Node ? [elements] : elements instanceof NodeList ? [].slice.call(elements) : Array.isArray(elements) ? elements : [];
+    list.forEach(function (el) {
+      if (el && !el.vanillaTilt) el.vanillaTilt = new TiltClass(el, options || {});
+    });
+  };
+}
+require("@/assets/flex-it/js/vendors/particles.min.js");
 
-// Import template's main.js for sticky header, WOW, countTo, tilt, etc.
+// Import template's main.js for sticky header, WOW, countTo, tilt, particles, etc.
 require("@/assets/flex-it/js/main.js");
 
 Vue.use(BootstrapVue);
