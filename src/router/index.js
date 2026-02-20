@@ -109,6 +109,12 @@ const router = new Router({
                     import("@/pages/authentification/auth-pages/register"),
             },
             {
+                path: "autologin",
+                name: "autologin",
+                component: () =>
+                    import("@/pages/authentification/auth-pages/autologin"),
+            },
+            {
                 path: "first-change-password",
                 name: "first-change-password",
                 component: () =>
@@ -240,6 +246,7 @@ router.beforeEach((to, from, next) => {
         "/404",
         "/auth-pages/login",
         "/auth-pages/register",
+        "/auth-pages/autologin",
         "/auth-pages/forget-password",
         "/auth-pages/reset",
         "/auth-pages/forget-password-confirm",
