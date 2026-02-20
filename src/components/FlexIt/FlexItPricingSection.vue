@@ -29,11 +29,10 @@
                   {{ plan.price }}
                 </h3>
                 <div class="price-line" v-else>
-                  <span class="currency-top">{{ plan.currency }}</span>
                   <div class="amount-row">
                     <h3 class="price">{{ getDisplayPrice(plan) }}</h3>
-                    <span class="per">{{ $t('pricing.section.per_month') }}</span>
                   </div>
+                  <span class="per">{{ plan.currency }}/{{ $t('pricing.section.per_month') }}</span>
                 </div>
               </div>
               <p class="plan-target">{{ plan.target }}</p>
@@ -254,7 +253,7 @@ export default {
 .plan .price {
   background: transparent !important;
   color: #ffffff !important;
-  font-size: 1.9rem;
+  font-size: 1.55rem;
   line-height: 0.95;
   margin: 0;
   white-space: nowrap;
@@ -277,42 +276,36 @@ export default {
   margin-top: 6px;
   min-height: 56px;
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
 }
 
 .price-line {
   display: inline-flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 4px;
   padding: 0;
   width: fit-content;
   max-width: 100%;
 }
 
-.currency-top {
-  display: inline-block;
-  color: #2fd2ff;
-  font-size: 0.92rem;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: 0.02em;
-}
-
 .amount-row {
   display: inline-flex;
   align-items: flex-end;
+  justify-content: center;
   gap: 6px;
 }
 
 .per {
-  color: #d8e5ef;
-  font-size: 0.76rem;
-  font-style: italic;
+  display: block;
+  color: #2fd2ff;
+  font-size: 0.78rem;
+  font-weight: 700;
   line-height: 1.1;
+  margin-top: 4px;
   white-space: nowrap;
-  margin-bottom: 2px;
+  text-align: center;
 }
 
 .plan-target {
@@ -339,8 +332,8 @@ export default {
 .plan-feat {
   display: flex;
   align-items: flex-start;
-  gap: 6px;
-  margin-bottom: 6px;
+  gap: 5px;
+  margin-bottom: 3px;
   text-align: left;
 }
 
@@ -353,7 +346,7 @@ export default {
 
 .feat-text {
   flex: 1;
-  line-height: 1.3;
+  line-height: 1.15;
   color: #ffffff;
   font-size: 0.88rem;
 }
