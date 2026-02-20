@@ -23,6 +23,7 @@ module.exports = {
               sassOptions: {
                 ...(options.sassOptions || {}),
                 quietDeps: true,
+                silenceDeprecations: ['import'], // Ignorer les warnings de dépréciation @import
                 outputStyle: 'expanded'
               }
             };
@@ -52,13 +53,6 @@ module.exports = {
           },
         },
       },
-    },
-    // Cache pour améliorer les performances de développement
-    cache: {
-      type: 'filesystem',
-      buildDependencies: {
-        config: [__filename]
-      }
     }
   },
   devServer: {
@@ -67,28 +61,20 @@ module.exports = {
     port: 8080,
     // OPTIMISATION: Compression gzip pour le développement
     compress: true,
-    // Optimisations de performance
-    client: {
-      overlay: {
-        warnings: false,
-        errors: true
-      },
-      progress: false // Désactiver la barre de progression pour améliorer les performances
-    },
     // Hot Module Replacement (HMR) - activé par défaut mais explicite pour garantir le fonctionnement
     hot: true,
     // Live reload activé
     liveReload: true,
     // Ouvrir automatiquement le navigateur
     open: false,
-    // Overlay pour les erreurs de compilation
+    // Overlay pour les erreurs de compilation (compatible Vue CLI 4)
     overlay: {
       warnings: false,
       errors: true
     },
-    // Polling pour la détection des fichiers dans Docker (désactivé par défaut pour performance)
+    // Polling pour la détection des fichiers dans Docker (nécessaire sur Windows)
     watchOptions: {
-      poll: process.env.CHOKIDAR_USEPOLLING === 'true' ? 2000 : false, // Augmenté à 2000ms si activé
+      poll: process.env.CHOKIDAR_USEPOLLING === 'true' ? 1000 : false, // 1000ms pour Windows/Docker
       aggregateTimeout: 500, // Augmenté pour réduire les recompilations
       ignored: [
         /node_modules/,

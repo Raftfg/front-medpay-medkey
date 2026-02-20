@@ -1,8 +1,8 @@
 # Dockerfile pour le développement avec Hot-Reload
 FROM node:18-alpine
 
-# Install git (required by some npm/yarn packages)
-RUN apk add --no-cache git
+# Install git and bash (required by some npm/yarn packages)
+RUN apk add --no-cache git bash
 
 # Désactiver corepack et installer yarn v1 (compatible avec le projet)
 RUN corepack disable && \
@@ -20,9 +20,17 @@ RUN yarn config set network-timeout 600000 && \
     yarn config set network-concurrency 1 && \
     yarn config set http-timeout 600000
 
+# Install dependencies in the image (sera utilisé si le volume node_modules n'existe pas)
+RUN yarn install --network-timeout 600000 --network-concurrency 1 --ignore-engines --frozen-lockfile || \
+    yarn install --network-timeout 600000 --network-concurrency 1 --ignore-engines
+
+# Copy entrypoint script
+COPY docker-entrypoint.sh /app/docker-entrypoint.sh
+RUN chmod +x /app/docker-entrypoint.sh
+
 # Expose le port du serveur de développement Vue
 EXPOSE 8080
 
 # Script d'entrée qui installe les dépendances si nécessaire puis démarre le serveur
-CMD sh -c "yarn install --network-timeout 600000 --network-concurrency 1 --ignore-engines && yarn serve --host 0.0.0.0"
+CMD ["/bin/sh", "/app/docker-entrypoint.sh"]
 

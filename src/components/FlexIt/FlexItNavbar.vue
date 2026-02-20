@@ -8,18 +8,18 @@
         </router-link>
       </li>
       
-      <!-- Features -->
+      <!-- Features #modules-->
       <li class="menu-item">
-        <router-link class="menu-link" to="/services">
+        <a class="menu-link" href="#modules">
           <span class="no-split">Fonctionnalités</span>
-        </router-link>
+        </a>
       </li>
       
       <!-- Pricing Plan -->
       <li class="menu-item">
-        <router-link class="menu-link" to="/pricing">
+        <a class="menu-link" href="#pricing-1">
           <span class="no-split">Tarifs</span>
-        </router-link>
+        </a>
       </li>
       
       <!-- Resource Center -->

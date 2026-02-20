@@ -16,30 +16,32 @@
           </router-link>
         </div> -->
       </div>
-      <div class="row">
+      <div class="row pricing-grid">
         <!--Plans-->
         <div v-for="(plan, idx) in plans" :key="idx" class="col-12 col-md-6 col-xl-3 mx-auto price-plan">
-          <div :class="['plan wow fadeInUp', { featured: plan.featured }]" :data-wow-delay="plan.delay">
-            <div v-if="plan.featured" class="plan-badge">{{ $t('pricing.comparison.professional') }}</div>
+          <div class="plan wow fadeInUp plan-card" :data-wow-delay="plan.delay">
             <div class="plan-head">
               <i :class="plan.icon + ' plan-icon'"></i>
               <h4 class="plane-name">{{ plan.name }}</h4>
               <p class="plan-subtitle">{{ plan.subtitle }}</p>
               <div class="plan-price">
-                <h3 class="price" v-if="plan.isCustom">
+                <h3 class="price custom-price" v-if="plan.isCustom">
                   {{ plan.price }}
                 </h3>
-                <h3 class="price" v-else>
-                  {{ getDisplayPrice(plan) }}<sup class="currency-symbol" v-if="!plan.isCustom">{{ plan.currency }}</sup>
-                </h3>
-                <span class="per" v-if="!plan.isCustom">{{ $t('pricing.section.per_month') }}</span>
+                <div class="price-line" v-else>
+                  <span class="currency-top">{{ plan.currency }}</span>
+                  <div class="amount-row">
+                    <h3 class="price">{{ getDisplayPrice(plan) }}</h3>
+                    <span class="per">{{ $t('pricing.section.per_month') }}</span>
+                  </div>
+                </div>
               </div>
               <p class="plan-target">{{ plan.target }}</p>
             </div>
             <div class="plan-details">
               <ul class="plan-list">
                 <li v-for="(feat, fIdx) in displayedFeatures(plan)" :key="fIdx" class="plan-feat">
-                  <i class="bi bi-check-circle-fill feat-icon"></i>
+                  <i class="bi bi-check feat-icon"></i>
                   <span class="feat-text">{{ feat }}</span>
                 </li>
               </ul>
@@ -55,7 +57,9 @@
               </div>
             </div>
             <div class="plan-cta">
-              <a class="cta-btn btn-outline" href="#0">{{ $t('pricing.section.cta_select') }}</a>
+              <router-link class="btn-solid cta-link cta-link-primary" to="/auth-pages/login">
+                Commencer dès maintenant
+              </router-link>
             </div>
           </div>
         </div>
@@ -114,7 +118,7 @@ export default {
           features: this.getTranslatedFeatures('professional'),
           icon: 'flaticon-box',
           delay: '.5s',
-          featured: true,
+          featured: false,
           isCustom: false
         },
         {
@@ -168,120 +172,246 @@ export default {
 </script>
 
 <style scoped>
-.plan .price {
-  background: transparent !important;
-  color: inherit !important;
+.pricing-grid {
+  --bs-gutter-x: 0.9rem;
+  --bs-gutter-y: 1rem;
+  row-gap: 18px;
 }
 
-/* Ensure digits don't have unwanted white backgrounds from external styles */
-.plan-price h3.price, 
+.price-plan {
+  display: flex;
+}
+
+.plan-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+  border-radius: 16px;
+  padding: 20px 18px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: linear-gradient(180deg, #0e1f36 0%, #0a1627 100%);
+  box-shadow: 0 14px 30px rgba(6, 15, 28, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  overflow: hidden;
+}
+
+.plan-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(65, 184, 255, 0.22), transparent 45%);
+  pointer-events: none;
+}
+
+.plan-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(65, 184, 255, 0.45);
+  box-shadow: 0 20px 42px rgba(6, 15, 28, 0.5);
+}
+
+.plan-card.featured {
+  border-color: rgba(57, 197, 164, 0.55);
+  box-shadow: 0 18px 38px rgba(21, 60, 52, 0.5);
+}
+
+.plan-head,
+.plan-details,
+.plan-cta {
+  position: relative;
+  z-index: 1;
+}
+
+.plan-icon {
+  display: inline-flex;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #d7efff;
+  margin-bottom: 12px;
+}
+
+.plane-name {
+  color: #ffffff;
+  margin-bottom: 4px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.plan-subtitle {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #7fd6ff;
+  margin-bottom: 14px;
+}
+
+.plan .price {
+  background: transparent !important;
+  color: #ffffff !important;
+  font-size: 1.9rem;
+  line-height: 0.95;
+  margin: 0;
+  white-space: nowrap;
+  font-weight: 800;
+}
+
+.plan .price.custom-price {
+  font-size: 1rem;
+  text-align: center;
+  width: auto;
+}
+
+.plan-price h3.price,
 .plan-price span.currency-symbol {
   background-color: transparent !important;
   display: inline-block;
 }
 
-.plan.featured .price,
-.plan.featured .currency-symbol {
-  color: var(--clr-white) !important;
+.plan-price {
+  margin-top: 6px;
+  min-height: 56px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
-/* Plan badge for featured plan */
-.plan-badge {
-  position: absolute;
-  top: -10px;
-  right: 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 5px 15px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: bold;
-  z-index: 10;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.price-line {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 0;
+  width: fit-content;
+  max-width: 100%;
 }
 
-.plan-subtitle {
-  font-size: 14px;
-  font-weight: 600;
-  color: #667eea;
-  margin-top: 5px;
-  margin-bottom: 10px;
+.currency-top {
+  display: inline-block;
+  color: #2fd2ff;
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+.amount-row {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.per {
+  color: #d8e5ef;
+  font-size: 0.76rem;
+  font-style: italic;
+  line-height: 1.1;
+  white-space: nowrap;
+  margin-bottom: 2px;
 }
 
 .plan-target {
-  font-size: 12px;
-  color: #666;
   margin-top: 10px;
-  font-style: italic;
+  margin-bottom: 0;
+  font-size: 0.8rem;
+  color: #c8d6e3;
+  line-height: 1.45;
 }
 
-/* Features styling */
+.plan-details {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  flex: 1;
+}
+
+.plan-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 .plan-feat {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 10px;
+  gap: 6px;
+  margin-bottom: 6px;
+  text-align: left;
 }
 
 .feat-icon {
-  color: #28a745;
-  margin-right: 8px;
+  color: #ffffff;
   margin-top: 2px;
-  font-size: 16px;
+  font-size: 14px;
   flex-shrink: 0;
 }
 
 .feat-text {
   flex: 1;
-  line-height: 1.5;
+  line-height: 1.3;
+  color: #ffffff;
+  font-size: 0.88rem;
 }
 
-/* See more button styling */
 .plan-see-more {
-  margin-top: 15px;
-  text-align: center;
-  padding-top: 15px;
-  border-top: 1px solid #eee;
+  margin-top: 14px;
+  text-align: left;
 }
 
 .see-more-btn {
-  background: transparent;
-  border: none;
-  color: #667eea;
-  font-size: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: 0.82rem;
   font-weight: 600;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  padding: 5px 10px;
-  transition: all 0.3s ease;
+  gap: 6px;
+  padding: 7px 12px;
+  transition: all 0.25s ease;
 }
 
 .see-more-btn:hover {
-  color: #764ba2;
-  text-decoration: underline;
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.35);
 }
 
 .see-more-btn i {
   font-size: 12px;
-  transition: transform 0.3s ease;
+  transition: transform 0.25s ease;
 }
 
 .see-more-btn[aria-expanded="true"] i {
   transform: rotate(180deg);
 }
 
-/* Responsive adjustments */
+.plan-cta {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.plan-cta .cta-link {
+  min-width: 210px;
+}
+
 @media (max-width: 768px) {
-  .plan-badge {
-    top: -5px;
-    right: 10px;
-    font-size: 10px;
-    padding: 3px 10px;
+  .plan-card {
+    padding: 18px 16px;
   }
-  
+
+  .plan .price {
+    font-size: 1.55rem;
+  }
+
   .plan-target {
-    font-size: 11px;
+    font-size: 0.76rem;
   }
 }
 </style>

@@ -35,10 +35,11 @@
                 "price": "0",
                 "target": "Centres de santé, cabinets médicaux, structures < 10 lits",
                 "features": {
-                    "adt_basic": "Gestion des patients",
-                    "patient_registration": "Gestion des mouvements",
-                    "dme_simple": "Gestion de la caisse",
-                    "admission_discharge": "Gestion de la pharmacie"
+                    "patient_admin": "Administration des patients",
+                    "emr": "Dossier médical électronique",
+                    "appointments": "Planification et rendez-vous",
+                    "billing": "Facturation et comptabilité",
+                    "pharmacy_stock": "Pharmacie et gestion du stock"
                 },
                 "limitations": {
                     "no_hl7": "Pas d'intégration HL7 / FHIR",
@@ -51,20 +52,16 @@
             "essential": {
                 "name": "Clinique Pro",
                 "subtitle": "Plan ESSENTIEL",
-                "price_from": "149",
+                "price_from": "100 000",
                 "price_to": "299",
                 "target": "Cliniques privées, hôpitaux < 50 lits",
                 "features": {
-                    "includes_free": "Tout le plan Free +",
-                    "dme_complete": "DME complet",
-                    "billing": "Facturation & tiers payant",
-                    "pharmacy": "Pharmacie & gestion des stocks",
-                    "dashboard": "Tableau de bord opérationnel",
-                    "roles_permissions": "Gestion des rôles & permissions",
-                    "accounting_export": "Export comptable",
-                    "api_rest": "API REST standard",
-                    "max_users": "20 utilisateurs inclus",
-                    "storage": "100 Go stockage"
+                    "includes_free": "Tout Starter Clinic +",
+                    "inventory_supply": "Gestion des stocks et approvisionnements",
+                    "hr": "Ressources humaines",
+                    "maintenance_assets": "Maintenance et patrimoine",
+                    "lis": "Laboratoire (LIS)",
+                    "ris_pacs": "Imagerie médicale (RIS/PACS)"
                 },
                 "benefits": {
                     "automation": "Automatisation administrative",
@@ -75,22 +72,16 @@
             "professional": {
                 "name": "Hôpital Général",
                 "subtitle": "Plan PROFESSIONNEL",
-                "price_from": "799",
+                "price_from": "150 000",
                 "price_to": "1500",
                 "target": "Hôpitaux 50 – 200 lits",
                 "features": {
-                    "includes_essential": "Tout Essential +",
-                    "lis": "Laboratoire (LIS)",
-                    "ris": "Imagerie (RIS léger)",
-                    "hl7_fhir": "Intégration HL7 v2 / FHIR R4",
-                    "dicom_viewer": "DICOM Viewer intégré",
-                    "cpoe": "CPOE & aide à la décision clinique",
-                    "hr_planning": "Gestion RH & plannings",
-                    "bi_advanced": "Business Intelligence avancée",
-                    "multi_sites": "Multi-sites",
-                    "sla": "SLA 99,5 %",
-                    "backups": "Sauvegardes automatisées",
-                    "priority_support": "Support prioritaire"
+                    "includes_essential": "Tout Clinique Pro +",
+                    "cpoe_cds": "CPOE + aide à la décision clinique",
+                    "patient_portal": "Portail Patient/ Téléconsultation",
+                    "community_health": "Santé communauté",
+                    "mhealth": "Santé mobile (mHealth)",
+                    "epi_surveillance": "Surveillance épidémiologique (DHIS2, e-Surveillance)"
                 },
                 "benefits": {
                     "interoperability": "Interopérabilité",
@@ -104,17 +95,12 @@
                 "price": "Sur devis",
                 "target": "CHU, groupes hospitaliers, ministères de la santé",
                 "features": {
-                    "includes_professional": "Tout Professional +",
-                    "data_warehouse": "Data Warehouse & BI avancé",
-                    "dhis2": "Intégration DHIS2 / surveillance épidémiologique",
-                    "telemedicine": "Télémédecine & portail patient",
-                    "full_interoperability": "Interopérabilité complète (HL7, FHIR, DICOM, LOINC, SNOMED CT)",
-                    "sso": "Authentification SSO (OAuth2 / OpenID Connect)",
-                    "hosting": "Hébergement dédié ou On-premise",
-                    "sla": "SLA 99,9 %",
-                    "pra_pca": "PRA/PCA avancé",
-                    "customization": "Personnalisation métier",
-                    "dedicated_support": "Support dédié 24/7"
+                    "includes_professional": "Tout Hôpital Général +",
+                    "epi_surveillance": "Surveillance épidémiologique (DHIS2, e-Surveillance)",
+                    "community_health": "Santé communauté",
+                    "mhealth": "Santé mobile (mHealth)",
+                    "cpoe_cds": "CPOE + aide à la décision clinique",
+                    "patient_portal": "Portail Patient/ Téléconsultation"
                 }
             }
         },

@@ -35,17 +35,11 @@
                 "price": "0",
                 "target": "Health centers, medical practices, facilities < 10 beds",
                 "features": {
-                    "adt_basic": "Patient administration (Basic ADT)",
-                    "patient_registration": "Patient registration",
-                    "admission_discharge": "Admission / discharge",
-                    "dme_simple": "Simplified Electronic Medical Record",
-                    "consultation": "Consultation",
-                    "medical_history": "Medical history",
-                    "prescriptions_pdf": "PDF prescriptions",
-                    "appointments": "Appointments & scheduling",
-                    "max_users": "Maximum 3 users",
-                    "cloud_hosting": "Shared cloud hosting",
-                    "email_support": "Standard email support"
+                    "patient_admin": "Patient Administration",
+                    "emr": "Electronic Medical Record",
+                    "appointments": "Scheduling and Appointments",
+                    "billing": "Billing and Accounting",
+                    "pharmacy_stock": "Pharmacy and Stock Management"
                 },
                 "limitations": {
                     "no_hl7": "No HL7 / FHIR integration",
@@ -58,20 +52,16 @@
             "essential": {
                 "name": "Pro Clinic",
                 "subtitle": "ESSENTIAL Plan",
-                "price_from": "149",
+                "price_from": "100 000",
                 "price_to": "299",
                 "target": "Private clinics, hospitals < 50 beds",
                 "features": {
-                    "includes_free": "Everything in Free plan +",
-                    "dme_complete": "Complete EMR",
-                    "billing": "Billing & third-party payer",
-                    "pharmacy": "Pharmacy & stock management",
-                    "dashboard": "Operational dashboard",
-                    "roles_permissions": "Roles & permissions management",
-                    "accounting_export": "Accounting export",
-                    "api_rest": "Standard REST API",
-                    "max_users": "20 users included",
-                    "storage": "100 GB storage"
+                    "includes_free": "Everything in Starter Clinic +",
+                    "inventory_supply": "Inventory and Supply Management",
+                    "hr": "Human Resources",
+                    "maintenance_assets": "Maintenance and Asset Management",
+                    "lis": "Laboratory (LIS)",
+                    "ris_pacs": "Medical Imaging (RIS/PACS)"
                 },
                 "benefits": {
                     "automation": "Administrative automation",
@@ -82,22 +72,16 @@
             "professional": {
                 "name": "General Hospital",
                 "subtitle": "PROFESSIONAL Plan",
-                "price_from": "799",
+                "price_from": "150 000",
                 "price_to": "1500",
                 "target": "Hospitals 50 – 200 beds",
                 "features": {
-                    "includes_essential": "Everything in Essential +",
-                    "lis": "Laboratory (LIS)",
-                    "ris": "Medical imaging (Light RIS)",
-                    "hl7_fhir": "HL7 v2 / FHIR R4 integration",
-                    "dicom_viewer": "Integrated DICOM viewer",
-                    "cpoe": "CPOE & clinical decision support",
-                    "hr_planning": "HR & scheduling management",
-                    "bi_advanced": "Advanced Business Intelligence",
-                    "multi_sites": "Multi-site",
-                    "sla": "99.5% SLA",
-                    "backups": "Automated backups",
-                    "priority_support": "Priority support"
+                    "includes_essential": "Everything in Pro Clinic +",
+                    "cpoe_cds": "CPOE + Clinical Decision Support",
+                    "patient_portal": "Patient Portal / Teleconsultation",
+                    "community_health": "Community Health",
+                    "mhealth": "Mobile Health (mHealth)",
+                    "epi_surveillance": "Epidemiological Surveillance (DHIS2, e-Surveillance)"
                 },
                 "benefits": {
                     "interoperability": "Interoperability",
@@ -108,20 +92,15 @@
             "enterprise": {
                 "name": "Hospital Network",
                 "subtitle": "ENTERPRISE Plan",
-                "price": "Custom quote",
+                "price": "Sur devis",
                 "target": "University hospitals, hospital groups, health ministries",
                 "features": {
-                    "includes_professional": "Everything in Professional +",
-                    "data_warehouse": "Data Warehouse & advanced BI",
-                    "dhis2": "DHIS2 integration / epidemiological surveillance",
-                    "telemedicine": "Telemedicine & patient portal",
-                    "full_interoperability": "Full interoperability (HL7, FHIR, DICOM, LOINC, SNOMED CT)",
-                    "sso": "SSO authentication (OAuth2 / OpenID Connect)",
-                    "hosting": "Dedicated or On-premise hosting",
-                    "sla": "99.9% SLA",
-                    "pra_pca": "Advanced DRP/BCP",
-                    "customization": "Business customization",
-                    "dedicated_support": "24/7 dedicated support"
+                    "includes_professional": "Everything in General Hospital +",
+                    "epi_surveillance": "Epidemiological Surveillance (DHIS2, e-Surveillance)",
+                    "community_health": "Community Health",
+                    "mhealth": "Mobile Health (mHealth)",
+                    "cpoe_cds": "CPOE + Clinical Decision Support",
+                    "patient_portal": "Patient Portal / Teleconsultation"
                 }
             }
         },
