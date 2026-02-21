@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 160" role="img" aria-labelledby="medkeyLogoTitle">
+  <title id="medkeyLogoTitle">MedKey logo</title>
+  <g fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M25 72 L98 22 L171 72" />
+    <path d="M45 72 V130 H151 V72" />
+    <path d="M28 82 H56" />
+  </g>
+  <g fill="#ffffff">
+    <rect x="14" y="94" width="10" height="34" rx="2" />
+    <rect x="2" y="106" width="34" height="10" rx="2" />
+    <path d="M100 118 C84 104, 62 112, 62 132 C62 147, 75 160, 100 160 C125 160, 138 147, 138 132 C138 112, 116 104, 100 118 Z" transform="translate(0,-18) scale(1,0.95)" />
+    <circle cx="100" cy="74" r="10" />
+  </g>
+  <text x="205" y="113" fill="#ffffff" font-size="98" font-family="Inter, Arial, Helvetica, sans-serif" font-weight="800" letter-spacing="-2">
+    MedKey
+  </text>
+</svg>

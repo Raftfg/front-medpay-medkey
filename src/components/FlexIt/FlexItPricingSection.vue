@@ -29,8 +29,8 @@
                 <h3 class="price" v-if="plan.isCustom">
                   {{ plan.price }}
                 </h3>
-                <h3 class="price" v-else-if="plan.priceFrom && plan.priceTo">
-                  {{ plan.priceFrom }}{{ plan.currency }} - {{ plan.priceTo }}{{ plan.currency }}
+                <h3 class="price" v-else-if="plan.priceFrom">
+                  {{ plan.priceFrom }}<sup class="currency-symbol">{{ plan.currency }}</sup>
                 </h3>
                 <h3 class="price" v-else>
                   {{ plan.price }}<sup class="currency-symbol">{{ plan.currency }}</sup>
@@ -46,26 +46,6 @@
                   <span class="feat-text">{{ feat }}</span>
                 </li>
               </ul>
-              <!-- Limitations pour le plan FREE -->
-              <div v-if="plan.limitations && plan.limitations.length > 0" class="plan-limitations">
-                <h5 class="limitations-title">{{ $t('pricing.comparison.not_included') }}</h5>
-                <ul class="limitations-list">
-                  <li v-for="(limitation, lIdx) in plan.limitations" :key="lIdx" class="limitation-item">
-                    <i class="bi bi-x-circle-fill limitation-icon"></i>
-                    <span class="limitation-text">{{ limitation }}</span>
-                  </li>
-                </ul>
-              </div>
-              <!-- Avantages clés pour Essential et Professional -->
-              <div v-if="plan.benefits && plan.benefits.length > 0" class="plan-benefits">
-                <h5 class="benefits-title">{{ $t('pricing.comparison.included') }}</h5>
-                <ul class="benefits-list">
-                  <li v-for="(benefit, bIdx) in plan.benefits" :key="bIdx" class="benefit-item">
-                    <i class="bi bi-star-fill benefit-icon"></i>
-                    <span class="benefit-text">{{ benefit }}</span>
-                  </li>
-                </ul>
-              </div>
             </div>
             <div class="plan-cta">
               <a class="cta-btn btn-outline" href="#0">{{ $t('pricing.section.cta_select') }}</a>
@@ -179,16 +159,106 @@ export default {
 </script>
 
 <style scoped>
+/* Section pricing : présentation et lisibilité */
+#pricing-1.pricing {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+#pricing-1 .sec-heading .content-area,
+#pricing-1 .subtitle,
+#pricing-1 .plan-head,
+#pricing-1 .plan-details,
+#pricing-1 .plan-list,
+#pricing-1 .plan-target,
+#pricing-1 .feat-text,
+#pricing-1 .limitation-text,
+#pricing-1 .benefit-text {
+  text-align: left !important;
+}
+
+#pricing-1 .plan {
+  text-align: left;
+  min-width: 240px;
+}
+
+#pricing-1 .price-plan {
+  margin-bottom: 1.5rem;
+}
+
+#pricing-1 .plan .plan-head,
+#pricing-1 .plan .plan-details {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+/* Réduire l'espace entre les modules pour tous les plans */
+#pricing-1 .plan .plan-list {
+  padding: 0.5rem 0 !important;
+  margin-bottom: 0.75rem !important;
+}
+
+#pricing-1 .plan .plan-list .plan-feat {
+  padding: 0.25rem 0 !important;
+  min-height: auto !important;
+}
+
+/* Éviter toute coupure de texte : overflow visible partout */
+#pricing-1.pricing,
+#pricing-1 .plan,
+#pricing-1 .plan-head,
+#pricing-1 .plan-details,
+#pricing-1 .plan-price {
+  overflow: visible !important;
+}
+
+/* Largeur min des cartes pour que le contenu ne soit pas serré */
+#pricing-1 .price-plan {
+  min-width: 0;
+}
+
+#pricing-1 .plan .plan-price {
+  width: 100%;
+  max-width: 100%;
+}
+
 .plan .price {
   background: transparent !important;
   color: inherit !important;
 }
 
-/* Ensure digits don't have unwanted white backgrounds from external styles */
-.plan-price h3.price, 
-.plan-price span.currency-symbol {
+/* Prix + devise visibles, taille réduite pour tout afficher (524 000 FCFA, Sur devis) */
+.plan-price h3.price {
   background-color: transparent !important;
-  display: inline-block;
+  display: inline !important;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important;
+  font-weight: 600;
+  line-height: 1.3;
+  white-space: normal !important;
+  word-break: keep-all;
+  overflow: visible !important;
+}
+
+.plan-price sup.currency-symbol {
+  background-color: transparent !important;
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
+  display: inline !important;
+  font-size: 0.65em !important;
+  vertical-align: super;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Descriptions et listes : tout visible, retour à la ligne si besoin */
+#pricing-1 .plan-target,
+#pricing-1 .feat-text,
+#pricing-1 .limitation-text,
+#pricing-1 .benefit-text {
+  overflow: visible !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .plan.featured .price,
@@ -226,11 +296,11 @@ export default {
   font-style: italic;
 }
 
-/* Features styling */
-.plan-feat {
+/* Features styling - espacement réduit entre les modules */
+#pricing-1 .plan-feat {
   display: flex;
-  align-items: flex-start;
-  margin-bottom: 10px;
+  align-items: center;
+  margin-bottom: 0 !important;
 }
 
 .feat-icon {

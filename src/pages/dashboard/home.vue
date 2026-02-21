@@ -4,7 +4,7 @@
       <nav aria-label="breadcrumb"></nav>
     </div>
     <div class="row mb-4">
-      <div v-if="hasPermission('Voir_module_patient')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+      <div v-if="showModule('Voir_module_patient')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
         <div class="card card-img-holder text-black text-center module-card">
           <router-link to="/patients/list" class="card-link">
             <img 
@@ -21,12 +21,12 @@
           </router-link>
         </div>
       </div>
-      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
+<div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 locked-module" @click="openPricingModal">
         <div class="card card-img-holder text-black text-center module-card">
           <img 
-            src="@/assets/images/patients.png" 
-            class="module-icon mt-3 mb-2 disabled-icon" 
-            alt="Patients"
+              src="@/assets/images/patients.png" 
+              class="module-icon mt-3 mb-2 locked-icon" 
+              alt="Patients"
             loading="lazy"
             width="64"
             height="64"
@@ -36,7 +36,7 @@
           </div>
         </div>
       </div>
-      <div v-if="hasPermission('Voir_module_mouvement')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+      <div v-if="showModule('Voir_module_mouvement')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
         <div class="card card-img-holder text-black text-center module-card">
           <router-link to="/movments/list" class="card-link">
             <img 
@@ -54,11 +54,11 @@
         </div>
       </div>
 
-      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
+      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 locked-module" @click="openPricingModal">
         <div class="card card-img-holder text-black text-center module-card">
           <img 
             src="@/assets/images/movment.png" 
-            class="module-icon mt-3 mb-2 disabled-icon" 
+            class="module-icon mt-3 mb-2 locked-icon" 
             alt="Mouvements"
             loading="lazy"
             width="64"
@@ -70,7 +70,7 @@
         </div>
       </div>
 
-      <div v-if="hasPermission('Voir_module_Service')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+      <div v-if="showModule('Voir_module_Service')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
         <div class="card card-img-holder text-black text-center module-card">
           <router-link to="/medical-services/urgences" class="card-link">
             <img src="@/assets/images/actsmedicaux.png" class="module-icon mt-3 mb-2" alt="Services Médicaux" />
@@ -81,11 +81,11 @@
         </div>
       </div>
 
-      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
+      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 locked-module" @click="openPricingModal">
         <div class="card card-img-holder text-black text-center module-card">
           <img 
             src="@/assets/images/actsmedicaux.png" 
-            class="module-icon mt-3 mb-2 disabled-icon" 
+            class="module-icon mt-3 mb-2 locked-icon" 
             alt="Services Médicaux"
             loading="lazy"
             width="64"
@@ -97,7 +97,7 @@
         </div>
       </div>
 
-      <div v-if="hasPermission('Voir_module_pharmacie')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+      <div v-if="showModule('Voir_module_pharmacie')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
         <div class="card card-img-holder text-black text-center module-card">
           <button @click="selectCashRegisterP" class="bien w-100 h-100 border-0 bg-transparent p-0">
             <img src="@/assets/images/pharmacie.png" class="module-icon mt-3 mb-2" alt="Pharmacies" />
@@ -107,16 +107,16 @@
           </button>
         </div>
       </div>
-      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
+      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 locked-module" @click="openPricingModal">
         <div class="card card-img-holder text-black text-center module-card">
-          <img src="@/assets/images/pharmacie.png" class="module-icon mt-3 mb-2 disabled-icon" alt="Pharmacies" />
+          <img src="@/assets/images/pharmacie.png" class="module-icon mt-3 mb-2 locked-icon" alt="Pharmacies" />
           <div class="p-2 text-center">
             <h6 class="font-weight-bold text-black module-title">Pharmacies</h6>
           </div>
         </div>
       </div>
 
-      <div v-if="hasPermission('Voir_module_caisse')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+      <div v-if="showModule('Voir_module_caisse')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
         <div class="card card-img-holder text-black text-center module-card">
           <button @click="selectCashRegisterA" class="bien w-100 h-100 border-0 bg-transparent p-0">
             <img src="@/assets/images/treasury.png" class="module-icon mt-3 mb-2" alt="Caisses" />
@@ -126,15 +126,15 @@
           </button>
         </div>
       </div>
-      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
+      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 locked-module" @click="openPricingModal">
         <div class="card card-img-holder text-black text-center module-card">
-          <img src="@/assets/images/treasury.png" class="module-icon mt-3 mb-2 disabled-icon" alt="Caisses" />
+          <img src="@/assets/images/treasury.png" class="module-icon mt-3 mb-2 locked-icon" alt="Caisses" />
           <div class="p-2 text-center">
             <h6 class="font-weight-bold text-black module-title">Caisses</h6>
           </div>
         </div>
       </div>
-      <div v-if="hasPermission('Voir_module_facturation')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+      <div v-if="showModule('Voir_module_facturation')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
         <div class="card card-img-holder text-black text-center module-card">
           <router-link to="/service/facturation" class="card-link">
             <img src="@/assets/images/facture.png" class="module-icon mt-3 mb-2" alt="Facturations" />
@@ -144,9 +144,9 @@
           </router-link>
         </div>
       </div>
-      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
+      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 locked-module" @click="openPricingModal">
         <div class="card card-img-holder text-black text-center module-card">
-          <img src="@/assets/images/facture.png" class="module-icon mt-3 mb-2 disabled-icon" alt="Facturations" />
+          <img src="@/assets/images/facture.png" class="module-icon mt-3 mb-2 locked-icon" alt="Facturations" />
           <div class="p-2 text-center">
             <h6 class="font-weight-bold text-black module-title">Facturations</h6>
           </div>
@@ -154,7 +154,7 @@
       </div>
     </div>
     <div class="row mb-4">
-      <div v-if="hasPermission('Voir_module_hospitalisation')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+      <div v-if="showModule('Voir_module_hospitalisation')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
         <div class="card card-img-holder text-black text-center module-card">
           <router-link to="/hospitalization/bed/list" class="card-link">
             <img src="@/assets/images/hopital.png" class="module-icon mt-3 mb-2" alt="Hospitalisations" />
@@ -164,15 +164,15 @@
           </router-link>
         </div>
       </div>
-      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
+      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 locked-module" @click="openPricingModal">
         <div class="card card-img-holder text-black text-center module-card">
-          <img src="@/assets/images/hopital.png" class="module-icon mt-3 mb-2 disabled-icon" alt="Hospitalisations" />
+          <img src="@/assets/images/hopital.png" class="module-icon mt-3 mb-2 locked-icon" alt="Hospitalisations" />
           <div class="p-2 text-center">
             <h6 class="font-weight-bold text-black module-title">Hospitalisations</h6>
           </div>
         </div>
       </div>
-      <div v-if="hasPermission('Voir_module_Recouvrement')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+      <div v-if="showModule('Voir_module_Recouvrement')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
         <div class="card card-img-holder text-black text-center module-card">
           <router-link to="/rembourse_recouvre/recouvrement_patient" class="card-link">
             <img src="@/assets/images/money-flow.png" class="module-icon mt-3 mb-2" alt="Recouvrements" />
@@ -182,16 +182,16 @@
           </router-link>
         </div>
       </div>
-      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
+      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 locked-module" @click="openPricingModal">
         <div class="card card-img-holder text-black text-center module-card">
-          <img src="@/assets/images/money-flow.png" class="module-icon mt-3 mb-2 disabled-icon" alt="Recouvrements" />
+          <img src="@/assets/images/money-flow.png" class="module-icon mt-3 mb-2 locked-icon" alt="Recouvrements" />
           <div class="p-2 text-center">
             <h6 class="font-weight-bold text-black module-title">Recouvrements et Remboursements</h6>
           </div>
         </div>
       </div>
 
-      <div v-if="hasPermission('Voir_module_stock')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+      <div v-if="showModule('Voir_module_stock')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
         <div class="card card-img-holder text-black text-center module-card">
           <router-link to="/medicaments/list" class="card-link">
             <img src="@/assets/images/package.png" class="module-icon mt-3 mb-2" alt="Stocks" />
@@ -201,15 +201,15 @@
           </router-link>
         </div>
       </div>
-      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
+      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 locked-module" @click="openPricingModal">
         <div class="card card-img-holder text-black text-center module-card">
-          <img src="@/assets/images/package.png" class="module-icon mt-3 mb-2 disabled-icon" alt="Stocks" />
+          <img src="@/assets/images/package.png" class="module-icon mt-3 mb-2 locked-icon" alt="Stocks" />
           <div class="p-2 text-center">
             <h6 class="font-weight-bold text-black module-title">Stocks / Consommables</h6>
           </div>
         </div>
       </div>
-      <div v-if="hasPermission('Voir_module_Ressources')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+      <div v-if="showModule('Voir_module_Ressources')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
         <div class="card card-img-holder text-black text-center module-card">
           <router-link to="/grh/list" class="card-link">
             <img src="@/assets/images/teamwork.png" class="module-icon mt-3 mb-2" alt="Ressources Humaines" />
@@ -219,15 +219,15 @@
           </router-link>
         </div>
       </div>
-      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
+      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 locked-module" @click="openPricingModal">
         <div class="card card-img-holder text-black text-center module-card">
-          <img src="@/assets/images/teamwork.png" class="module-icon mt-3 mb-2 disabled-icon" alt="Ressources Humaines" />
+          <img src="@/assets/images/teamwork.png" class="module-icon mt-3 mb-2 locked-icon" alt="Ressources Humaines" />
           <div class="p-2 text-center">
             <h6 class="font-weight-bold text-black module-title">Ressources Humaines</h6>
           </div>
         </div>
       </div>
-      <div v-if="hasPermission('Voir_module_assurance')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+      <div v-if="showModule('Voir_module_assurance')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
         <div class="card card-img-holder text-black text-center module-card">
           <router-link to="priseencharge/list" class="card-link">
             <img src="@/assets/images/assurancee.png" class="module-icon mt-3 mb-2" alt="Assurances" />
@@ -237,16 +237,16 @@
           </router-link>
         </div>
       </div>
-      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
+      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 locked-module" @click="openPricingModal">
         <div class="card card-img-holder text-black text-center module-card">
-          <img src="@/assets/images/assurancee.png" class="module-icon mt-3 mb-2 disabled-icon" alt="Assurances" />
+          <img src="@/assets/images/assurancee.png" class="module-icon mt-3 mb-2 locked-icon" alt="Assurances" />
           <div class="p-2 text-center">
             <h6 class="font-weight-bold text-black module-title">Assurances</h6>
           </div>
         </div>
       </div>
 
-      <div v-if="hasPermission('Voir_module_rendezvous')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+      <div v-if="showModule('Voir_module_rendezvous')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
         <div class="card card-img-holder text-black text-center module-card">
           <router-link to="/rendezvous/planning" class="card-link">
             <img src="@/assets/images/calendrier.png" class="module-icon mt-3 mb-2" alt="Rendez-vous" />
@@ -256,9 +256,9 @@
           </router-link>
         </div>
       </div>
-      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
+      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 locked-module" @click="openPricingModal">
         <div class="card card-img-holder text-black text-center module-card">
-          <img src="@/assets/images/calendrier.png" class="module-icon mt-3 mb-2 disabled-icon" alt="Rendez-vous" />
+          <img src="@/assets/images/calendrier.png" class="module-icon mt-3 mb-2 locked-icon" alt="Rendez-vous" />
           <div class="p-2 text-center">
             <h6 class="font-weight-bold text-black module-title">Rendez-vous</h6>
           </div>
@@ -266,7 +266,7 @@
       </div>
     </div>
     <div class="row mb-2">
-      <div v-if="hasPermission('Voir_module_Rapport')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+      <div v-if="showModule('Voir_module_Rapport')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
         <div class="card card-img-holder text-center bg-success module-card">
           <router-link to="/rapport_statistique/list" class="card-link">
             <img src="@/assets/images/data-report.png" class="module-icon mt-3 mb-2" alt="Rapports" />
@@ -276,16 +276,16 @@
           </router-link>
         </div>
       </div>
-      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
+      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 locked-module" @click="openPricingModal">
         <div class="card card-img-holder text-black text-center module-card">
-          <img src="@/assets/images/data-report.png" class="module-icon mt-3 mb-2 disabled-icon" alt="Rapports" />
+          <img src="@/assets/images/data-report.png" class="module-icon mt-3 mb-2 locked-icon" alt="Rapports" />
           <div class="p-2 text-center">
             <h6 class="font-weight-bold text-black module-title">Rapports et Statistiques</h6>
           </div>
         </div>
       </div>
 
-      <div v-if="hasPermission('Voir_module_Configuration')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+      <div v-if="showModule('Voir_module_Configuration')" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
         <div class="card card-img-holder text-black text-center bg-danger module-card">
           <router-link to="/configuration/store/list" class="card-link">
             <img src="@/assets/images/parametrage.png" class="module-icon mt-3 mb-2" alt="Configuration" />
@@ -295,9 +295,9 @@
           </router-link>
         </div>
       </div>
-      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 disabled-module">
+      <div v-else class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 locked-module" @click="openPricingModal">
         <div class="card card-img-holder text-black text-center module-card">
-          <img src="@/assets/images/parametrage.png" class="module-icon mt-3 mb-2 disabled-icon" alt="Configuration" />
+          <img src="@/assets/images/parametrage.png" class="module-icon mt-3 mb-2 locked-icon" alt="Configuration" />
           <div class="p-2 text-center">
             <h6 class="font-weight-bold text-black module-title">Configuration et Paramétrage</h6>
           </div>
@@ -381,6 +381,51 @@
         </div>
       </div>
     </div>
+
+    <!-- Modal Plans tarifaires (comme sur la landing) -->
+    <div class="modal fade" id="pricingPlansModal" tabindex="-1" role="dialog" aria-labelledby="pricingPlansModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header" style="background-color: #0b5d3f; color: white;">
+            <h5 class="modal-title" id="pricingPlansModalLabel">{{ $t('pricing.section.pre_title') }} – {{ $t('pricing.section.subtitle') }}</h5>
+            <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body p-4">
+            <p class="text-muted mb-4">{{ $t('pricing.section.subtitle') }}</p>
+            <div class="row">
+              <div v-for="(plan, idx) in pricingPlans" :key="idx" class="col-12 col-md-6 col-xl-3 mb-3">
+                <div class="card h-100 border shadow-sm" :class="{ 'border-primary': plan.featured }">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ plan.name }}</h5>
+                    <p class="text-muted small mb-2">{{ plan.subtitle }}</p>
+                    <div class="mb-2">
+                      <span v-if="plan.isCustom" class="h4">{{ plan.price }}</span>
+                      <span v-else class="h4">{{ plan.priceDisplay }}</span>
+                      <span v-if="!plan.isCustom" class="text-muted small"> {{ $t('pricing.section.per_month') }}</span>
+                    </div>
+                    <p class="small text-muted">{{ plan.target }}</p>
+                    <ul class="list-unstyled small">
+                      <li v-for="(feat, fIdx) in plan.features" :key="fIdx" class="mb-1">
+                        <i class="bi bi-check-circle-fill text-success mr-1"></i>{{ feat }}
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="card-footer bg-transparent border-0">
+                    <a :href="landingPricingUrl" target="_blank" rel="noopener" class="btn btn-outline-primary btn-sm btn-block">{{ $t('pricing.section.cta_select') }}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+            <a :href="landingPricingUrl" target="_blank" rel="noopener" class="btn btn-success">Voir les offres sur le site</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 
@@ -403,12 +448,72 @@ export default {
       listCashRegisterA: [],
       listCashRegisterP: [],
       // permission: JSON.parse(localStorage.getItem("permission")),
-      user: JSON.parse(localStorage.getItem("user")),
+      user: JSON.parse(localStorage.getItem("user")) || null,
       permission: JSON.parse(localStorage.getItem("permission")) || [], // Initialisation avec un tableau vide
+      freePlanModules: ["Voir_module_patient", "Voir_module_mouvement", "Voir_module_pharmacie", "Voir_module_caisse"],
       // accessToken: JSON.parse(localStorage.getItem("access_token")) || null,
     };
   },
 
+  computed: {
+    isFreePlan() {
+      const u = this.user;
+      return !!(u && (u.plan === "free" || u.plan === "trial"));
+    },
+    landingPricingUrl() {
+      return process.env.VUE_APP_LANDING_URL || window.location.origin + "/#pricing-1" || "#pricing-1";
+    },
+    pricingPlans() {
+      return [
+        {
+          id: "free",
+          name: this.$t("pricing.plans.free.name"),
+          subtitle: this.$t("pricing.plans.free.subtitle"),
+          price: this.$t("pricing.plans.free.price"),
+          priceDisplay: this.$t("pricing.plans.free.price") + this.$t("pricing.section.currency"),
+          target: this.$t("pricing.plans.free.target"),
+          features: this.getPlanFeatures("free"),
+          featured: false,
+          isCustom: false
+        },
+        {
+          id: "essential",
+          name: this.$t("pricing.plans.essential.name"),
+          subtitle: this.$t("pricing.plans.essential.subtitle"),
+          priceFrom: this.$t("pricing.plans.essential.price_from"),
+          priceTo: this.$t("pricing.plans.essential.price_to"),
+          priceDisplay: this.$t("pricing.plans.essential.price_from") + " – " + this.$t("pricing.plans.essential.price_to") + this.$t("pricing.section.currency"),
+          target: this.$t("pricing.plans.essential.target"),
+          features: this.getPlanFeatures("essential"),
+          featured: false,
+          isCustom: false
+        },
+        {
+          id: "professional",
+          name: this.$t("pricing.plans.professional.name"),
+          subtitle: this.$t("pricing.plans.professional.subtitle"),
+          priceFrom: this.$t("pricing.plans.professional.price_from"),
+          priceTo: this.$t("pricing.plans.professional.price_to"),
+          priceDisplay: this.$t("pricing.plans.professional.price_from") + " – " + this.$t("pricing.plans.professional.price_to") + this.$t("pricing.section.currency"),
+          target: this.$t("pricing.plans.professional.target"),
+          features: this.getPlanFeatures("professional"),
+          featured: true,
+          isCustom: false
+        },
+        {
+          id: "enterprise",
+          name: this.$t("pricing.plans.enterprise.name"),
+          subtitle: this.$t("pricing.plans.enterprise.subtitle"),
+          price: this.$t("pricing.plans.enterprise.price"),
+          priceDisplay: this.$t("pricing.plans.enterprise.price"),
+          target: this.$t("pricing.plans.enterprise.target"),
+          features: this.getPlanFeatures("enterprise"),
+          featured: false,
+          isCustom: true
+        }
+      ];
+    }
+  },
   mounted() {
     // L'appel API pour charger les caisses est maintenant fait de manière lazy
     // seulement quand l'utilisateur ouvre un modal (selectCashRegisterA ou selectCashRegisterP)
@@ -416,11 +521,28 @@ export default {
   },
 
   methods: {
+    isFreePlanModule(perm) {
+      return this.freePlanModules.includes(perm);
+    },
+    showModule(perm) {
+      return this.hasPermission(perm) && (!this.isFreePlan || this.isFreePlanModule(perm));
+    },
     hasPermission(permission) {
       if (!this.permission) return false;
-      // Comparaison insensible à la casse
       const permissionLower = permission.toLowerCase();
       return this.permission.some(p => p.toLowerCase() === permissionLower);
+    },
+    getPlanFeatures(planId) {
+      const featuresObj = this.$t("pricing.plans." + planId + ".features", { returnObjects: true });
+      if (typeof featuresObj === "object" && featuresObj !== null) {
+        return Object.values(featuresObj);
+      }
+      return [];
+    },
+    openPricingModal() {
+      this.$nextTick(() => {
+        $("#pricingPlansModal").modal("show");
+      });
     },
 
     // Méthode pour charger les caisses de manière lazy
@@ -676,13 +798,21 @@ export default {
   background: rgb(165, 221, 190);
 }
 
-.disabled-module {
-  opacity: 0.5;
-  pointer-events: none;
+/* Modules grisés (hors plan gratuit ou sans permission) : cliquables pour ouvrir la modal tarifs */
+.locked-module {
+  opacity: 0.65;
+  cursor: pointer;
+  filter: grayscale(0.4);
 }
 
-.disabled-icon {
-  opacity: 0.5;
+.locked-module:hover {
+  opacity: 0.9;
+  filter: grayscale(0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.locked-icon {
+  opacity: 0.75;
 }
 
 /* Responsive styles */

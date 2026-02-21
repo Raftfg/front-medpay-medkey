@@ -1,26 +1,11 @@
 <template>
   <!--Start Page Header-->
   <header :class="['page-header', headerClass, 'header-basic', { 'is-sticky': isSticky }]" id="page-header">
-    <div class="header-search-box">
-      <div class="close-search"></div>
-      <form class="search-form" action="#" method="get">
-        <input class="search-input" type="search" name="s" :placeholder="$t('header.search_placeholder')" autofocus="autofocus"/>
-
-        <button class="search-btn" type="submit"><i class="bi bi-search icon"></i></button>
-      </form>
-    </div>
     <div class="container-fluid px-lg-5">
       <nav class="menu-navbar">
         <div class="header-logo" style="flex-shrink: 0 !important; margin-right: 30px !important;">
           <router-link class="logo-link" to="/" style="text-decoration: none !important; display: flex; align-items: center;">
-            <svg width="180" height="60" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" class="medkey-svg-logo">
-              <!-- Med -->
-              <text x="0" y="50" font-family="'ITC Avant Garde Gothic Std', sans-serif" font-weight="700" font-size="42" letter-spacing="-1.5" class="med">Med</text>
-              <!-- Key -->
-              <text x="88" y="50" font-family="'ITC Avant Garde Gothic Std', sans-serif" font-weight="700" font-size="42" letter-spacing="-1.5" class="key">Key</text>
-              <!-- Signature -->
-              <text x="90" y="68" font-family="'ITC Avant Garde Gothic Std', sans-serif" font-weight="300" font-size="12" class="signature">by Akasi Group</text>
-            </svg>
+            <img :src="medkeyLogo" class="medkey-logo-img" alt="MedKey logo">
           </router-link>
         </div>
         
@@ -32,8 +17,6 @@
             <router-link class="btn-solid" to="/onboarding">{{ $t('header.cta_register') }}</router-link>
             <router-link class="btn-outline" to="/auth-pages/login">{{ $t('header.cta_login') }}</router-link>
           </div>
-          <!--search Icon button-->
-          <div class="control header-search-btn"><i class="bi bi-search icon"></i></div>
           <!--Dark/Light mode button-->
           <div class="control mode-switcher dark-theme">
             <div class="switch-inner go-light" title="Switch To Light Mode"><i class="bi bi-sun icon"></i></div>
@@ -50,6 +33,7 @@
 
 <script>
 import FlexItNavbar from "./FlexItNavbar.vue";
+import medkeyLogo from "@/assets/medkey-logo-dark.svg";
 
 const STICKY_SCROLL_THRESHOLD = 50;
 
@@ -62,7 +46,8 @@ export default {
   },
   data() {
     return {
-      isSticky: false
+      isSticky: false,
+      medkeyLogo
     };
   },
   mounted() {
@@ -178,8 +163,25 @@ export default {
 .is-sticky.header-basic nav,
 .is-sticky.header-basic .menu-navbar { position: relative; z-index: 1; }
 
-/* Logo sur sticky */
-.is-sticky.header-basic .medkey-svg-logo .key { fill: var(--clr-white) !important; opacity: 1; }
+/* Logo */
+.medkey-logo-img {
+  width: clamp(120px, 11vw, 170px) !important;
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+}
+
+@media (max-width: 1199px) {
+  .medkey-logo-img {
+    width: 145px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .medkey-logo-img {
+    width: 125px !important;
+  }
+}
 
 /* CTA buttons sur sticky (fond bleu) */
 .is-sticky.header-basic .cta-area .btn-solid {
@@ -194,8 +196,7 @@ export default {
 }
 
 /* Icons sur sticky */
-.is-sticky.header-basic .mode-switcher .icon,
-.is-sticky.header-basic .header-search-btn .icon { color: var(--clr-white) !important; }
+.is-sticky.header-basic .mode-switcher .icon { color: var(--clr-white) !important; }
 
 @media (max-width: 1450px) {
   .menu-navbar {
@@ -206,7 +207,7 @@ export default {
 
 @media (max-width: 1250px) {
   /* Garder les icônes visibles comme demandé */
-  .header-search-btn, .mode-switcher {
+  .mode-switcher {
     display: flex !important;
   }
   .menu-navbar {
@@ -227,7 +228,7 @@ export default {
   gap: 15px !important;
 }
 
-.mode-switcher, .header-search-btn {
+.mode-switcher {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -244,7 +245,7 @@ export default {
   border-radius: 4px !important;
 }
 
-.mode-switcher .icon, .header-search-btn .icon {
+.mode-switcher .icon {
   font-size: 1.25rem !important;
   color: var(--clr-accent) !important;
 }
@@ -345,23 +346,6 @@ export default {
 .content-always-light .mode-switcher .icon, 
 .is-sticky .mode-switcher .icon {
   color: var(--clr-white) !important;
-}
-
-/* Adaptive Logo Colors (SVG) */
-.medkey-svg-logo .med { fill: var(--clr-main); }
-.medkey-svg-logo .key { fill: var(--clr-accent); }
-.medkey-svg-logo .signature { fill: var(--clr-main); }
-
-.content-always-light .medkey-svg-logo .med,
-.is-sticky .medkey-svg-logo .med,
-.content-always-light .medkey-svg-logo .signature,
-.is-sticky .medkey-svg-logo .signature { 
-  fill: var(--clr-white) !important; 
-}
-.content-always-light .medkey-svg-logo .key,
-.is-sticky .medkey-svg-logo .key {
-  fill: var(--clr-accent) !important;
-  opacity: 1;
 }
 
 @media (min-width: 1200px) {

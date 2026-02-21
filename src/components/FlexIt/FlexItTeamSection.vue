@@ -19,16 +19,6 @@
                   <div class="overlay overlay-color"></div>
                   <img class="img-fluid parallax-img" loading="lazy" :src="member.img" alt="Team Member"/>
                 </router-link>
-                <div class="tm-social">
-                  <div class="sc-wrapper dir-row sc-size-40">
-                    <ul class="sc-list">
-                      <li class="sc-item" title="Facebook"><a class="sc-link" href="#0"><i class="fab fa-facebook-f sc-icon"></i></a></li>
-                      <li class="sc-item" title="youtube"><a class="sc-link" href="#0"><i class="fab fa-youtube sc-icon"></i></a></li>
-                      <li class="sc-item" title="instagram"><a class="sc-link" href="#0"><i class="fab fa-instagram sc-icon"></i></a></li>
-                      <li class="sc-item" title="X"><a class="sc-link" href="#0"><i class="fab fa-x-twitter sc-icon"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
               </div>
               <div class="tm-details">
                 <router-link class="tm-link" :to="'/our-team/' + member.slug"> 
